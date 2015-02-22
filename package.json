@@ -13,7 +13,7 @@
     "moment": "2.8.x",
     "nodemailer": "1.3.x",
     "serve-favicon": "2.1.x",
-    "scraperjs": "0.3.X"
+    "scraperjs": "0.3.x"
   },
   "engines": {
     "node": "0.10.x",
