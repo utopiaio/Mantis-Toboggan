@@ -1,3 +1,12 @@
+@screen-md: 960px;
+
+@font-face {
+  font-family: 'Droid Sans Ethiopic';
+  src: url(../../fonts/DroidSansEthiopic/DroidSansEthiopic-Regular.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
 .util {
   .no-decor {
     text-decoration: none;
@@ -13,6 +22,15 @@
   }
 }
 
+body {
+  padding-top: 16px;
+  color: #616161;
+}
+
+.amharic {
+  font-family: 'Droid Sans Ethiopic', serif;
+}
+
 .fixed-toast {
   position: fixed;
 }
@@ -21,4 +39,63 @@
 .showtime {
   color: #ec407a;
   text-shadow: 0 0 8px #ec407a;
+}
+
+.movie-list-section {
+  padding-bottom: 64px;
+
+  & md-item-content {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    & .md-tile-left {
+      & img.movie-poster {
+        margin-right: 8px;
+        min-width: 150px;
+        max-width: 150px;
+        height: auto;
+      }
+    }
+
+    & .md-tile-content {
+      & p {
+        line-height: 120%;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+
+      & .movie {
+        &-title {
+          font-size: 16px;
+        }
+
+        &-showtime {
+          font-size: 12px;
+        }
+
+        &-rating {
+          font-size: 16px;
+        }
+
+        &-rated {
+          font-size: 14px;
+          color: #ef5350;
+        }
+
+        &-genre {
+          font-size: 12px;
+        }
+
+        &-plot {
+          @media(max-width: @screen-md) {
+            font-size: 10px;
+          }
+
+          @media(min-width: @screen-md) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
 }
