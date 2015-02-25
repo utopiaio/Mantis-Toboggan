@@ -20,6 +20,7 @@
     "angular-route": "1.3.x",
     "angular-touch": "1.3.x",
     "angular-material": "0.8.x",
-    "ionicons": "2.x.x"
+    "ionicons": "2.x.x",
+    "jquery": "2.x.x"
   }
 }
