@@ -1,0 +1,25 @@
+{
+  "name": "Showtime",
+  "version": "0.0.1",
+  "authors": [
+    "Moe Szyslak <moe.duffdude@gmail.com>"
+  ],
+  "description": "Edna Mall's Show time for humans",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3.x",
+    "angular-route": "1.3.x",
+    "angular-touch": "1.3.x",
+    "angular-material": "0.8.x",
+    "ionicons": "2.x.x"
+  }
+}
