@@ -7,7 +7,7 @@
     .controller('ShowtimeController', ShowtimeController);
 
   Config.$inject = ['$routeProvider', '$locationProvider', '$mdThemingProvider'];
-  ShowtimeController.$inject = ['$http', '$mdToast'];
+  ShowtimeController.$inject = ['$http', '$location', '$mdToast'];
 
   function Config ($routeProvider, $locationProvider, $mdThemingProvider) {
     $routeProvider
@@ -40,26 +40,33 @@
     $locationProvider.html5Mode(true);
   }
 
-  function ShowtimeController ($http, $mdToast) {
+  function ShowtimeController ($http, $location, $mdToast) {
     var vm = this;
+    vm.path = '/cinema-1';
+    vm.navigator = navigator;
 
-    var itsShowTimeToast = $mdToast.show({
-      template: '<md-toast class="fixed-toast">'+
-                   '<div flex layout="row" layout-align="start center">'+
-                    '<div flex="20"><md-progress-circular md-mode="indeterminate" md-diameter="24"></md-progress-circular></div>'+
-                    '<div flex>it\'s <span class="showtime">SHOWTIME</span>...<small><i>almost</i></small></div>'+
-                  '</div>'+
-                '</md-toast>',
-      hideDelay: false,
-      position: 'bottom left'
-    });
+    // var itsShowTimeToast = $mdToast.show({
+    //   template: '<md-toast class="fixed-toast">'+
+    //                '<div flex layout="row" layout-align="start center">'+
+    //                 '<div flex="20"><md-progress-circular md-mode="indeterminate" md-diameter="24"></md-progress-circular></div>'+
+    //                 '<div flex>it\'s <span class="showtime">SHOWTIME</span>...<small><i>almost</i></small></div>'+
+    //               '</div>'+
+    //             '</md-toast>',
+    //   hideDelay: false,
+    //   position: 'bottom left'
+    // });
 
     // it's SHOWTIME!
-    $http.get('showtime')
-      .success(function (data) {
-        $mdToast.hide(itsShowTimeToast);
-        vm.list = data;
-      });
+    // $http.get('showtime')
+    //   .success(function (data) {
+    //     $mdToast.hide(itsShowTimeToast);
+    //     vm.list = data;
+    //   });
+
+    function navigator (path) {
+      $location.path(path);
+      vm.path = path;
+    }
   }
 
 })(window.angular);
