@@ -15,8 +15,7 @@
     "moviedb": "0.1.x",
     "node-movie": "2.0.x",
     "scraperjs": "0.3.x",
-    "serve-favicon": "2.1.x",
-    "bower": "1.3.x"
+    "serve-favicon": "2.1.x"
   },
   "engines": {
     "node": "0.10.x",

@@ -30,7 +30,41 @@
   </head>
 
   <body>
-    <div ng-view></div>
+    <div class="animate-view" ng-view></div>
+
+    <div layout="row" class="navigation-bar">
+      <div ng-class="{'active': showtime.path === '/cinema-1'}"
+           flex
+           layout="row"
+           layout-align="center center"
+           ng-click="showtime.navigator('/cinema-1')">
+        <span>1</span>
+      </div>
+
+      <div ng-class="{'active': showtime.path === '/cinema-2'}"
+           flex
+           layout="row"
+           layout-align="center center"
+           ng-click="showtime.navigator('/cinema-2')">
+        <span>2</span>
+      </div>
+
+      <div ng-class="{'active': showtime.path === '/cinema-3'}"
+           flex
+           layout="row"
+           layout-align="center center"
+           ng-click="showtime.navigator('/cinema-3')">
+        <span>3</span>
+      </div>
+
+      <div ng-class="{'active': showtime.path === '/about'}"
+           flex
+           layout="row"
+           layout-align="center center"
+           ng-click="showtime.navigator('/about')">
+        <span>i</span>
+      </div>
+    </div>
 
     <script>
       less = {env: 'development', logLevel: 2};
