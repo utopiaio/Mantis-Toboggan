@@ -32,12 +32,10 @@
   <body>
     <!-- toggle -->
     <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'">
-      <div class="now-viewing">
+      <md-button class="toggle-view" aria-label="Toggle View" ng-click="showtime.showOnlyToday = !showtime.showOnlyToday;">
         <span class="animate-if showtime" ng-if="showtime.showOnlyToday === true">Today</span>
         <span class="animate-if" ng-if="showtime.showOnlyToday === false">All Week</span>
-      </div>
-
-      <md-switch ng-model="showtime.showOnlyToday" aria-label="Toggle Today" class="md-primary toggle-today-switch"></md-switch>
+      </md-button>
     </section>
     <!-- ./ toggle -->
 
