@@ -28,7 +28,7 @@
       })
 
       .otherwise({
-        redirectTo: '/cinema-1'
+        redirectTo: '/cinema-2'
       });
 
     $mdThemingProvider.theme('default')
