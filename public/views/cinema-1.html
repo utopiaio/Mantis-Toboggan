@@ -1,31 +1,30 @@
-<md-content fill-v>
+<section ng-repeat="key in showtime.cinemaKeys['One']" class="movie-list-section">
+  <md-list layout="column">
+    <md-item ng-repeat="movie in showtime.list.cinemaOne[key]"
+             ng-show="(showtime.showOnlyToday === true && showtime.today === (key | moment:'dddd')) || showtime.showOnlyToday === false">
+      <div class="md-item-content" layout="column">
+        <div class="title-container" layout="column">
+          <p class="movie-title" ng-class="{'amharic': movie.info === null}" ng-bind="movie.movie | lowerCase"></p>
+          <p ng-if="movie.info !== null" class="movie-genre" ng-bind="movie.info.Genre"></p>
+        </div>
 
-  <section ng-repeat="(day, movies) in showtime.list.cinemaOne" class="movie-list-section">
-    <md-subheader class="md-primary" ng-bind="day"></md-subheader>
-
-    <md-list layout="column">
-      <md-item ng-repeat="movie in movies">
-        <md-item-content>
-          <div class="md-tile-left" ng-if="movie.info !== null">
+        <div layout="row">
+          <div ng-if="movie.info !== null" class="poster-container">
             <img ng-src="{{ movie.info.Poster }}" class="movie-poster" alt="{{ movie.movie }}">
           </div>
 
-          <div class="md-tile-content">
-            <p class="movie-title" ng-class="{'amharic': movie.info === null}" ng-bind="movie.movie"></p>
+          <div layout="column" layout-align="center start">
+            <p class="movie-day" ng-bind="key | moment:'dddd'"></p>
             <p class="movie-showtime" ng-bind="movie.showtime"></p>
 
-            <!-- movie info -->
-            <p ng-if="movie.info !== null" class="movie-genre" ng-bind="movie.info.Genre"></p>
             <p ng-if="movie.info !== null" class="movie-rated" ng-bind="movie.info.Rated"></p>
             <p ng-if="movie.info !== null" class="movie-rating" ng-bind-template="{{ movie.info.imdbRating }} / 10"></p>
-            <p ng-if="movie.info !== null" class="movie-plot" ng-bind="movie.info.Plot"></p>
-            <!-- ./ movie info -->
+            <p class="movie-plot" ng-bind="movie.info.Plot"></p>
           </div>
-        </md-item-content>
+        </div>
+      </div>
 
-        <md-divider ng-if="!$last"></md-divider>
-      </md-item>
-    </md-list>
-  </section>
-
-</md-content>
+      <md-divider></md-divider>
+    </md-item>
+  </md-list>
+</section>
