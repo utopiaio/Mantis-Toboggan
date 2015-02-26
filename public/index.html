@@ -31,15 +31,21 @@
 
   <body>
     <!-- toggle -->
-    <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'" ng-cloak>
-      <small class="showtime">click the button below to toggle view between today and all week</small>
-      <md-button class="toggle-view md-primary"
+    <section class="toggle-container"
+             layout="column"
+             layout-align="center center"
+             ng-if="showtime.path !== '/about'" ng-cloak>
+      <small class="showtime">click the button below to toggle view</small>
+      <md-button class="toggle-button md-primary"
                  aria-label="Toggle View"
+                 md-no-ink
                  ng-click="showtime.showOnlyToday = !showtime.showOnlyToday;"
                  ng-class="{'md-raised': showtime.showOnlyToday === true}">
         <span class="animate-if showtime" ng-if="showtime.showOnlyToday === true">Today</span>
         <span class="animate-if" ng-if="showtime.showOnlyToday === false">All Week</span>
       </md-button>
+
+      <md-divider></md-divider>
     </section>
     <!-- ./ toggle -->
 
