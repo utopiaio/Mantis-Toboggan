@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" ng-app="showtime" ng-controller="ShowtimeController as showtime">
+<html lang="en" ng-app="showtime" ng-controller="ShowtimeController as showtime" manifest="app.cache">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -26,7 +26,220 @@
     <base href="/">
 
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
-    <link rel="stylesheet/less" type="text/css" href="assets/js/less/style.less">
+    <!--<link rel="stylesheet/less" type="text/css" href="assets/js/less/style.less">-->
+    <style type="text/css">
+      @-webkit-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @font-face {
+        font-family: 'Droid Sans Ethiopic';
+        src: url(assets/fonts/DroidSansEthiopic/DroidSansEthiopic-Regular.ttf) format('truetype');
+        font-style: normal;
+        font-weight: 400;
+      }
+      .util .no-decor {
+        text-decoration: none;
+        text-transform: none;
+      }
+      .util .center {
+        text-align: center;
+      }
+      .animate-view.ng-enter {
+        -moz-animation: 600ms fadeIn;
+        -webkit-animation: 600ms fadeIn;
+        animation: 600ms fadeIn;
+      }
+      .animate-view.ng-leave {
+        -moz-animation: 0s fadeIn;
+        -webkit-animation: 0s fadeIn;
+        animation: 0s fadeIn;
+      }
+      .animate-if.ng-enter {
+        -moz-animation: 600ms fadeIn;
+        -webkit-animation: 600ms fadeIn;
+        animation: 600ms fadeIn;
+      }
+      .animate-if.ng-leave {
+        -moz-animation: 0s fadeIn;
+        -webkit-animation: 0s fadeIn;
+        animation: 0s fadeIn;
+      }
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak {
+        display: none !important;
+      }
+      body {
+        padding-top: 16px;
+        color: #616161;
+      }
+      .amharic {
+        font-family: 'Droid Sans Ethiopic', serif;
+      }
+      .fixed-toast {
+        position: fixed;
+        z-index: 101;
+      }
+      .showtime {
+        color: #ec407a;
+        text-shadow: 0 0 8px #ec407a;
+      }
+      .zare {
+        font-weight: 300;
+        text-transform: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 32px;
+        border: 1px solid rgba(51, 51, 51, 0.25);
+      }
+      .toggle-container {
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+      }
+      .toggle-container .toggle-button {
+        width: 100%;
+        max-width: 350px;
+        text-transform: none;
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border: 1px solid rgba(51, 51, 51, 0.25);
+      }
+      .toggle-container .toggle-button span {
+        font-size: 24px;
+      }
+      .toggle-container .toggle-button .showtime {
+        color: #ffffff;
+        text-shadow: 0 0 4px #ffffff;
+      }
+      .movie-list-section {
+        margin: 0;
+      }
+      .movie-list-section md-list {
+        padding: 0;
+      }
+      .movie-list-section:last-child {
+        padding-bottom: 128px;
+      }
+      .movie-list-section .md-item-content {
+        padding: 16px;
+      }
+      .movie-list-section .md-item-content .poster-container {
+        width: 150px;
+        max-width: 150px;
+        min-width: 150px;
+        margin-right: 8px;
+      }
+      .movie-list-section .md-item-content .poster-container img.movie-poster {
+        width: 100%;
+        height: auto;
+      }
+      .movie-list-section .md-item-content p {
+        line-height: 120%;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+      .movie-list-section .md-item-content .movie-title {
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+      .movie-list-section .md-item-content .movie-day {
+        padding: 2px 12px;
+        border: 1px solid rgba(51, 51, 51, 0.25);
+        background-color: rgba(51, 51, 51, 0.05);
+        border-radius: 2px;
+      }
+      .movie-list-section .md-item-content .movie-showtime {
+        font-size: 14px;
+      }
+      .movie-list-section .md-item-content .movie-rating {
+        font-size: 16px;
+      }
+      .movie-list-section .md-item-content .movie-rated {
+        font-size: 14px;
+        color: #ef5350;
+      }
+      .movie-list-section .md-item-content .movie-genre {
+        font-size: 12px;
+      }
+      @media (max-width: 960px) {
+        .movie-list-section .md-item-content .movie-plot {
+          font-size: 12px;
+        }
+      }
+      @media (min-width: 960px) {
+        .movie-list-section .md-item-content .movie-plot {
+          font-size: 14px;
+        }
+      }
+      .navigation-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: 52px;
+        max-height: 52px;
+        height: 48px;
+        box-shadow: 0 0 8px #757575;
+        background-color: #ffffff;
+        z-index: 100;
+      }
+      .navigation-bar > div {
+        cursor: pointer;
+        color: #757575;
+        font-size: 18px;
+        -moz-transition: 250ms linear all;
+        -webkit-transition: 250ms linear all;
+        -o-transition: 250ms linear all;
+        -ms-transition: 250ms linear all;
+        transition: 250ms linear all;
+      }
+      .navigation-bar > div.active {
+        background-color: #e0e0e0;
+        color: #ec407a;
+        text-shadow: 0 0 4px #ec407a;
+      }
+      .about-container {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 80px;
+      }
+      .about-container p {
+        line-height: 150%;
+      }
+      .about-container .title {
+        font-size: 24px;
+      }
+      .about-container a {
+        text-decoration: none;
+      }
+      .about-container img {
+        border: 1px solid rgba(51, 51, 51, 0.25);
+        max-width: 320px;
+        width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -86,10 +299,12 @@
 
     <div class="animate-view" ng-view></div>
 
+    <!--
     <script>
       less = {env: 'development', logLevel: 2};
     </script>
     <script src="assets/js/less/less.min.js"></script>
+    -->
     <script src="bower_components/moment/min/moment.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
