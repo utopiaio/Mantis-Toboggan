@@ -32,7 +32,11 @@
   <body>
     <!-- toggle -->
     <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'" ng-cloak>
-      <md-button class="toggle-view" aria-label="Toggle View" ng-click="showtime.showOnlyToday = !showtime.showOnlyToday;">
+      <small class="showtime">click the button below to toggle view between today and all week</small>
+      <md-button class="toggle-view md-primary"
+                 aria-label="Toggle View"
+                 ng-click="showtime.showOnlyToday = !showtime.showOnlyToday;"
+                 ng-class="{'md-raised': showtime.showOnlyToday === true}">
         <span class="animate-if showtime" ng-if="showtime.showOnlyToday === true">Today</span>
         <span class="animate-if" ng-if="showtime.showOnlyToday === false">All Week</span>
       </md-button>
