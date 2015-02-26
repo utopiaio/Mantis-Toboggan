@@ -31,7 +31,7 @@
 
   <body>
     <!-- toggle -->
-    <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'">
+    <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'" ng-cloak>
       <md-button class="toggle-view" aria-label="Toggle View" ng-click="showtime.showOnlyToday = !showtime.showOnlyToday;">
         <span class="animate-if showtime" ng-if="showtime.showOnlyToday === true">Today</span>
         <span class="animate-if" ng-if="showtime.showOnlyToday === false">All Week</span>
@@ -39,7 +39,7 @@
     </section>
     <!-- ./ toggle -->
 
-    <div layout="row" class="navigation-bar">
+    <div layout="row" class="navigation-bar" ng-cloak>
       <div ng-class="{'active': showtime.path === '/cinema-1'}"
            flex
            layout="row"
