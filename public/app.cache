@@ -1,7 +1,14 @@
 CACHE MANIFEST
-# Rev 0.0.0
+# Rev 0.0.1
 
 CACHE:
+index.html
+bower_components/angular-material/angular-material.min.css
+assets/fonts/DroidSansEthiopic/DroidSansEthiopic-Regular.ttf
+views/about.html
+views/cinema-1.html
+views/cinema-2.html
+views/cinema-3.html
 
 NETWORK:
 *
