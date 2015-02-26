@@ -1,7 +1,7 @@
 (function (angular) {
   'use strict';
 
-  angular.module('moeCapitalize', [])
+  angular.module('moeCase', [])
     .filter('lowerCase', function () {
       return function (input) {
         if (input) {

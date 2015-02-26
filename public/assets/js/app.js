@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('showtime', ['ngRoute', 'ngTouch', 'ngAria', 'ngAnimate', 'ngMaterial', 'moeCapitalize', 'moeMoment'])
+    .module('showtime', ['ngRoute', 'ngTouch', 'ngAria', 'ngAnimate', 'ngMaterial', 'moeCase', 'moeMoment'])
     .config(Config)
     .controller('ShowtimeController', ShowtimeController);
 
