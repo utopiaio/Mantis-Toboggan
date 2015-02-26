@@ -30,7 +30,16 @@
   </head>
 
   <body>
-    <div class="animate-view" ng-view></div>
+    <!-- toggle -->
+    <section layout="column" layout-align="center center" ng-if="showtime.path !== '/about'">
+      <div class="now-viewing">
+        <span class="animate-if showtime" ng-if="showtime.showOnlyToday === true">Today</span>
+        <span class="animate-if" ng-if="showtime.showOnlyToday === false">All Week</span>
+      </div>
+
+      <md-switch ng-model="showtime.showOnlyToday" aria-label="Toggle Today" class="md-primary toggle-today-switch"></md-switch>
+    </section>
+    <!-- ./ toggle -->
 
     <div layout="row" class="navigation-bar">
       <div ng-class="{'active': showtime.path === '/cinema-1'}"
@@ -66,10 +75,14 @@
       </div>
     </div>
 
+
+    <div class="animate-view" ng-view></div>
+
     <script>
       less = {env: 'development', logLevel: 2};
     </script>
     <script src="assets/js/less/less.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
@@ -77,7 +90,8 @@
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
-    <script src="assets/js/moe_angular/moe-vfill.js"></script>
+    <script src="assets/js/moe_angular/moe-capitalize.js"></script>
+    <script src="assets/js/moe_angular/moe-moment.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

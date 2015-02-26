@@ -14,14 +14,16 @@
             $(element).css({
               'height': windowHeight,
               'min-height': windowHeight,
-              'max-height': windowHeight
+              'max-height': windowHeight,
+              'border': '2px solid red'
             });
           });
 
           $(element).css({
             'height': windowHeight,
             'min-height': windowHeight,
-            'max-height': windowHeight
+            'max-height': windowHeight,
+            'border': '2px solid red'
           });
         }
       }
