@@ -219,6 +219,13 @@
         color: #ec407a;
         text-shadow: 0 0 4px #ec407a;
       }
+      .navigation-bar > div span {
+        line-height: 100%;
+      }
+      .navigation-bar > div span.small {
+        margin-bottom: 2px;
+        font-size: 10px;
+      }
       .about-container {
         padding-left: 16px;
         padding-right: 16px;
@@ -272,40 +279,45 @@
     </section>
     <!-- ./ toggle -->
 
+    <!-- navbar -->
     <div layout="row" class="navigation-bar" ng-cloak>
       <div ng-class="{'active': showtime.path === '/cinema-1'}"
            flex
-           layout="row"
+           layout="column"
            layout-align="center center"
            ng-click="showtime.navigator('/cinema-1')">
+        <span class="small">Cinema</span>
         <span>1</span>
       </div>
 
       <div ng-class="{'active': showtime.path === '/cinema-2'}"
            flex
-           layout="row"
+           layout="column"
            layout-align="center center"
            ng-click="showtime.navigator('/cinema-2')">
+        <span class="small">Cinema</span>
         <span>2</span>
       </div>
 
       <div ng-class="{'active': showtime.path === '/cinema-3'}"
            flex
-           layout="row"
+           layout="column"
            layout-align="center center"
            ng-click="showtime.navigator('/cinema-3')">
+        <span class="small">Cinema</span>
         <span>3</span>
       </div>
 
       <div ng-class="{'active': showtime.path === '/about'}"
            flex
-           layout="row"
+           layout="column"
            layout-align="center center"
            ng-click="showtime.navigator('/about')">
+        <span class="small">About</span>
         <span>i</span>
       </div>
     </div>
-
+    <!-- ./ navbar -->
 
     <div class="animate-view" ng-view></div>
 
