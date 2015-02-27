@@ -189,6 +189,13 @@ body {
   color: #ec407a;
   text-shadow: 0 0 4px #ec407a;
 }
+.navigation-bar > div span {
+  line-height: 100%;
+}
+.navigation-bar > div span.small {
+  margin-bottom: 2px;
+  font-size: 10px;
+}
 .about-container {
   padding-left: 16px;
   padding-right: 16px;
