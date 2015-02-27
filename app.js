@@ -22,8 +22,11 @@
   });
   app.use(serveFavicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
   app.use(function (request, response, next) {
-    console.log(parser.setUA(request.headers['user-agent']).getResult().browser);
-    next();
+    if (parser.setUA(request.headers['user-agent']).getResult().browser.name.search(/Opera/i) === -1) {
+      next();
+    } else {
+      response.sendFile(path.join(__dirname, '/public/opera.html'));
+    }
   });
   app.use(express.static(path.join(__dirname, '/public')));
 
