@@ -6,9 +6,11 @@
       connect = require('connect'),
       express = require('express'),
       compression = require('compression'),
-      serveFavicon = require('serve-favicon');
+      serveFavicon = require('serve-favicon'),
+      UAParser = require('ua-parser-js');
 
-  var showtime = require('./lib/showtime');
+  var showtime = require('./lib/showtime'),
+      parser = new UAParser();
 
   var app = express();
   app.set('port', process.env.PORT || 8000);
@@ -19,6 +21,10 @@
     next();
   });
   app.use(serveFavicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
+  app.use(function (request, response, next) {
+    console.log(parser.setUA(request.headers['user-agent']).getResult().browser);
+    next();
+  });
   app.use(express.static(path.join(__dirname, '/public')));
 
   app.use('/showtime', function (request, response, next) {

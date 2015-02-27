@@ -8,6 +8,7 @@
   "dependencies": {
     "async": "0.9.x",
     "body-parser": "1.10.x",
+    "bower": "latest",
     "compression": "1.2.x",
     "connect": "3.3.x",
     "express": "4.10.x",
@@ -16,7 +17,7 @@
     "node-movie": "2.0.x",
     "scraperjs": "0.3.x",
     "serve-favicon": "2.1.x",
-    "bower": "latest"
+    "ua-parser-js": "0.7.x"
   },
   "engines": {
     "node": "0.10.x",
