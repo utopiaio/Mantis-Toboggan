@@ -6,18 +6,18 @@
   "repository": "https://github.com/moeduffdude/showtime",
   "main": "app.js",
   "dependencies": {
-    "async": "0.9.x",
-    "body-parser": "1.10.x",
+    "async": "0.x.x",
+    "body-parser": "1.x.x",
     "bower": "latest",
-    "compression": "1.2.x",
-    "connect": "3.3.x",
-    "express": "4.10.x",
-    "moment": "2.9.x",
+    "compression": "1.x.x",
+    "connect": "3.x.x",
+    "express": "4.x.x",
+    "moment": "2.x.x",
     "moviedb": "0.1.x",
-    "node-movie": "2.0.x",
-    "scraperjs": "0.3.x",
-    "serve-favicon": "2.1.x",
-    "ua-parser-js": "0.7.x"
+    "node-movie": "2.x.x",
+    "scraperjs": "0.x.x",
+    "serve-favicon": "2.x.x",
+    "ua-parser-js": "0.x.x"
   },
   "engines": {
     "iojs": "1.x.x",
