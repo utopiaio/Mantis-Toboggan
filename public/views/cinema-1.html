@@ -1,7 +1,8 @@
 <section ng-repeat="key in showtime.cinemaKeys['One']" class="movie-list-section">
   <md-list layout="column">
     <md-item ng-repeat="movie in showtime.list.cinemaOne[key]"
-             ng-show="(showtime.showOnlyToday === true && showtime.today === (key | moment:'dddd')) || showtime.showOnlyToday === false">
+             ng-show="(showtime.showOnlyToday === true && showtime.today === (key | moment:'dddd')) || showtime.showOnlyToday === false"
+             ng-if="movie.movie !== ''">
       <div class="md-item-content" layout="column">
         <div class="title-container" layout="column">
           <p class="movie-title" ng-class="{'amharic': movie.info === null}" ng-bind="movie.movie | lowerCase"></p>
