@@ -20,8 +20,8 @@
     "ua-parser-js": "0.7.x"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "latest"
+    "iojs": "1.x.x",
+    "npm": "2.x.x"
   },
   "scripts": {
     "postinstall": "bower install"
