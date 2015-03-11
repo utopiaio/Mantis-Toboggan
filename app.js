@@ -41,7 +41,7 @@
     }
   });
 
-  // this makes sure angular is in-charge of routing
+  // this makes sure Angular is in-charge of routing
   app.use(function (request, response) {
     response.sendFile(path.join(__dirname, '/public/index.html'));
   });
