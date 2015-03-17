@@ -6,23 +6,25 @@
       <div class="md-item-content" layout="column">
         <div class="title-container" layout="column">
           <p class="movie-title" ng-class="{'amharic': movie.info === null}" ng-bind="movie.movie | lowerCase"></p>
-          <p ng-if="movie.info !== null" class="movie-genre" ng-bind="movie.info.Genre"></p>
         </div>
 
         <div layout="row">
           <div ng-if="movie.info !== null" class="poster-container">
-            <img ng-src="{{ movie.info.Poster }}" class="movie-poster" alt="{{ movie.movie }}">
+            <img ng-src="{{ movie.info.posters.tmdb }}" class="movie-poster" alt="{{ movie.movie }}">
           </div>
 
           <div layout="column" layout-align="center start">
             <p class="movie-day" ng-bind="key | moment:'dddd'"></p>
             <p class="movie-showtime" ng-bind="movie.showtime"></p>
 
-            <p ng-if="movie.info !== null" class="movie-rated" ng-bind="movie.info.Rated"></p>
-            <p ng-if="movie.info !== null" class="movie-rating" ng-bind-template="{{ movie.info.imdbRating }} / 10"></p>
-            <p class="movie-plot" ng-bind="movie.info.Plot"></p>
+            <p ng-if="movie.info !== null" class="movie-rated" ng-bind="movie.info.mpaa_rating"></p>
+            <p ng-if="movie.info !== null" class="movie-rotten-tomatoes">Rotten Tomatoes</span>
+            <p ng-if="movie.info !== null" class="movie-rating" ng-bind-template="Critics {{ movie.info.ratings.critics_score }}%"></p>
+            <p ng-if="movie.info !== null" class="movie-rating" ng-bind-template="Audience {{ movie.info.ratings.audience_score }}%"></p>
           </div>
         </div>
+
+        <p class="movie-plot" ng-bind="movie.info.synopsis"></p>
       </div>
 
       <md-divider></md-divider>
