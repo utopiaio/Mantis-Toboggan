@@ -22,8 +22,5 @@
   "engines": {
     "iojs": "1.x.x",
     "npm": "2.x.x"
-  },
-  "scripts": {
-    "postinstall": "bower install"
   }
 }
