@@ -16,9 +16,9 @@
   app.set('port', process.env.PORT || 8000);
   app.use(compression());
   app.use('/app\.cache$', function (request, response, next) {
-    response.status(404).end();
-    // response.setHeader('Content-Type', 'text/cache-manifest');
-    // next();
+    // response.status(404).end();
+    response.setHeader('Content-Type', 'text/cache-manifest');
+    next();
   });
   app.use(serveFavicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
   app.use(function (request, response, next) {
