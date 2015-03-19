@@ -13,7 +13,7 @@
     "connect": "3.x.x",
     "express": "4.x.x",
     "moment": "2.x.x",
-    "moviedb": "0.2.x",
+    "moviedb": "0.1.x",
     "scraperjs": "0.x.x",
     "serve-favicon": "2.x.x",
     "tomatoes": "0.0.1",
