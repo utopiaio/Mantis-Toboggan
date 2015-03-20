@@ -16,7 +16,7 @@
     "moviedb": "0.1.x",
     "scraperjs": "0.x.x",
     "serve-favicon": "2.x.x",
-    "tomatoes": "0.0.1",
+    "tomatoes": "0.x.x",
     "ua-parser-js": "0.x.x"
   },
   "engines": {
