@@ -26,8 +26,8 @@
     <base href="/">
 
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
-    <!--<link rel="stylesheet/less" type="text/css" href="assets/less/style.less">-->
-    <style type="text/css">
+    <!-- <link rel="stylesheet/less" type="text/css" href="assets/less/style.less"> -->
+    <style>
       @-webkit-keyframes fadeIn {
         0% {
           opacity: 0;
@@ -100,14 +100,6 @@
         color: #ec407a;
         text-shadow: 0 0 8px #ec407a;
       }
-      .zare {
-        font-weight: 300;
-        text-transform: none;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-bottom: 32px;
-        border: 1px solid rgba(51, 51, 51, 0.25);
-      }
       .toggle-container {
         padding-left: 16px;
         padding-right: 16px;
@@ -149,6 +141,7 @@
         max-width: 150px;
         min-width: 150px;
         margin-right: 8px;
+        margin-bottom: 8px;
       }
       .movie-list-section .md-item-content .poster-container img.movie-poster {
         width: 100%;
@@ -163,35 +156,50 @@
         font-size: 18px;
         text-transform: capitalize;
       }
+      .movie-list-section .md-item-content .movie-rated {
+        font-size: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-left: 8px;
+        border-radius: 2px;
+        background-color: #e57373;
+        color: #fff;
+      }
       .movie-list-section .md-item-content .movie-day {
-        padding: 2px 12px;
-        border: 1px solid rgba(51, 51, 51, 0.25);
-        background-color: rgba(51, 51, 51, 0.05);
+        padding: 2px 16px;
+        background-color: #f06292;
+        color: #fff;
         border-radius: 2px;
       }
       .movie-list-section .md-item-content .movie-showtime {
         font-size: 14px;
       }
-      .movie-list-section .md-item-content .movie-rotten-tomatoes {
-        font-size: 12px;
-        margin: 0;
-        margin-top: 16px;
-        margin-bottom: 4px;
-        color: #66bb6a;
-      }
-      .movie-list-section .md-item-content .movie-rating {
-        font-size: 12px;
-        margin: 2px 0;
-      }
-      .movie-list-section .md-item-content .movie-rated {
-        font-size: 14px;
-        color: #ef5350;
-      }
       .movie-list-section .md-item-content .movie-genre {
         font-size: 12px;
       }
-      .movie-list-section .md-item-content .movie-plot {
-        margin-top: 8px;
+      .movie-list-section .md-item-content .movie-genre span {
+        background-color: #81c784;
+        color: #fff;
+        padding: 2px 4px;
+        margin-right: 4px;
+        border-radius: 2px;
+      }
+      .movie-list-section .md-item-content .movie-genre span:last-child {
+        margin-right: 0;
+      }
+      .movie-list-section .md-item-content .movie-actor {
+        font-size: 12px;
+      }
+      .movie-list-section .md-item-content .movie-actor span {
+        background-color: #64b5f6;
+        color: #fff;
+        padding: 2px 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        border-radius: 2px;
+      }
+      .movie-list-section .md-item-content .movie-actor span:last-child {
+        margin-right: 0;
       }
       @media (max-width: 960px) {
         .movie-list-section .md-item-content .movie-plot {
@@ -261,6 +269,7 @@
   </head>
 
   <body>
+    <!--
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -270,6 +279,7 @@
       ga('create', 'UA-55178149-2', 'auto');
       ga('send', 'pageview');
     </script>
+    -->
 
     <!-- toggle -->
     <section class="toggle-container"
