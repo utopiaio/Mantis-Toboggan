@@ -16,7 +16,7 @@
 }
 @font-face {
   font-family: 'Droid Sans Ethiopic';
-  src: url(assets/fonts/DroidSansEthiopic/DroidSansEthiopic-Regular.ttf) format('truetype');
+  src: url(../../fonts/DroidSansEthiopic/DroidSansEthiopic-Regular.ttf) format('truetype');
   font-style: normal;
   font-weight: 400;
 }
@@ -152,6 +152,7 @@ body {
   color: #fff;
   padding: 2px 4px;
   margin-right: 4px;
+  margin-bottom: 2px;
   border-radius: 2px;
 }
 .movie-list-section .md-item-content .movie-genre span:last-child {
@@ -165,7 +166,7 @@ body {
   color: #fff;
   padding: 2px 4px;
   margin-right: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   border-radius: 2px;
 }
 .movie-list-section .md-item-content .movie-actor span:last-child {
