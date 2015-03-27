@@ -22,7 +22,7 @@
     "underscore": "1.x.x"
   },
   "engines": {
-    "iojs": "1.x.x",
+    "node": "0.12.x",
     "npm": "2.x.x"
   },
   "scripts": {
