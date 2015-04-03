@@ -15,7 +15,6 @@
     "moment": "2.x.x",
     "moviedb": "0.1.x",
     "omdb": "0.x.x",
-    "pg": "4.x.x",
     "scraperjs": "0.x.x",
     "serve-favicon": "2.x.x",
     "ua-parser-js": "0.x.x",
