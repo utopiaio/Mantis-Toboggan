@@ -21,7 +21,16 @@
     next();
   });
   app.use(serveFavicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
-  app.use(function (request, response, next) {
+
+  /**
+   * all of a sudden ShowTime has stopped working :(
+   * till we meet again...
+   */
+  app.use(function(request, response, next) {
+    response.sendFile(path.join(__dirname, '/public/oops-i-did-it-again.html'));
+  });
+
+  app.use(function(request, response, next) {
     if (parser.setUA(request.headers['user-agent']).getResult().browser.name.search(/Opera|UCBrowser/i) === -1) {
       next();
     } else {
@@ -30,7 +39,7 @@
   });
   app.use(express.static(path.join(__dirname, '/public')));
 
-  app.use('/showtime', function (request, response, next) {
+  app.use('/showtime', function(request, response, next) {
     if (request.method === 'GET') {
       showtime(function (itsShowtime) {
         response.status(200);
