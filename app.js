@@ -16,8 +16,8 @@
   app.set('port', process.env.PORT || 8000);
   app.use(compression());
   app.use('/app\.cache$', function (request, response, next) {
-    // response.status(404).end();
-    response.setHeader('Content-Type', 'text/cache-manifest');
+    response.status(404).end();
+    // response.setHeader('Content-Type', 'text/cache-manifest');
     next();
   });
   app.use(serveFavicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
@@ -30,30 +30,30 @@
     response.sendFile(path.join(__dirname, '/public/oops-i-did-it-again.html'));
   });
 
-  app.use(function(request, response, next) {
-    if (parser.setUA(request.headers['user-agent']).getResult().browser.name.search(/Opera|UCBrowser/i) === -1) {
-      next();
-    } else {
-      response.sendFile(path.join(__dirname, '/public/opera.html'));
-    }
-  });
-  app.use(express.static(path.join(__dirname, '/public')));
+  // app.use(function(request, response, next) {
+  //   if (parser.setUA(request.headers['user-agent']).getResult().browser.name.search(/Opera|UCBrowser/i) === -1) {
+  //     next();
+  //   } else {
+  //     response.sendFile(path.join(__dirname, '/public/opera.html'));
+  //   }
+  // });
+  // app.use(express.static(path.join(__dirname, '/public')));
 
-  app.use('/showtime', function(request, response, next) {
-    if (request.method === 'GET') {
-      showtime(function (itsShowtime) {
-        response.status(200);
-        response.json(itsShowtime);
-      });
-    } else {
-      response.status(405).end();
-    }
-  });
+  // app.use('/showtime', function(request, response, next) {
+  //   if (request.method === 'GET') {
+  //     showtime(function (itsShowtime) {
+  //       response.status(200);
+  //       response.json(itsShowtime);
+  //     });
+  //   } else {
+  //     response.status(405).end();
+  //   }
+  // });
 
-  // this makes sure Angular is in-charge of routing
-  app.use(function (request, response) {
-    response.sendFile(path.join(__dirname, '/public/index.html'));
-  });
+  // // this makes sure Angular is in-charge of routing
+  // app.use(function (request, response) {
+  //   response.sendFile(path.join(__dirname, '/public/index.html'));
+  // });
 
   var server = http.createServer(app);
   server.listen(app.get('port'));
