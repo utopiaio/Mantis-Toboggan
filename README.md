@@ -2,7 +2,7 @@
 
 [Edna Mall's](http://ednamall.info/show_time.html) multiplex unofficial API
 
-![Show Time](http://i.imgur.com/xaVLPcC.png)
+![Showtime](http://i.imgur.com/xaVLPcC.png)
 
 # Usage
 ```bash
