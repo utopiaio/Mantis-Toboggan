@@ -1,5 +1,5 @@
 # Showtime
 
-[Edna Mall](http://ednamall.info/show_time.html) showtime for Humans
+[Edna Mall's](http://ednamall.info/show_time.html) multiplex unofficial API
 
 ![Show Time](http://i.imgur.com/xaVLPcC.png)
