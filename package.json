@@ -1,27 +1,25 @@
 {
   "name": "Showtime",
-  "author": "Moe Szyslak <moe.duffdude@gmail.com>",
-  "description": "unofficial Edna Mall showtime API",
-  "version": "0.1.0",
+  "author": {
+    "name": "Moe Szyslak",
+    "email": "moe.duffdude@gmail.com"
+  },
+  "description": "unofficial Edna Mall showtime API & mobile site",
+  "version": "3.0.0",
   "repository": "https://github.com/moe-szyslak/showtime",
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
-    "async": "^1.3.0",
-    "compression": "^1.5.1",
-    "express": "^4.13.1",
-    "moviedb": "^0.2.0",
-    "omdb": "^0.2.4",
-    "scraperjs": "^0.3.4"
+    "cheerio": "^0.22.0",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
+    "moviedb": "^0.2.7",
+    "superagent": "^2.3.0"
   },
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.6"
-  },
+  "devDependencies": {},
   "engines": {
-    "iojs": "latest",
+    "node": "latest",
     "npm": "latest"
   }
 }
