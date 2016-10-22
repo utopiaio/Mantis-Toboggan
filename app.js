@@ -1,24 +1,22 @@
-;(function() {
-  'use strict';
+/* eslint no-console: 0 */
 
-  var express = require('express');
-  var compression = require('compression');
-  var showtime = require('./lib/showtime.6.babel.js');
+const express = require('express');
+const compression = require('compression');
 
-  var app = express();
-  app.set('port', process.env.PORT || 8000);
-  app.use(compression());
-  app.get('/', function(request, response, next) {
-    showtime().then(function(data) {
-      response.status(200);
-      response.json(data);
-    }, function(error) {
-      response.status(503);
-      response.json({error: error});
-    });
-  });
+const app = express();
+app.set('port', process.env.PORT || 8000);
+app.use(compression());
 
-  app.listen(app.get('port'), function() {
-    console.log('server running on port ['+ app.get('port') +']...');
-  });
-})();
+// API
+app.get('/api', (request, response) => {
+  response.status(200).end();
+});
+
+// fall-back handler...
+app.all('*', (request, response) => {
+  response.status(400).end();
+});
+
+app.listen(app.get('port'), () => {
+  console.log(`server running on port ${app.get('port')}...`);
+});
