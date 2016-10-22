@@ -14,7 +14,8 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "lodash": "^4.16.4",
-    "superagent": "^2.3.0"
+    "superagent": "^2.3.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {},
   "engines": {
