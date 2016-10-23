@@ -1,3 +1,39 @@
+body {
+  position: relative;
+  color: #333;
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  background-color: #2A2C2B;
+  color: #ffffff;
+}
+
+/* enabling momentum scroll on main container */
+body .app-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 64px;
+  background-color: #2A2C2B;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 1.2em;
+  text-align: center;
+  overflow: hidden;
+}
+
+body .main-container {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
