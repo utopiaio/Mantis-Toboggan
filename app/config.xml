@@ -9,6 +9,8 @@
   </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="https://*.youtube.com/*"/>
+  <allow-navigation href="http://*.imdb.com/*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
