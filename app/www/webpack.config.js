@@ -5,7 +5,7 @@ const precss = require('precss');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['./app/index.jsx'],
+  entry: ['./react-app/index.jsx'],
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders: [
       // js[x]
-      { test: /\.jsx?$/, include: path.join(__dirname, 'app'), loader: 'babel-loader' },
+      { test: /\.jsx?$/, include: path.join(__dirname, 'react-app'), loader: 'babel-loader' },
 
       // css
       { test: /\.css$/, loader: 'style-loader!css-loader' },
@@ -37,7 +37,7 @@ if (process.argv.indexOf('-p') > -1) {
   module.exports.devtool = '#source-map';
   module.exports.plugins = [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app/index.html'),
+      template: path.join(__dirname, 'react-app/index.html'),
       filename: 'index.html',
       inject: 'body',
     }),
@@ -50,7 +50,7 @@ if (process.argv.indexOf('-p') > -1) {
 } else {
   module.exports.plugins = [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app/index.html'),
+      template: path.join(__dirname, 'react-app/index.html'),
       filename: 'index.html',
       inject: 'body',
     }),
