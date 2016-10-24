@@ -10,7 +10,7 @@ app.use(compression());
 
 // API...
 app.get('/api', (request, response) => {
-  a.then((info) => {
+  a().then((info) => {
     response.status(200).json(info).end();
   });
 });
