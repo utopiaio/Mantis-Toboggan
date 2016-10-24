@@ -6,6 +6,13 @@ const compression = require('compression');
 
 const config = require('./config');
 const a = require('./lib/a');
+const moedoo = require('./lib/moedoo')({
+  DB_USER: config.DB_USER,
+  DB_PASSWORD: config.DB_PASSWORD,
+  DB_HOST: config.DB_HOST,
+  DB_PORT: config.DB_PORT,
+  DB_NAME: config.DB_NAME,
+});
 
 const app = express();
 app.set('port', process.env.PORT || config.APP_PORT);
