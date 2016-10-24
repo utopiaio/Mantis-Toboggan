@@ -1,11 +1,13 @@
+@import "./theme.less";
+
 body {
   position: relative;
   color: #333;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased !important;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  background-color: #2A2C2B;
-  color: #ffffff;
+  background-color: @appBackgroundColor;
+  color: @appTextColor;
   padding-top: 64px;
 }
 
@@ -16,9 +18,9 @@ body .app-header {
   right: 0;
   left: 0;
   height: 64px;
-  background-color: #2A2C2B;
+  background-color: @appBackgroundColor;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  color: #ffffff;
+  color: @appTextColor;
   font-size: 1em;
   text-align: center;
   overflow: hidden;
