@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 function Header({ gc, am, appLanguage }) {
   return (
-    <div className="showtime-header">
+    <div className={appLanguage === 'am' ? 'showtime-header dse' : 'showtime-header'}>
       <div className="header-date">
         { appLanguage === 'en' ? gc : am }
       </div>
@@ -17,9 +17,9 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  gc: 'gc',
-  am: 'am',
-  appLanguage: 'en',
+  gc: 'Tuesday October 26, 2017',
+  am: 'ቃሎች',
+  appLanguage: 'am',
 };
 
 module.exports = Header;
