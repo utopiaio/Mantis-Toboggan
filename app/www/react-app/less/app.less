@@ -4,6 +4,24 @@
   border: 1px solid @color;
 }
 
+@font-face {
+  font-family: "Droid Sans Ethiopic";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../static/font/DroidSansEthiopic/DroidSansEthiopic-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: "Droid Sans Ethiopic";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../static/font/DroidSansEthiopic/DroidSansEthiopic-Bold.woff) format('woff');
+}
+
+&[class*="dse"] {
+  font-family: 'Droid Sans Ethiopic' !important;
+}
+
 body {
   position: relative;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
@@ -85,6 +103,29 @@ body {
 
     .menu-icon {
       color: @textMuted2Color;
+      font-size: 1.4em;
+      margin-bottom: 4px;
+
+      &[class*="cinema-"]::before {
+        .b(@textMuted2Color);
+        font-style: normal;
+        padding: 1px 8px;
+        border-radius: 50%;
+        font-size: 1em;
+        color: @textMuted2Color;
+      }
+
+      &.cinema-three::before {
+        content: '3';
+      }
+
+      &.cinema-two::before {
+        content: '2';
+      }
+
+      &.cinema-one::before {
+        content: '1';
+      }
     }
 
     .menu-text {

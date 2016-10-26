@@ -3,5 +3,6 @@ bower_components
 app/www/index.html
 app/www/bundle.js
 app/www/bundle.js.map
+app/www/static
 app/platforms
 app/plugins
