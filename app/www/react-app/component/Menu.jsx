@@ -5,22 +5,22 @@ function Menu() {
     <div className="showtime-menu">
       <div className="menu-item">
         <i className="menu-icon cinema-three" />
-        <span className="menu-text">Cinema 3</span>
+        <span className="menu-text">Cinema</span>
       </div>
 
       <div className="menu-item">
         <i className="menu-icon cinema-two" />
-        <span className="menu-text">Cinema 2</span>
+        <span className="menu-text">Cinema</span>
       </div>
 
       <div className="menu-item">
         <i className="menu-icon cinema-one" />
-        <span className="menu-text">Cinema 1</span>
+        <span className="menu-text">Cinema</span>
       </div>
 
       <div className="menu-item">
         <i className="menu-icon icon-setting" />
-        <span className="menu-text">Setting</span>
+        <span className="menu-text">Settings</span>
       </div>
     </div>
   );
