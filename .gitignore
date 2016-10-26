@@ -1,5 +1,7 @@
 node_modules
 bower_components
-app/www/build
+app/www/index.html
+app/www/bundle.js
+app/www/bundle.js.map
 app/platforms
 app/plugins
