@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import Header from './Header.jsx';
+import Menu from './Menu.jsx';
 
 class Showtime extends Component {
   constructor(props) {
@@ -20,6 +21,10 @@ class Showtime extends Component {
     return (
       <div>
         <Header />
+        <div className="app-view">
+          <h3>App View 3.0</h3>
+        </div>
+        <Menu />
       </div>
     );
   }
