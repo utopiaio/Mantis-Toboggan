@@ -17,10 +17,14 @@ class Showtime extends Component {
     // }, false);
   }
 
+  refresh() {
+    console.log('errrlow');
+  }
+
   render() {
     return (
       <div>
-        <Header />
+        <Header refresh={this.refresh} />
         <div className="showtime-view">
           <h3>App View 3.0</h3>
         </div>

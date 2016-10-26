@@ -33,6 +33,10 @@ body {
   margin: 0;
 }
 
+.active {
+  color: @textActiveColor !important;
+}
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -69,6 +73,14 @@ body {
     right: 0;
     bottom: .5em;
   }
+
+  & > i.icon-refresh {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 12px;
+    font-size: 1.2em;
+  }
 }
 
 .showtime-view {
@@ -100,19 +112,17 @@ body {
     flex-direction: column;
     justify-content: center;
     flex: 1 1 auto;
+    color: @textMuted2Color;
 
     .menu-icon {
-      color: @textMuted2Color;
       font-size: 1.4em;
       margin-bottom: 4px;
 
       &[class*="cinema-"]::before {
-        .b(@textMuted2Color);
         font-style: normal;
-        padding: 1px 8px;
-        border-radius: 50%;
+        font-weight: 200;
+        padding: 1px 9px;
         font-size: 1em;
-        color: @textMuted2Color;
       }
 
       &.cinema-three::before {
