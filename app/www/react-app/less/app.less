@@ -2,35 +2,13 @@
 
 body {
   position: relative;
-  color: #333;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased !important;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  background-color: @appBackgroundColor;
-  color: @appTextColor;
-  padding-top: 64px;
-}
-
-/* enabling momentum scroll on main container */
-body .app-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 64px;
-  background-color: @appBackgroundColor;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  color: @appTextColor;
-  font-size: 1em;
-  text-align: center;
-  overflow: hidden;
-
-  & > div.app-header-date {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: .5em;
-  }
+  background-color: @backgroundColor;
+  color: @textMainColor;
+  padding: 0;
+  margin: 0;
 }
 
 .video-container {
@@ -49,4 +27,47 @@ body .app-header {
     width: 100%;
     height: 100%;
   }
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 64px;
+  background-color: @navbarBackgoundColor;
+  color: @textActiveColor;
+  font-size: 1em;
+  text-align: center;
+  overflow: hidden;
+
+  & > div.app-header-date {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: .5em;
+  }
+}
+
+.app-view {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  bottom: 64px;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.app-menu {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 64px;
+  background-color: @navbarBackgoundColor;
+  color: @textMuted1Color;
+  font-size: 1em;
+  text-align: center;
+  overflow: hidden;
 }
