@@ -1,5 +1,9 @@
 @import "./theme.less";
 
+.b(@color: red) {
+  border: 1px solid @color;
+}
+
 body {
   position: relative;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
@@ -29,7 +33,7 @@ body {
   }
 }
 
-.app-header {
+.showtime-header {
   position: fixed;
   top: 0;
   right: 0;
@@ -41,7 +45,7 @@ body {
   text-align: center;
   overflow: hidden;
 
-  & > div.app-header-date {
+  & > div.header-date {
     position: absolute;
     left: 0;
     right: 0;
@@ -49,7 +53,7 @@ body {
   }
 }
 
-.app-view {
+.showtime-view {
   position: fixed;
   top: 64px;
   right: 0;
@@ -59,15 +63,32 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-.app-menu {
+.showtime-menu {
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
-  height: 64px;
+  height: 50px;
   background-color: @navbarBackgoundColor;
   color: @textMuted1Color;
   font-size: 1em;
   text-align: center;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+
+  div.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    .menu-icon {
+      color: @textMuted2Color;
+    }
+
+    .menu-text {
+      font-size: .6em;
+    }
+  }
 }

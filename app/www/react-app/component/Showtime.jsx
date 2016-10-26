@@ -21,7 +21,7 @@ class Showtime extends Component {
     return (
       <div>
         <Header />
-        <div className="app-view">
+        <div className="showtime-view">
           <h3>App View 3.0</h3>
         </div>
         <Menu />

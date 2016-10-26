@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 
 function Header({ gc, am, appLanguage }) {
   return (
-    <div className="app-header">
-      <div className="app-header-date">
+    <div className="showtime-header">
+      <div className="header-date">
         { appLanguage === 'en' ? gc : am }
       </div>
     </div>
