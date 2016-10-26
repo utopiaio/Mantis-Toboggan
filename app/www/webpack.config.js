@@ -22,8 +22,7 @@ module.exports = {
       { test: /\.css$/, loader: 'style-loader!css-loader' },
 
       // fonts
-      { test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader?name=react-app/static/[name].[ext]' },
+      { test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader?name=static/[name].[ext]' },
 
       // less
       { test: /\.less$/, loader: 'style-loader!css-loader!postcss-loader!less-loader' },
