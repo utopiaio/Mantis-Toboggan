@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: ['./react-app/index.jsx'],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname),
     filename: 'bundle.js',
   },
   postcss() {
