@@ -13,21 +13,21 @@ class Movie extends Component {
     console.log('Movie CDM', this.props.params);
   }
 
-  goBack() {
-    history.goBack();
-  }
-
   render() {
     return (
       <div>
         Movie, { this.props.params.movie }
-        <button onClick={this.goBack}>&lt; back</button>
+        <button onClick={history.goBack}>&lt; back</button>
       </div>
     );
   }
 }
 
-Movie.propTypes = {};
+Movie.propTypes = {
+  params: PropTypes.shape({
+    movie: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 Movie.defaultProps = {};
 
