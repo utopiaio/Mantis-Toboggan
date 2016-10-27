@@ -25,9 +25,11 @@ class Showtime extends Component {
     return (
       <div>
         <Header refresh={this.refresh} />
+
         <div className="showtime-view">
-          <h3>App View 3.0</h3>
+          { this.props.children }
         </div>
+
         <Menu />
       </div>
     );
