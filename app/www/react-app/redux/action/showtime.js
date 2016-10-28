@@ -48,41 +48,52 @@ Promise
   });
 
 function showtime() {
-  store.dispatch({
-    type: LOADING,
-    loading: true,
-  });
+  // only dispatching and making request if no request is pending
+  if (store.getState().loading === false) {
+    store.dispatch({
+      type: LOADING,
+      loading: true,
+    });
 
-  localforage
-    .getItem(LF_SHOWTIME)
-    .then((lfShowtime) => {
-      if (lfShowtime !== null) {
-        store.dispatch({
-          type: SHOWTIME,
-          showtime: lfShowtime,
-        });
-      }
-
-      request
-        .get(API)
-        .then((apiShowtime) => {
+    localforage
+      .getItem(LF_SHOWTIME)
+      .then((lfShowtime) => {
+        if (lfShowtime !== null) {
           store.dispatch({
-            type: LOADING,
-            loading: false,
+            type: SHOWTIME,
+            showtime: lfShowtime,
           });
+        }
 
-          if (apiShowtime.err || !apiShowtime.ok) {
-            console.error(showtime.err);
-          } else {
+        request
+          .get(API)
+          .query({ t: Date.now() }) // prevent cache on request
+          .then((apiShowtime) => {
             store.dispatch({
-              type: SHOWTIME,
-              showtime: apiShowtime.body,
+              type: LOADING,
+              loading: false,
             });
 
-            localforage.setItem(LF_SHOWTIME, apiShowtime.body);
-          }
-        });
-    });
+            if (apiShowtime.err || !apiShowtime.ok) {
+              console.error(showtime.err);
+            } else {
+              store.dispatch({
+                type: SHOWTIME,
+                showtime: apiShowtime.body,
+              });
+
+              localforage.setItem(LF_SHOWTIME, apiShowtime.body);
+            }
+          })
+          .catch(() => {
+            // TODO: show error dialog here
+            store.dispatch({
+              type: LOADING,
+              loading: false,
+            });
+          });
+      });
+  }
 }
 
 /**

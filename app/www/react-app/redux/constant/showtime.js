@@ -12,6 +12,7 @@ const LF_POSTER = 'POSTER';
 
 // API
 const API = 'http://s3.io/showtime/ednamall.json';
+// const API = 'http://ednamall.herokuapp.com/api/';
 
 module.exports = {
   SHOWTIME,
