@@ -1,7 +1,18 @@
 import { SHOWTIME, POSTER, LANGUAGE, THEME, LOADING } from './../constant/showtime';
 
 function showtime(state = {
-  showtime: Object.create(null),
+  showtime: {
+    show: {
+      c3: [],
+      c2: [],
+      c1: [],
+    },
+    meta: {
+      today: '1991-9-8',
+      ec: '1991-9-8',
+      gc: '1991-9-8',
+    },
+  },
   poster: Object.create(null),
   language: 'en',
   theme: 'night',
