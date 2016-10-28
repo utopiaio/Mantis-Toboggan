@@ -14,7 +14,18 @@ class Showtime extends Component {
     super(props);
     this.state = {
       loading: false,
-      showtime: Object.create(null),
+      showtime: {
+        show: {
+          c3: [],
+          c2: [],
+          c1: [],
+        },
+        meta: {
+          today: '1991-9-8',
+          ec: '1991-9-8',
+          gc: '1991-9-8',
+        },
+      },
       theme: 'night',
       language: 'en',
     };
@@ -42,7 +53,13 @@ class Showtime extends Component {
   render() {
     return (
       <div>
-        <Header refresh={showtime} loading={this.state.loading} />
+        <Header
+          refresh={showtime}
+          loading={this.state.loading}
+          language={this.state.language}
+          ec={this.state.showtime.meta.ec}
+          gc={this.state.showtime.meta.gc}
+        />
 
         <div className="showtime-view">
           { this.props.children }

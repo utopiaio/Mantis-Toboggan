@@ -15,8 +15,8 @@ const store = createStore(
       },
       meta: {
         today: '1991-9-8',
-        ec: 'ፕሪምየር, ፕሪምየር 26',
-        gc: 'Friday, October 28',
+        ec: '1991-9-8',
+        gc: '1991-9-8',
       },
     },
     poster: Object.create(null),
