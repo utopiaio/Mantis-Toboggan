@@ -42,7 +42,7 @@ class Showtime extends Component {
   render() {
     return (
       <div>
-        <Header refresh={showtime} />
+        <Header refresh={showtime} loading={this.state.loading} />
 
         <div className="showtime-view">
           { this.props.children }

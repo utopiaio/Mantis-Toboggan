@@ -22,6 +22,14 @@
   font-family: 'Droid Sans Ethiopic' !important;
 }
 
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+  }
+}
+
 body {
   position: relative;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
@@ -73,14 +81,6 @@ body {
     left: 0;
     right: 0;
     bottom: .5em;
-  }
-
-  & > i.icon-refresh {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 12px;
-    font-size: 1.2em;
   }
 }
 
@@ -143,5 +143,45 @@ body {
     .menu-text {
       font-size: .6em;
     }
+  }
+}
+
+.spinner {
+  position: absolute;
+  right: 8px;
+  bottom: .5em;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  &:not(.active):after {
+    content: '\e05a';
+    font-family: 'icomoon' !important;
+    font-size: 24px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    color: @textActiveColor;
+  }
+
+  &.active .double-bounce1,
+  &.active .double-bounce2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: @textActiveColor;
+    opacity: 0.6;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+
+  &.active .double-bounce2 {
+    animation-delay: -1.0s;
   }
 }
