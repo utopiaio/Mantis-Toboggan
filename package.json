@@ -16,9 +16,15 @@
     "pg": "^6.1.0",
     "superagent": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^3.6.0",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0"
+  },
   "engines": {
-    "node": "latest",
+    "node": "7.x.x",
     "npm": "latest"
   }
 }
