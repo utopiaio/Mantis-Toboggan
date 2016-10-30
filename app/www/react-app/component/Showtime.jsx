@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 
 import store from '../redux/store';
-import { showtime, language, theme, poster } from '../redux/action/showtime';
+import { showtime } from '../redux/action/showtime';
 
 import Header from './Header.jsx';
 import Menu from './Menu.jsx';
@@ -34,16 +34,9 @@ class Showtime extends Component {
   componentDidMount() {
     this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState());
-      console.log(this.state);
     });
 
     showtime();
-    // language('am');
-    // theme('light');
-
-    // document.addEventListener('deviceready', () => {
-    //   console.log('device ready...');
-    // }, false);
   }
 
   componentWillUnmount() {
