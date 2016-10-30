@@ -47,6 +47,19 @@ Promise
     }
   });
 
+/**
+ * after a live API showtime dispatch
+ * this saves the posters as base64 in LF
+ *
+ * pseudo-code:
+ * 1. read urls from show
+ * 4. make xhr requests
+ * 5. store base64 (completely override previous)
+ */
+function savePosters(show) {
+  console.log(show);
+}
+
 function showtime() {
   // only dispatching and making request if no request is pending
   if (store.getState().loading === false) {
@@ -83,6 +96,7 @@ function showtime() {
               });
 
               localforage.setItem(LF_SHOWTIME, apiShowtime.body);
+              savePosters(apiShowtime.body.show);
             }
           })
           .catch(() => {
@@ -136,16 +150,6 @@ function loading(l) {
     loading: l,
   });
 }
-
-/**
- * stores posters as base64 [_background_ activity]
- *
- * pseudo-code:
- * 1. read urls from meta
- * 4. make xhr requests
- * 5. store base64 (completely override previous)
- */
-function poster() {}
 
 module.exports = {
   showtime,
