@@ -7,7 +7,9 @@ import routes from './config/routes.jsx';
 
 import 'normalize.css/normalize.css';
 import './static/font/iconmoon/style.css';
+
 import './less/video.less';
+import './less/spinner.less';
 import './less/app.less';
 
 render(routes, document.getElementById('app'));
