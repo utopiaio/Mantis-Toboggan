@@ -35,10 +35,20 @@ class Setting extends Component {
 
   render() {
     return (
-      <div>
-        <span>Setting</span>
-        <button onClick={() => this.changeLanguage()}>change language</button>
-        <button onClick={() => this.changeTheme()}>change theme</button>
+      <div className="view-setting">
+        <i className="icon-setting" />
+        <button
+          onClick={() => this.changeLanguage()}
+          className={this.state.language === 'am' ? 'btn -am-' : 'btn'}
+        >
+          { this.state.language === 'am' ? 'ቋንቋ ቀይር' : 'Change Language' }
+        </button>
+        <button
+          onClick={() => this.changeTheme()}
+          className={this.state.language === 'am' ? 'btn -am-' : 'btn'}
+        >
+          { this.state.language === 'am' ? 'ቀለም ቀይር' : 'Change Theme' }
+        </button>
       </div>
     );
   }
