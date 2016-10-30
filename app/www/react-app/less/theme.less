@@ -1,8 +1,121 @@
-@nightBackgroundColor: #1b2836;
+@nightViewBackgroundColor: #1b2836;
 @nightNavbarBackgoundColor: #243447;
 @nightItemDividerColor: #000000;
 @nightTextMainColor: #ffffff;
+@nightTextMenuColor: #8899a6;
+@nightMuted: #6b7d8c;
+
+@lightViewBackgroundColor: #ffffff;
+@lightNavbarBackgoundColor: #ffffff;
+@lightNavbarAndMenuBorderColor: #bbc6ce;
+@lightItemDividerColor: #ccd6dd;
+@lightTextMainColor: #14171a;
+@lightTextMenuColor: #8899a6;
+@lightMuted: #aab8c2;
 
 @textActiveColor: #1da1f2;
-@textMuted1Color: #8899a6; // navbar
-@textMuted2Color: #6b7d8c; // app-view
+
+.showtime-app {
+  // Light Theme ---------------------------------------------------------------
+  &.theme-light {
+    .showtime-header {
+      background-color: @lightNavbarBackgoundColor;
+      border-bottom: 1px solid @lightNavbarAndMenuBorderColor;
+    }
+
+    .showtime-view {
+      background-color: @lightViewBackgroundColor;
+      color: @lightTextMainColor;
+    }
+
+    .showtime-menu {
+      background-color: @lightNavbarBackgoundColor;
+      border-top: 1px solid @lightNavbarAndMenuBorderColor;
+
+      .menu-item {
+        color: @lightTextMenuColor;
+      }
+    }
+  }
+
+  // Night Theme ---------------------------------------------------------------
+  &.theme-night {
+    .showtime-header {
+      background-color: @nightNavbarBackgoundColor;
+      border-bottom: 1px solid transparent;
+    }
+
+    .showtime-view {
+      background-color: @nightViewBackgroundColor;
+      color: @nightTextMainColor;
+    }
+
+    .showtime-menu {
+      background-color: @nightNavbarBackgoundColor;
+      color: @nightTextMenuColor;
+      border-top: 1px solid transparent;
+
+      .menu-item {
+        color: @nightTextMenuColor;
+      }
+    }
+  }
+
+  // English -------------------------------------------------------------------
+  &.language-en {
+    .showtime-menu .menu-item .menu-text-cinema:after {
+      content: 'Cinema';
+    }
+
+    .showtime-menu .menu-item .menu-text-setting:after {
+      content: 'Setting';
+    }
+
+    .showtime-menu .menu-item .menu-icon {
+      &.cinema-three:before {
+        content: "3";
+      }
+
+      &.cinema-two:before {
+        content: "2";
+      }
+
+      &.cinema-one:before {
+        content: "1";
+      }
+    }
+  }
+
+  // Amharic -------------------------------------------------------------------
+  &.language-am {
+    .showtime-menu .menu-item .menu-text {
+      font-family: "Droid Sans Ethiopic" !important;
+    }
+
+    .showtime-menu .menu-item .menu-text-cinema:after {
+      content: 'ሲኒማ';
+    }
+
+    .showtime-menu .menu-item .menu-text-setting:after {
+      content: 'ቅንብር';
+    }
+
+    .showtime-menu .menu-item .menu-icon {
+      &[class*="cinema-"]:before {
+        font-family: "Droid Sans Ethiopic" !important;
+      }
+
+      &.cinema-three:before {
+        content: "፫";
+      }
+
+      &.cinema-two:before {
+        content: "፪";
+      }
+
+      &.cinema-one:before {
+        content: "፩";
+      }
+    }
+  }
+}

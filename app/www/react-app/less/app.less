@@ -44,8 +44,13 @@ body {
   margin: 0;
 }
 
+// theme does not affect active class
 .active {
   color: @textActiveColor !important;
+}
+
+&[class*="showtime-"] {
+  transition: all 500ms ease-in-out;
 }
 
 .showtime-header {
@@ -54,7 +59,6 @@ body {
   right: 0;
   left: 0;
   height: 64px;
-  background-color: @nightNavbarBackgoundColor;
   color: @textActiveColor;
   font-size: 1.09em;
   text-align: center;
@@ -70,9 +74,9 @@ body {
 
 .showtime-view {
   position: fixed;
-  top: 63px;
+  top: 65px;
   right: 0;
-  bottom: 50px;
+  bottom: 51px;
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -84,8 +88,6 @@ body {
   right: 0;
   left: 0;
   height: 50px;
-  background-color: @nightNavbarBackgoundColor;
-  color: @textMuted1Color;
   font-size: 1em;
   text-align: center;
   overflow: hidden;
@@ -96,31 +98,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1 1 auto;
+    flex: 1 1 25%;
     text-decoration: none;
-    color: @textMuted2Color;
 
     .menu-icon {
       font-size: 1.4em;
-      margin-bottom: 4px;
+      margin-bottom: .2em;
+      height: 1em;
 
       &[class*="cinema-"]:before {
         font-style: normal;
         font-weight: 200;
-        padding: 1px 9px;
         font-size: 1em;
-      }
-
-      &.cinema-three:before {
-        content: "3";
-      }
-
-      &.cinema-two:before {
-        content: "2";
-      }
-
-      &.cinema-one:before {
-        content: "1";
       }
     }
 
