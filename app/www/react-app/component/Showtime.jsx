@@ -45,7 +45,7 @@ class Showtime extends Component {
 
   render() {
     return (
-      <div>
+      <div className={`showtime-app theme-${this.state.theme}`}>
         <Header
           refresh={showtime}
           loading={this.state.loading}
