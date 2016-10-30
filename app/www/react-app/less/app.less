@@ -36,8 +36,8 @@ body {
   -webkit-font-smoothing: antialiased !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-  background-color: @backgroundColor;
-  color: @textMainColor;
+  background-color: transparent;
+  color: transparent;
   padding: 0;
   margin: 0;
 }
@@ -46,31 +46,13 @@ body {
   color: @textActiveColor !important;
 }
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-
-  iframe,
-  object,
-  embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
 .showtime-header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   height: 64px;
-  background-color: @navbarBackgoundColor;
+  background-color: @nightNavbarBackgoundColor;
   color: @textActiveColor;
   font-size: 1.09em;
   text-align: center;
@@ -88,7 +70,7 @@ body {
   position: fixed;
   top: 63px;
   right: 0;
-  bottom: 64px;
+  bottom: 50px;
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -100,7 +82,7 @@ body {
   right: 0;
   left: 0;
   height: 50px;
-  background-color: @navbarBackgoundColor;
+  background-color: @nightNavbarBackgoundColor;
   color: @textMuted1Color;
   font-size: 1em;
   text-align: center;
