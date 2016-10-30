@@ -4,7 +4,7 @@ import Spinner from './Spinner.jsx';
 
 function Header({ language, refresh, loading, ec, gc }) {
   return (
-    <div className={language === 'am' ? 'showtime-header -am-' : 'showtime-header'}>
+    <div className={`showtime-header ${language === 'am' ? '-am-' : ''}`}>
       <div className="showtime-header-date">
         { language === 'en' ? gc : ec }
       </div>
