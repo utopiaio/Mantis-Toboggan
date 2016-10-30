@@ -1,3 +1,4 @@
+/* global window */
 /* eslint no-console: 0 */
 
 import localforage from 'localforage';
@@ -37,6 +38,12 @@ Promise
         type: THEME,
         theme: lfTheme,
       });
+
+      window.document.addEventListener('deviceready', () => {
+        if (window.StatusBar !== undefined) {
+          window.StatusBar[lfTheme === 'light' ? 'styleDefault' : 'styleLightContent']();
+        }
+      }, false);
     }
 
     if (lfPoster !== null) {
@@ -135,6 +142,12 @@ function theme(t) {
     type: THEME,
     theme: t,
   });
+
+  window.document.addEventListener('deviceready', () => {
+    if (window.StatusBar !== undefined) {
+      window.StatusBar[t === 'light' ? 'styleDefault' : 'styleLightContent']();
+    }
+  }, false);
 
   localforage.setItem(LF_THEME, t);
 }
