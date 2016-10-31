@@ -32,7 +32,7 @@ class Cinema extends Component {
 
   render() {
     return (
-      <div className="view-rick">
+      <div className="view-showtime-list">
         {
           this.state.show[this.props.params.cinema].map((movie, index) =>
             <Link key={index} to={`/show/${this.props.params.cinema}/${index}`}>
