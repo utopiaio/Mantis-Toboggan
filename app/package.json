@@ -23,7 +23,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-dialogs",
-    "ionic-plugin-keyboard"
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios",
