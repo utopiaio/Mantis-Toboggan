@@ -64,7 +64,60 @@ Promise
  * 5. store base64 (completely override previous)
  */
 function savePosters(show) {
-  console.log(show);
+  const posters = Object.create(null); // { movieTitle: posterUrl }
+  const postersPromises = []; // [ XMLHttpRequest Promise, ]
+
+  Object.keys(show).forEach((cinema) => {
+    show[cinema].forEach((movie) => {
+      posters[movie.title] = movie.poster;
+    });
+  });
+
+   /**
+   * given a poster url return a promise with base64 encoding
+   *
+   * @param  {String} url
+   * @return {Promise}
+   */
+  const savePosterPromise = url => new Promise((resolve) => {
+    const req = new window.XMLHttpRequest();
+    req.open('GET', url);
+    req.responseType = 'blob';
+    req.onload = () => {
+      const reader = new window.FileReader();
+      reader.onloadend = () => { resolve(reader.result); };
+      reader.readAsDataURL(req.response);
+    };
+    req.send();
+  });
+
+  const postersKeys = Object.keys(posters);
+  postersKeys.forEach((title) => {
+    postersPromises.push(savePosterPromise(posters[title]));
+  });
+
+  Promise
+    .all(postersPromises)
+    .then((posterPromisesData) => {
+      posterPromisesData.forEach((posterBase64, index) => {
+        posters[postersKeys[index]] = posterBase64;
+      });
+
+      localforage
+        .setItem(LF_POSTER, posters)
+        .then((lfPosterBase64) => {
+          store.dispatch({
+            type: POSTER,
+            poster: lfPosterBase64,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    })
+    .catch((err) => {
+      console.error('unable to save posters', err);
+    });
 }
 
 function showtime() {
