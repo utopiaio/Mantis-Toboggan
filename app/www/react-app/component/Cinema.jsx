@@ -3,29 +3,47 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
+import store from '../redux/store';
+
 class Cinema extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    const state = store.getState();
+    this.state = {
+      poster: state.poster,
+      show: state.showtime.show,
+    };
   }
 
   componentDidMount() {
-    console.log('Cinema CDM', this.props.params);
+    this.unsubscribe = store.subscribe(() => {
+      const state = store.getState();
+      this.setState({
+        poster: state.poster,
+        show: state.showtime.show,
+      });
+    });
   }
 
-  componentWillReceiveProps(nexProps) {
-    if (this.props.params.cinema !== nexProps.params.cinema) {
-      console.log('Cinema CWRP', nexProps.params);
-    }
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {
     return (
-      <div>
-        Cinema {this.props.params.cinema}
-
-        <Link to={`/show/${this.props.params.cinema}/storks`}>Storks</Link>
-
+      <div className="view-rick">
+        {
+          this.state.show[this.props.params.cinema].map((movie, index) =>
+            <Link key={index} to={`/show/${this.props.params.cinema}/${index}`}>
+              <img
+                className="img-poster"
+                src={this.state.poster[movie.title] || movie.poster}
+                alt={movie.title}
+              />
+            </Link>
+          )
+        }
         {this.props.children}
       </div>
     );
