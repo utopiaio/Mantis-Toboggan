@@ -92,8 +92,15 @@ function savePosters(show) {
   });
 
   const postersKeys = Object.keys(posters);
+  const poster = store.getState().poster;
   postersKeys.forEach((title) => {
-    postersPromises.push(savePosterPromise(posters[title]));
+    if (Object.prototype.hasOwnProperty.call(poster, title) === false) {
+      // adding to XHR promise...
+      postersPromises.push(savePosterPromise(posters[title]));
+    } else {
+      // replacing movie poster url with one from LF..
+      posters[title] = poster[title];
+    }
   });
 
   Promise
