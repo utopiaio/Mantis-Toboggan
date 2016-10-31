@@ -157,13 +157,23 @@ function showtime() {
             if (apiShowtime.err || !apiShowtime.ok) {
               console.error(showtime.err);
             } else {
-              store.dispatch({
-                type: SHOWTIME,
-                showtime: apiShowtime.body,
-              });
+              const show = apiShowtime.body.show;
+              /**
+               * when the server is being updated; all cinemas are removed
+               * the server will be down for ~30 minutes or so. LF will stay intact
+               * and show cached resources; if any.
+               */
+              if (show.c3.length === 0 && show.c2.length === 0 && show.c1.length === 0) {
+                console.log('API is empty - skipping...');
+              } else {
+                store.dispatch({
+                  type: SHOWTIME,
+                  showtime: apiShowtime.body,
+                });
 
-              localforage.setItem(LF_SHOWTIME, apiShowtime.body);
-              savePosters(apiShowtime.body.show);
+                localforage.setItem(LF_SHOWTIME, apiShowtime.body);
+                savePosters(apiShowtime.body.show);
+              }
             }
           })
           .catch(() => {
