@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import store from '../redux/store';
 
@@ -10,6 +10,7 @@ class Rick extends Component {
     this.state = {
       poster: state.poster,
       show: state.showtime.show,
+      language: state.language,
     };
   }
 
@@ -18,6 +19,7 @@ class Rick extends Component {
       const state = store.getState();
       this.setState({
         poster: state.poster,
+        language: state.language,
         show: state.showtime.show,
       });
     });
@@ -30,21 +32,10 @@ class Rick extends Component {
   render() {
     return (
       <div className="view-rick">
-        { this.state.show.c1.map((movie, index) =>
-          <img
-            className="img-poster"
-            key={index}
-            src={this.state.poster[movie.title] || movie.poster}
-            alt={movie.title}
-          />)
-        }
+        <h1>hello</h1>
       </div>
     );
   }
 }
-
-Rick.propTypes = {};
-
-Rick.defaultProps = {};
 
 module.exports = Rick;
