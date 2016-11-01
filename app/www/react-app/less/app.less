@@ -127,8 +127,8 @@ body {
 
     .cinema-movie-count-container {
       display: flex;
-      flex-direction: row;
-      width: 98%;
+      flex-direction: column;
+      width: 80%;
       margin-top: 1em;
 
       & > .cinema-movie-count {
@@ -138,11 +138,18 @@ body {
         align-items: center;
         text-decoration: none;
         color: inherit;
+        margin-bottom: .75em;
+        border-radius: 2em;
+        padding: .5em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
 
         & > *:first-child {
           .light-font-weight;
           font-size: 1.25em;
-          margin-bottom: .5em;
+          margin-bottom: .1em;
         }
 
         & > *:last-child {
@@ -180,6 +187,7 @@ body {
 
     .btn {
       min-width: 12em;
+      border-radius: 2em;
     }
 
     & > *:not(:last-child) {

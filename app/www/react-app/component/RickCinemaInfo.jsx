@@ -7,7 +7,7 @@ import amClass from './../util/amClass';
 
 function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
   return (
-    <Link to={to} className="cinema-movie-count">
+    <Link to={to} className="btn cinema-movie-count">
       <div className={amClass(language)}>
         { `${i18n[language].CINEMA} ${cinemaLabel}` }
       </div>
