@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 
+import RickCinemaInfo from './RickCinemaInfo.jsx';
 import store from '../redux/store';
 import i18n from '../config/i18n';
 import geez from './../util/geez';
@@ -62,56 +62,26 @@ class Rick extends Component {
         </h1>
 
         <div className="cinema-movie-count-container">
-          <Link to="/show/c3" className="cinema-movie-count">
-            <div className={amClass(this.state.language)}>
-              { `${i18n[this.state.language].CINEMA} ${this.state.language === 'am' ? '፫' : '3'}` }
-            </div>
+          <RickCinemaInfo
+            to="/show/c3"
+            language={this.state.language}
+            cinemaLabel={this.state.language === 'am' ? '፫' : '3'}
+            movieCount={uniqueMoviesPerCinema.c3}
+          />
 
-            <div className={amClass(this.state.language)}>
-              <strong>
-                {
-                  this.state.language === 'am'
-                    ? geez(`${uniqueMoviesPerCinema.c3}`)
-                    : uniqueMoviesPerCinema.c3
-                }
-              </strong>
-              { ` ${i18n[this.state.language][uniqueMoviesPerCinema.c3 > 1 ? 'MOVIES' : 'MOVIE']}` }
-            </div>
-          </Link>
+          <RickCinemaInfo
+            to="/show/c2"
+            language={this.state.language}
+            cinemaLabel={this.state.language === 'am' ? '፪' : '2'}
+            movieCount={uniqueMoviesPerCinema.c2}
+          />
 
-          <Link to="/show/c2" className="cinema-movie-count">
-            <div className={amClass(this.state.language)}>
-              { `${i18n[this.state.language].CINEMA} ${this.state.language === 'am' ? '፪' : '2'}` }
-            </div>
-
-            <div className={amClass(this.state.language)}>
-              <strong>
-                {
-                  this.state.language === 'am'
-                    ? geez(`${uniqueMoviesPerCinema.c2}`)
-                    : uniqueMoviesPerCinema.c2
-                }
-              </strong>
-              { ` ${i18n[this.state.language][uniqueMoviesPerCinema.c2 > 1 ? 'MOVIES' : 'MOVIE']}` }
-            </div>
-          </Link>
-
-          <Link to="/show/c1" className="cinema-movie-count">
-            <div className={amClass(this.state.language)}>
-              { `${i18n[this.state.language].CINEMA} ${this.state.language === 'am' ? '፩' : '1'}` }
-            </div>
-
-            <div className={amClass(this.state.language)}>
-              <strong>
-                {
-                  this.state.language === 'am'
-                    ? geez(`${uniqueMoviesPerCinema.c1}`)
-                    : uniqueMoviesPerCinema.c1
-                }
-              </strong>
-              { ` ${i18n[this.state.language][uniqueMoviesPerCinema.c1 > 1 ? 'MOVIES' : 'MOVIE']}` }
-            </div>
-          </Link>
+          <RickCinemaInfo
+            to="/show/c1"
+            language={this.state.language}
+            cinemaLabel={this.state.language === 'am' ? '፩' : '1'}
+            movieCount={uniqueMoviesPerCinema.c1}
+          />
         </div>
       </div>
     );
