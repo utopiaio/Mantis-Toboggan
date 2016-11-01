@@ -52,6 +52,12 @@ Promise
         poster: lfPoster,
       });
     }
+
+    if (window.navigator.splashscreen !== undefined) {
+      setTimeout(() => {
+        window.navigator.splashscreen.hide();
+      }, 250);
+    }
   });
 
 /**
