@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import store from '../redux/store';
 import { language, theme } from '../redux/action/showtime';
+import amClass from './../util/amClass';
 
 class Setting extends Component {
   constructor(props) {
@@ -39,13 +40,13 @@ class Setting extends Component {
         <i className="icon-setting" />
         <button
           onClick={() => this.changeLanguage()}
-          className={this.state.language === 'am' ? 'btn -am-' : 'btn'}
+          className={`btn ${amClass(this.state.language)}`}
         >
           { this.state.language === 'am' ? 'ቋንቋ ቀይር' : 'Change Language' }
         </button>
         <button
           onClick={() => this.changeTheme()}
-          className={this.state.language === 'am' ? 'btn -am-' : 'btn'}
+          className={`btn ${amClass(this.state.language)}`}
         >
           { this.state.language === 'am' ? 'ቀለም ቀይር' : 'Change Theme' }
         </button>

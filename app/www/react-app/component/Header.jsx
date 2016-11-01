@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 
 import Spinner from './Spinner.jsx';
+import amClass from './../util/amClass';
 
 function Header({ language, refresh, loading, ec, gc }) {
   return (
-    <div className={`showtime-header ${language === 'am' ? '-am-' : ''}`}>
+    <div className={`showtime-header ${amClass(language)}`}>
       <div className="showtime-header-date">
         { language === 'en' ? gc : ec }
       </div>
