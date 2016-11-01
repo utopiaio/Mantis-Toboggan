@@ -50,6 +50,14 @@ body {
   color: @textActiveColor !important;
 }
 
+.light-font-weight {
+  font-weight: 200;
+}
+
+.normal-font-weight {
+  font-weight: 400;
+}
+
 .btn {
   min-height: 2em;
   padding: .75em;
@@ -115,6 +123,34 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+
+    .cinema-movie-count-container {
+      display: flex;
+      flex-direction: row;
+      width: 98%;
+      margin-top: 1em;
+
+      & > .cinema-movie-count {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+
+        & > *:first-child {
+          .light-font-weight;
+          font-size: 1.25em;
+          margin-bottom: .5em;
+        }
+
+        & > *:last-child {
+          .normal-font-weight;
+          font-size: 1em;
+        }
+      }
+    }
   }
 
   .view-showtime-list {
