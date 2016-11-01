@@ -10,7 +10,7 @@
   <preference name="webviewbounce" value="false" />
   <preference name="UIWebViewBounce" value="false" />
   <preference name="DisallowOverscroll" value="true" />
-  <preference name="SplashScreenDelay" value="300" />
+  <preference name="SplashScreenDelay" value="0" />
   <preference name="FadeSplashScreenDuration" value="0" />
   <preference name="BackupWebStorage" value="none" />
   <preference name="SplashScreen" value="screen" />
