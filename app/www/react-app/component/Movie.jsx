@@ -15,8 +15,8 @@ class Movie extends Component {
 
   render() {
     return (
-      <div>
-        Movie, { this.props.params.movie }
+      <div className="view-movie">
+        <span>Movie, { this.props.params.movie }</span>
         <button onClick={history.goBack}>&lt; back</button>
       </div>
     );

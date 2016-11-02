@@ -1,6 +1,6 @@
 @import './video.less';
 @import './spinner.less';
-@import "./theme.less";
+@import './theme.less';
 
 .b(@color: red) {
   border: 1px solid @color;
@@ -193,6 +193,34 @@ body {
       margin-bottom: 16px;
     }
   }
+
+  .view-movie {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: red;
+  }
+}
+
+.fadeInUp-fadeOutDown-enter {
+  opacity: 0;
+  transition: all .5s ease-in;
+}
+
+.fadeInUp-fadeOutDown-enter.fadeInUp-fadeOutDown-enter-active {
+  animation: fadeInUp .5s;
+}
+
+.fadeInUp-fadeOutDown-leave {
+  transition: all .5s ease-in;
+}
+
+.fadeInUp-fadeOutDown-leave.fadeInUp-fadeOutDown-leave-active {
+  animation: fadeOutDown .5s;
 }
 
 .showtime-menu {
