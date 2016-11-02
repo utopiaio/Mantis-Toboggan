@@ -57,7 +57,7 @@ class Rick extends Component {
     return (
       <div className="view-rick">
         <h1 className={`light-font-weight ${amClass(this.state.language)}`}>
-          { this.state.language === 'am' ? geez(`${uniqueMovies}`) : uniqueMovies }
+          { this.state.language === 'am' ? geez(uniqueMovies) : uniqueMovies }
           { ` ${i18n[this.state.language][uniqueMovies > 1 ? 'MOVIES' : 'MOVIE']}` }
         </h1>
 
