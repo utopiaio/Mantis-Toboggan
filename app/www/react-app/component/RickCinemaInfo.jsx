@@ -14,7 +14,7 @@ function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
 
       <div className={amClass(language)}>
         <strong>
-          { language === 'am' ? geez(`${movieCount}`) : movieCount }
+          { language === 'am' ? geez(movieCount) : movieCount }
         </strong>
         <span>{ ` ${i18n[language][movieCount > 1 ? 'MOVIES' : 'MOVIE']}` }</span>
       </div>

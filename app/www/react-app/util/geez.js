@@ -1,74 +1,53 @@
 /**
- * given asciiNumberString return ethio string
+ * given an number returns the geez equivalent
  *
  * TODO:
- * - write tests
- * - pass ESLint
+ * - write tests (especially for 47,000 --- can we even write 47,000 in the first place 🤔)
+ *
+ * @param  {Number | String} number
+ * @return {String}
  */
-module.exports = (asciiNumberString = '') => {
-  const ETHIOPIC_ONE = 0x1369;
-  const ETHIOPIC_TEN = 0x1372;
-  const ETHIOPIC_HUNDRED = 0x137B;
-  const ETHIOPIC_TEN_THOUSAND = 0x137C;
+module.exports = (num = 1) => {
+  let asciiNumber = `${num}`;
 
-  let n = asciiNumberString.length - 1;
-
-  if ((n % 2) === 0) {
-    asciiNumberString = `0${asciiNumberString}`;
-    n++;
+  // step 1
+  if (asciiNumber.length % 2 !== 0) {
+    asciiNumber = `0${asciiNumber}`;
   }
 
-  const asciiNumber = asciiNumberString.split('');
+  // step 2, 3
+  const asciiNumberGrouped = asciiNumber.match(/[\d]{1,2}/g);
 
-  let ethioNumberString = '';
-  let asciiOne;
-  let asciiTen;
-  let ethioOne;
-  let ethioTen;
+  // step 4
+  const asciiNumberExpanded = asciiNumberGrouped.map(group => [group[0] === '0' ? '0' : `${Number(group[0]) * 10}`, `${group[1]}`]);
 
-  for (let place = n; place >= 0; place--) {
-    asciiOne = asciiTen = ethioOne = ethioTen = '';
+  // step 5
+  const geezMap = { 0: '0', 1: '፩', 2: '፪', 3: '፫', 4: '፬', 5: '፭', 6: '፮', 7: '፯', 8: '፰', 9: '፱', 10: '፲', 20: '፳', 30: '፴', 40: '፵', 50: '፶', 60: '፷', 70: '፸', 80: '፹', 90: '፺' };
 
-    asciiTen = asciiNumber[n - place];
-    place--;
-    asciiOne = asciiNumber[n - place];
+  const ethiopic = asciiNumberExpanded.map(group => [geezMap[group[0]], geezMap[group[1]]]);
 
-    if (asciiOne !== '0') {
-      ethioOne = String.fromCodePoint(Number(asciiOne) + (ETHIOPIC_ONE - 1));
-    }
+  // step 6
+  const ethiopicPrefixed = asciiNumberExpanded.map((group, index) => {
+    const reverseIndex = asciiNumberExpanded.length - (index + 1);
 
-    if (asciiTen !== '0') {
-      ethioTen = String.fromCodePoint(Number(asciiTen) + (ETHIOPIC_TEN - 1));
-    }
+    if (reverseIndex > 0) {
+      if (reverseIndex % 2 === 1) {
+        if (group[0] === '0' && group[1] === '1') {
+          return ['፻'];
+        }
 
-    const pos = (place % 4) / 2;
+        if (group[0] === '0' && group[1] === '0') {
+          return [''];
+        }
 
-    const sep = (place !== 0) ? (pos !== 0)
-                 ? ((ethioOne !== '') || (ethioTen !== ''))
-                    ? String.fromCodePoint(ETHIOPIC_HUNDRED)
-                    : ''
-                 : String.fromCodePoint(ETHIOPIC_TEN_THOUSAND)
-              : ''
-            ;
-
-    if ((ethioOne === String.fromCodePoint(ETHIOPIC_ONE)) && (ethioTen === '') && (n > 1)) {
-      if ((sep === String.fromCodePoint(ETHIOPIC_HUNDRED)) || ((place + 1) === n)) {
-        ethioOne = '';
+        return ethiopic[index].concat('፻');
       }
+
+      return ethiopic[index].concat('፼');
     }
 
-    if (ethioTen !== '') {
-      ethioNumberString += ethioTen;
-    }
+    return ethiopic[index];
+  });
 
-    if (ethioOne !== '') {
-      ethioNumberString += ethioOne;
-    }
-
-    if (sep !== '') {
-      ethioNumberString += sep;
-    }
-  }
-
-  return ethioNumberString;
+  return ethiopicPrefixed.map(group => group.filter(item => item !== '0').join('')).join('');
 };
