@@ -1,8 +1,9 @@
 /**
  * given an number returns the geez equivalent
+ * http://www.geez.org/Numerals/
  *
  * TODO:
- * - write tests (especially for 47,000 --- can we even write 47,000 in the first place 🤔)
+ * - write tests
  *
  * @param  {Number | String} number
  * @return {String}
