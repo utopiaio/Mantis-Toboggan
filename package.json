@@ -22,7 +22,8 @@
     "eslint-config-airbnb": "latest",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0"
+    "eslint-plugin-react": "^6.3.0",
+    "tape": "^4.6.2"
   },
   "engines": {
     "node": "7.x.x",
