@@ -1,7 +1,7 @@
 /* global document, $ */
 /* eslint no-console: 0 */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
@@ -63,5 +63,9 @@ class Showtime extends Component {
     );
   }
 }
+
+Showtime.propTypes = {
+  children: PropTypes.element,
+};
 
 module.exports = Showtime;

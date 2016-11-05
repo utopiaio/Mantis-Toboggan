@@ -61,6 +61,9 @@ class Cinema extends Component {
 
 Cinema.propTypes = {
   children: PropTypes.element,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
   params: PropTypes.shape({
     cinema: PropTypes.string.isRequired,
   }).isRequired,
