@@ -53,8 +53,10 @@ class Movie extends Component {
   render() {
     return (
       <div className="view-movie">
+        <button className="close-button" onClick={history.goBack}>
+          <i className="icon-close" />
+        </button>
         <span>Movie, { this.props.params.movie }</span>
-        <button onClick={history.goBack}>&lt; back</button>
       </div>
     );
   }
