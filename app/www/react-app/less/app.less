@@ -201,8 +201,25 @@ body {
     bottom: 50px;
     left: 0;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto; // this prevents fixed items from flickering
     background-color: red;
+
+    .close-button {
+      position: fixed;
+      top: .4em;
+      right: .4em;
+      padding: 0;
+      font-size: 1.75em;
+      color: inherit;
+      background-color: transparent;
+      border: 0 solid transparent;
+      outline: none;
+
+      i:before {
+        background-color: inherit;
+        border-radius: 1em;
+      }
+    }
   }
 }
 
