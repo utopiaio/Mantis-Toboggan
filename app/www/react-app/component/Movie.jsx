@@ -13,7 +13,7 @@ class Movie extends Component {
   componentWillMount() {
     const header = window.document.querySelector('.showtime-header');
     if (header !== null) {
-      header.style.flex = '0 0 0';
+      header.classList.add('_collapsed_');
     }
 
     const showtimeView = window.document.querySelector('.showtime-view');
@@ -35,7 +35,7 @@ class Movie extends Component {
   componentWillUnmount() {
     const header = window.document.querySelector('.showtime-header');
     if (header !== null) {
-      header.style.flex = '0 0 64px';
+      header.classList.remove('_collapsed_');
     }
 
     const showtimeView = window.document.querySelector('.showtime-view');
