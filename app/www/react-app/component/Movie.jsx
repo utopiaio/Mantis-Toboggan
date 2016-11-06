@@ -4,10 +4,19 @@
 import React, { Component, PropTypes } from 'react';
 import history from '../config/history';
 
+import store from '../redux/store';
+
 class Movie extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    const state = store.getState();
+    const { cinema, movie } = this.props.params;
+
+    this.state = {
+      poster: state.showtime.show[cinema].length === 0 ? '' : state.poster[state.showtime.show[cinema][movie].title],
+      movie: state.showtime.show[cinema].length === 0 ? Object.create(null) : state.showtime.show[cinema][movie],
+    };
   }
 
   componentWillMount() {
@@ -29,7 +38,15 @@ class Movie extends Component {
   }
 
   componentDidMount() {
-    console.log('Movie CDM', this.props.params);
+    this.unsubscribe = store.subscribe(() => {
+      const state = store.getState();
+      const { cinema, movie } = this.props.params;
+
+      this.setState({
+        poster: state.showtime.show[cinema].length === 0 ? '' : state.poster[state.showtime.show[cinema][movie].title],
+        movie: state.showtime.show[cinema].length === 0 ? Object.create(null) : state.showtime.show[cinema][movie],
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -48,6 +65,8 @@ class Movie extends Component {
         window.StatusBar.show();
       }
     }, 250);
+
+    this.unsubscribe();
   }
 
   render() {
@@ -56,7 +75,6 @@ class Movie extends Component {
         <button className="close-button" onClick={history.goBack}>
           <i className="icon-close" />
         </button>
-        <span>Movie, { this.props.params.movie }</span>
       </div>
     );
   }
@@ -65,9 +83,8 @@ class Movie extends Component {
 Movie.propTypes = {
   params: PropTypes.shape({
     movie: PropTypes.string.isRequired,
+    cinema: PropTypes.string.isRequired,
   }).isRequired,
 };
-
-Movie.defaultProps = {};
 
 module.exports = Movie;
