@@ -100,7 +100,7 @@ function savePosters(show) {
   const postersKeys = Object.keys(posters);
   const statePoster = store.getState().poster;
   postersKeys.forEach((title) => {
-    if (Object.prototype.hasOwnProperty.call(statePoster, title) === false) {
+    if (Object.prototype.hasOwnProperty.call(statePoster, title) === false || statePoster[title].startsWith('http')) {
       // adding to XHR promise...
       postersPromises.push(savePosterPromise(posters[title]));
     } else {
