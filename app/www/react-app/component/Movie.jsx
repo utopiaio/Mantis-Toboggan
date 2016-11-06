@@ -14,8 +14,8 @@ class Movie extends Component {
     const { cinema, movie } = this.props.params;
 
     this.state = {
-      poster: state.showtime.show[cinema].length === 0 ? '' : state.poster[state.showtime.show[cinema][movie].title],
-      movie: state.showtime.show[cinema].length === 0 ? Object.create(null) : state.showtime.show[cinema][movie],
+      poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
+      movie: state.showtime.show[cinema][movie],
     };
   }
 
@@ -43,8 +43,8 @@ class Movie extends Component {
       const { cinema, movie } = this.props.params;
 
       this.setState({
-        poster: state.showtime.show[cinema].length === 0 ? '' : state.poster[state.showtime.show[cinema][movie].title],
-        movie: state.showtime.show[cinema].length === 0 ? Object.create(null) : state.showtime.show[cinema][movie],
+        poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
+        movie: state.showtime.show[cinema][movie],
       });
     });
   }
@@ -75,6 +75,32 @@ class Movie extends Component {
         <button className="close-button" onClick={history.goBack}>
           <i className="icon-close" />
         </button>
+
+        <div className="poster-box" style={{ backgroundImage: `url(${this.state.poster})` }} />
+
+        <div>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+          <h3>hello</h3>
+        </div>
       </div>
     );
   }
