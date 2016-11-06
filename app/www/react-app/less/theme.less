@@ -41,6 +41,13 @@
 
     .view-movie {
       background-color: @lightViewBackgroundColor;
+
+      .close-button {
+        i:before {
+          box-shadow: 0 0 2px 2px @nightViewBackgroundColor;
+          background-color: @lightViewBackgroundColor;
+        }
+      }
     }
 
     .btn {
@@ -74,6 +81,13 @@
 
     .view-movie {
       background-color: @nightViewBackgroundColor;
+
+      .close-button {
+        i:before {
+          box-shadow: 0 0 2px 2px @lightViewBackgroundColor;
+          background-color: @nightViewBackgroundColor;
+        }
+      }
     }
 
     .btn {
