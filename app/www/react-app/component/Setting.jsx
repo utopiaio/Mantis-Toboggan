@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import store from '../redux/store';
+import i18n from '../config/i18n';
 import { language, theme } from '../redux/action/showtime';
 import amClass from './../util/amClass';
 
@@ -42,13 +43,13 @@ class Setting extends Component {
           onClick={() => this.changeLanguage()}
           className={`btn ${amClass(this.state.language)}`}
         >
-          { this.state.language === 'am' ? 'ቋንቋ ቀይር' : 'Change Language' }
+          { i18n[this.state.language].CHANGE_LANGUAGE }
         </button>
         <button
           onClick={() => this.changeTheme()}
           className={`btn ${amClass(this.state.language)}`}
         >
-          { this.state.language === 'am' ? 'ቀለም ቀይር' : 'Change Theme' }
+          { i18n[this.state.language].CHANGE_THEME }
         </button>
       </div>
     );
