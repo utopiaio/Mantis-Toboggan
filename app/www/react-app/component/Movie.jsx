@@ -5,6 +5,9 @@ import React, { Component, PropTypes } from 'react';
 import history from '../config/history';
 
 import store from '../redux/store';
+import i18n from '../config/i18n';
+import amClass from '../util/amClass';
+import containsFidel from '../util/containsFidel';
 
 class Movie extends Component {
   constructor(props) {
@@ -15,7 +18,8 @@ class Movie extends Component {
 
     this.state = {
       poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
-      movie: state.showtime.show[cinema][movie],
+      movie: state.showtime.show[cinema][movie] || Object.create(null),
+      language: state.language,
     };
   }
 
@@ -44,7 +48,8 @@ class Movie extends Component {
 
       this.setState({
         poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
-        movie: state.showtime.show[cinema][movie],
+        movie: state.showtime.show[cinema][movie] || Object.create(null),
+        language: state.language,
       });
     });
   }
@@ -78,28 +83,10 @@ class Movie extends Component {
 
         <div className="poster-box" style={{ backgroundImage: `url(${this.state.poster})` }} />
 
-        <div>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
-          <h3>hello</h3>
+        <div className="movie-411">
+          <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie.title) ? '_am_' : ''}`}>{ this.state.movie.title }</h2>
+          <p className="movie-showtime _am_">{this.state.movie.time}</p>
+          <h3 className={`movie-information light-font-weight ${amClass(this.state.language)}`}>{i18n[this.state.language].INFORMATION}</h3>
         </div>
       </div>
     );
