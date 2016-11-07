@@ -39,7 +39,7 @@ class Cinema extends Component {
             <Link key={index} to={`/show/${this.props.params.cinema}/${index}`}>
               <img
                 className="img-poster"
-                src={this.state.poster[movie.title] || movie.poster}
+                src={encodeURI(this.state.poster[movie.title] || movie.poster)}
                 alt={movie.title}
               />
             </Link>

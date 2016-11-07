@@ -81,7 +81,7 @@ class Movie extends Component {
           <i className="icon-close" />
         </button>
 
-        <div className="poster-box" style={{ backgroundImage: `url(${this.state.poster})` }} />
+        <div className="poster-box" style={{ backgroundImage: `url(${encodeURI(this.state.poster)})` }} />
 
         <div className="movie-411">
           <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie.title) ? '_am_' : ''}`}>{ this.state.movie.title }</h2>
