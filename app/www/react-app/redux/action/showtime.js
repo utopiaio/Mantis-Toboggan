@@ -37,6 +37,13 @@ worker.onmessage = (e) => {
         });
       break;
 
+    case 'ERROR':
+      store.dispatch({
+        type: LOADING,
+        loading: false,
+      });
+      break;
+
     default:
       console.warn(`unknown type [${e.data.type}] passed`);
       break;
