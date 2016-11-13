@@ -187,10 +187,52 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 96%;
 
-    img.img-poster {
-      flex: 1 1 auto;
+    .movie-container {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       width: 100%;
+      max-height: 125px;
+      overflow-y: hidden;
+      margin-bottom: .5em;
+      color: inherit;
+      text-decoration: none;
+
+      div.poster-container {
+        flex: 1 0 25%;
+        padding: 0;
+
+        img.img-poster {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      div.info-container {
+        flex: 0 0 75%;
+        width: 75%;
+        overflow-x: hidden;
+
+        & > * {
+          padding-left: .5em;
+          margin-bottom: .5em;
+        }
+
+        .movie-title {
+          .light-font-weight;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          font-size: 1.2em;
+        }
+
+        .movie-showtime {
+        }
+      }
     }
   }
 
