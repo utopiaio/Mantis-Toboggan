@@ -76,8 +76,11 @@ onmessage = (e) => {
             posters: data,
           });
         })
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          postMessage({
+            type: 'ERROR',
+            error,
+          });
         });
       break;
 
