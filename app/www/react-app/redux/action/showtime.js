@@ -14,6 +14,35 @@ localforage.config({
   description: 'showtime 3.0',
 });
 
+const worker = new window.Worker('./react-app/worker/worker.js');
+
+worker.onmessage = (e) => {
+  switch (e.data.type) {
+    case 'POSTER':
+      localforage
+        .setItem(LF_POSTER, e.data.posters)
+        .then((lfPosterBase64) => {
+          store.dispatch({
+            type: LOADING,
+            loading: false,
+          });
+
+          store.dispatch({
+            type: POSTER,
+            poster: lfPosterBase64,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      break;
+
+    default:
+      console.warn(`unknown type [${e.data.type}] passed`);
+      break;
+  }
+};
+
 /**
  * bootting language and theme from localforage (~200ms)
  *
@@ -60,79 +89,6 @@ Promise
     }
   });
 
-/**
- * after a live API showtime dispatch
- * this saves the posters as base64 in LF
- *
- * pseudo-code:
- * 1. read urls from show
- * 4. make xhr requests
- * 5. store base64 (completely override previous)
- */
-function savePosters(show) {
-  const posters = Object.create(null); // { movieTitle: posterUrl }
-  const postersPromises = []; // [ XMLHttpRequest Promise, ]
-
-  Object.keys(show).forEach((cinema) => {
-    show[cinema].forEach((movie) => {
-      posters[movie.title] = movie.poster;
-    });
-  });
-
-   /**
-   * given a poster url return a promise with base64 encoding
-   *
-   * @param  {String} url
-   * @return {Promise}
-   */
-  const savePosterPromise = url => new Promise((resolve) => {
-    const req = new window.XMLHttpRequest();
-    req.open('GET', url);
-    req.responseType = 'blob';
-    req.onload = () => {
-      const reader = new window.FileReader();
-      reader.onloadend = () => { resolve(reader.result); };
-      reader.readAsDataURL(req.response);
-    };
-    req.send();
-  });
-
-  const postersKeys = Object.keys(posters);
-  const statePoster = store.getState().poster;
-  postersKeys.forEach((title) => {
-    if (Object.prototype.hasOwnProperty.call(statePoster, title) === false || statePoster[title].startsWith('http')) {
-      // adding to XHR promise...
-      postersPromises.push(savePosterPromise(posters[title]));
-    } else {
-      // replacing movie poster url with one from LF..
-      posters[title] = statePoster[title];
-    }
-  });
-
-  Promise
-    .all(postersPromises)
-    .then((posterPromisesData) => {
-      posterPromisesData.forEach((posterBase64, index) => {
-        posters[postersKeys[index]] = posterBase64;
-      });
-
-      localforage
-        .setItem(LF_POSTER, posters)
-        .then((lfPosterBase64) => {
-          store.dispatch({
-            type: POSTER,
-            poster: lfPosterBase64,
-          });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    })
-    .catch((err) => {
-      console.error('unable to save posters', err);
-    });
-}
-
 function showtime() {
   // only dispatching and making request if no request is pending
   if (store.getState().loading === false) {
@@ -178,7 +134,19 @@ function showtime() {
                 });
 
                 localforage.setItem(LF_SHOWTIME, apiShowtime.body);
-                savePosters(apiShowtime.body.show);
+
+                // turning loading sate to ON as it might take a while to load all the images
+                // some are 2MB+
+                store.dispatch({
+                  type: LOADING,
+                  loading: true,
+                });
+
+                worker.postMessage({
+                  type: 'POSTER',
+                  show: apiShowtime.body.show,
+                  lfPoster: store.getState().poster,
+                });
               }
             }
           })
