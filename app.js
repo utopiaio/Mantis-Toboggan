@@ -3,6 +3,7 @@
 const http = require('http');
 const express = require('express');
 const compression = require('compression');
+const moment = require('moment');
 
 const config = require('./config');
 const moedoo = require('./lib/moedoo')(process.env.DATABASE_URL || {
@@ -19,20 +20,28 @@ moedoo.query(`
   CREATE TABLE IF NOT EXISTS detail(
     detail character varying(1024) NOT NULL,
     video character varying(1024),
+    created_at Date DEFAULT now(),
     CONSTRAINT detail_pk PRIMARY KEY (detail)
   );
 
   CREATE TABLE IF NOT EXISTS omdb(
     title character varying(128) NOT NULL,
     detail jsonb,
+    created_at Date DEFAULT now(),
     CONSTRAINT movie_pk PRIMARY KEY (title)
   );
 
   CREATE TABLE IF NOT EXISTS poster(
     url character varying(1024) NOT NULL,
     poster text,
+    created_at Date DEFAULT now(),
     CONSTRAINT poster_pk PRIMARY KEY (url)
-  );`).then(() => {
+  );
+
+  -- the following three can be one
+  DELETE FROM detail WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';
+  DELETE FROM omdb WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';
+  DELETE FROM poster WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';`).then(() => {
     const app = express();
     app.set('port', process.env.PORT || config.APP_PORT);
     app.use(compression());
