@@ -44,6 +44,11 @@ moedoo.query(`
   DELETE FROM poster WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';`).then(() => {
     const app = express();
     app.set('port', process.env.PORT || config.APP_PORT);
+    app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      next();
+    });
     app.use(compression());
 
     // API...
