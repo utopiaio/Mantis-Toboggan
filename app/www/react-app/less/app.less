@@ -232,6 +232,7 @@ body {
         }
 
         .movie-showtime {
+          font-size: .9em;
         }
       }
     }
@@ -306,15 +307,53 @@ body {
         font-size: 1em;
       }
 
+      .video-label {
+        font-size: 1.25em;
+        padding-bottom: .25em;
+      }
+
       .movie-title {
-        font-size: 1.5em;
+        font-size: 1.75em;
       }
 
       .movie-showtime {
+        font-size: .9em;
+        padding-bottom: 1em;
       }
 
       .movie-information {
-        margin-top: 1.5em;
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+
+        caption {
+          .normal-font-weight;
+          text-align: left;
+          padding-bottom: .5em;
+          font-size: 1.25em;
+        }
+
+        tr {
+          font-size: .85em;
+          vertical-align: top;
+
+          & > td:first-child {
+            padding: 0;
+            text-align: right;
+            padding-right: 1em;
+            font-weight: bold;
+            padding-bottom: .3em;
+            width: 30%;
+          }
+
+          & > td:last-child {
+            .normal-font-weight;
+            padding: 0;
+            text-align: left;
+            padding-bottom: .3em;
+          }
+        }
       }
     }
   }
