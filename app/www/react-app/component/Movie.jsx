@@ -17,7 +17,7 @@ class Movie extends Component {
     const { cinema, movie } = this.props.params;
 
     this.state = {
-      poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
+      poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
       movie: state.showtime.show[cinema][movie] || Object.create(null),
       language: state.language,
     };
@@ -47,7 +47,7 @@ class Movie extends Component {
       const { cinema, movie } = this.props.params;
 
       this.setState({
-        poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].title : ''],
+        poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
         movie: state.showtime.show[cinema][movie] || Object.create(null),
         language: state.language,
       });
