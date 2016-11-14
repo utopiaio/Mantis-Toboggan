@@ -11,8 +11,8 @@ const LF_THEME = 'THEME';
 const LF_POSTER = 'POSTER';
 
 // API
-// const API = 'http://s3.io/showtime/ednamall.json';
 const API = 'http://ednamall.herokuapp.com/api/';
+const POSTER_API = 'http://ednamall.herokuapp.com/poster/';
 
 module.exports = {
   SHOWTIME,
@@ -27,4 +27,5 @@ module.exports = {
   LF_POSTER,
 
   API,
+  POSTER_API,
 };
