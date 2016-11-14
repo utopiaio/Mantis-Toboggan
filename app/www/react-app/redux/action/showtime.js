@@ -97,7 +97,14 @@ function showtime() {
                * and show cached resources; if any.
                */
               if (show.c3.length === 0 && show.c2.length === 0 && show.c1.length === 0) {
-                console.log('API is empty - skipping...');
+                if (window.navigator.notification) {
+                  window.navigator.notification.alert(
+                    'EdnaMall Showtime is currently empty',
+                    () => {},
+                    'No Shows :(',
+                    'Eshi'
+                  );
+                }
               } else {
                 store.dispatch({
                   type: SHOWTIME,
@@ -109,11 +116,19 @@ function showtime() {
             }
           })
           .catch(() => {
-            // TODO: show error dialog here
             store.dispatch({
               type: LOADING,
               loading: false,
             });
+
+            if (window.navigator.notification) {
+              window.navigator.notification.alert(
+                'Showtime is currently unavailable, try again latter',
+                () => {},
+                'Empty :(',
+                'Eshi'
+              );
+            }
           });
       });
   }
