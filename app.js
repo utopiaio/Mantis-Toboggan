@@ -25,6 +25,12 @@ moedoo.query(`
     title character varying(128) NOT NULL,
     detail jsonb,
     CONSTRAINT movie_pk PRIMARY KEY (title)
+  );
+
+  CREATE TABLE poster(
+    url character varying(1024) NOT NULL,
+    poster text,
+    CONSTRAINT poster_pk PRIMARY KEY (url)
   );`).then(() => {
     const app = express();
     app.set('port', process.env.PORT || config.APP_PORT);
