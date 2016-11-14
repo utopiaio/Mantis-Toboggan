@@ -87,21 +87,6 @@ class Movie extends Component {
           <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie.title) ? '_am_' : ''}`}>{ this.state.movie.title }</h2>
           <p className="movie-showtime _am_">{this.state.movie.time}</p>
           {
-            this.state.movie.video ? <div>
-              <div className={`video-label ${amClass(this.state.language)}>{i18n[this.state.language].VIDEO}`}>
-                {i18n[this.state.language].VIDEO}
-              </div>
-
-              <div className="video-container">
-                <iframe
-                  src={this.state.movie.video}
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              </div>
-            </div> : <span />
-          }
-          {
             this.state.movie.omdb ? <h3 className={`movie-information ${amClass(this.state.language)}`}>
               <table>
                 <caption>{i18n[this.state.language].INFORMATION}</caption>
@@ -138,6 +123,21 @@ class Movie extends Component {
                 </tbody>
               </table>
             </h3> : <span />
+          }
+          {
+            this.state.movie.video ? <div>
+              <div className={`video-label ${amClass(this.state.language)}>{i18n[this.state.language].VIDEO}`}>
+                {i18n[this.state.language].VIDEO}
+              </div>
+
+              <div className="video-container">
+                <iframe
+                  src={this.state.movie.video}
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
+            </div> : <span />
           }
         </div>
       </div>
