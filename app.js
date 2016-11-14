@@ -27,7 +27,7 @@ moedoo.query(`
     CONSTRAINT movie_pk PRIMARY KEY (title)
   );
 
-  CREATE TABLE poster(
+  CREATE TABLE IF NOT EXISTS poster(
     url character varying(1024) NOT NULL,
     poster text,
     CONSTRAINT poster_pk PRIMARY KEY (url)
