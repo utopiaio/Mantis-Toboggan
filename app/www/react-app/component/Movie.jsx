@@ -86,6 +86,9 @@ class Movie extends Component {
         <div className="movie-411">
           <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie.title) ? '_am_' : ''}`}>{ this.state.movie.title }</h2>
           <p className="movie-showtime _am_">{this.state.movie.time}</p>
+          <p className="movie-description">
+            { this.state.movie.omdb ? <span>{ this.state.movie.omdb.Plot }</span> : <span /> }
+          </p>
           {
             this.state.movie.omdb ? <h3 className={`movie-information ${amClass(this.state.language)}`}>
               <table>
