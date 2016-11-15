@@ -91,7 +91,7 @@ class Cinema extends Component {
         <ReactCSSTransitionGroup
           component="div"
           transitionName="fadeInUp-fadeOutDown"
-          transitionEnterTimeout={750}
+          transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
         >
           { React.cloneElement(this.props.children || <div />, { key: this.props.location.pathname || 'root' }) }
