@@ -219,7 +219,7 @@ body {
       div.info-container {
         flex: 0 0 75%;
         width: 75%;
-        overflow-x: hidden;
+        overflow: hidden;
 
         & > * {
           padding-left: .5em;
@@ -237,6 +237,26 @@ body {
 
         .movie-showtime {
           font-size: .9em;
+        }
+
+        .movie-score-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          & > * {
+            flex: 0 1 auto;
+          }
+
+          img.movie-score-img {
+            width: 2em;
+            height: auto;
+          }
+
+          .movie-score {
+            padding-left: .5em;
+            font-size: .9em;
+          }
         }
       }
     }
