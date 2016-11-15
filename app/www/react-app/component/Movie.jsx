@@ -74,6 +74,12 @@ class Movie extends Component {
     this.unsubscribe();
   }
 
+  openWebsite(url) {
+    if (url !== 'N/A' && window.cordova && window.cordova.InAppBrowser) {
+      window.cordova.InAppBrowser.open(encodeURI(url), '_system');
+    }
+  }
+
   render() {
     return (
       <div className="view-movie">
@@ -122,6 +128,16 @@ class Movie extends Component {
                   <tr>
                     <td>Run Time</td>
                     <td>{ this.state.movie.omdb.Runtime }</td>
+                  </tr>
+
+                  <tr>
+                    <td>Website</td>
+                    <td
+                      className={`${this.state.movie.omdb.Website === 'N/A' ? '' : 'movie-website'}`}
+                      onClick={() => this.openWebsite(this.state.movie.omdb.Website)}
+                    >
+                      { this.state.movie.omdb.Website }
+                    </td>
                   </tr>
                 </tbody>
               </table>
