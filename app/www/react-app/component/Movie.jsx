@@ -136,7 +136,8 @@ class Movie extends Component {
                       className={`${this.state.movie.omdb.Website === 'N/A' ? '' : 'movie-website'}`}
                       onClick={() => this.openWebsite(this.state.movie.omdb.Website)}
                     >
-                      { this.state.movie.omdb.Website }
+                      <span>{ this.state.movie.omdb.Website.substring(0, 24) }</span>
+                      { this.state.movie.omdb.Website.length > 24 ? <span>...</span> : <span /> }
                     </td>
                   </tr>
                 </tbody>

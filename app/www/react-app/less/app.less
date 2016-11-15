@@ -328,9 +328,14 @@ body {
       }
 
       .movie-information {
+        overflow: hidden;
+
         table {
           border-collapse: collapse;
           border-spacing: 0;
+          position: relative;
+          width: 100%;
+          max-width: 100%;
         }
 
         caption {
@@ -351,6 +356,7 @@ body {
             font-weight: bold;
             padding-bottom: .3em;
             width: 30%;
+            max-width: 30%;
           }
 
           & > td:last-child {
@@ -358,6 +364,8 @@ body {
             padding: 0;
             text-align: left;
             padding-bottom: .3em;
+            width: 70%;
+            max-width: 70%;
           }
 
           td.movie-website {
