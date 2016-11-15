@@ -1,3 +1,5 @@
+/* global window */
+
 import React, { Component } from 'react';
 
 import store from '../redux/store';
@@ -35,6 +37,12 @@ class Setting extends Component {
     theme(this.state.theme === 'night' ? 'light' : 'night');
   }
 
+  contact() {
+    if (window.cordova && window.cordova.InAppBrowser) {
+      window.cordova.InAppBrowser.open(encodeURI('mailto:moe.heroku@gmail.com?subject=Feedback'), '_system');
+    }
+  }
+
   render() {
     return (
       <div className="view-setting">
@@ -50,6 +58,13 @@ class Setting extends Component {
           className={`btn ${amClass(this.state.language)}`}
         >
           { i18n[this.state.language].CHANGE_THEME }
+        </button>
+        <button
+          onClick={() => this.contact()}
+          className={`btn ${amClass(this.state.language)}`}
+          style={{ marginTop: '2em', fontSize: '.8em', minWidth: '15em' }}
+        >
+          { i18n[this.state.language].CONTACT }
         </button>
       </div>
     );
