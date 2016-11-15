@@ -88,7 +88,14 @@ function showtime() {
             });
 
             if (apiShowtime.err || !apiShowtime.ok) {
-              console.error(showtime.err);
+              if (window.navigator.notification) {
+                window.navigator.notification.alert(
+                  'Showtime is currently unavailable. Try again latter.',
+                  () => {},
+                  'Empty 😝',
+                  'OK'
+                );
+              }
             } else {
               const show = apiShowtime.body.show;
               /**
@@ -99,10 +106,10 @@ function showtime() {
               if (show.c3.length === 0 && show.c2.length === 0 && show.c1.length === 0) {
                 if (window.navigator.notification) {
                   window.navigator.notification.alert(
-                    'EdnaMall Showtime is currently empty',
+                    'EdnaMall\'s Showtime is currently empty.',
                     () => {},
-                    'No Shows :(',
-                    'Eshi'
+                    'No Shows 🤔',
+                    'OK'
                   );
                 }
               } else {
@@ -123,10 +130,10 @@ function showtime() {
 
             if (window.navigator.notification) {
               window.navigator.notification.alert(
-                'Showtime is currently unavailable, try again latter',
+                'Unable to reach Showtime server. Try again latter.',
                 () => {},
-                'Empty :(',
-                'Eshi'
+                'No Connection 😔',
+                'OK'
               );
             }
           });
