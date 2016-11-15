@@ -29,14 +29,14 @@ class Movie extends Component {
       header.classList.add('_collapsed_');
     }
 
-    const showtimeView = window.document.querySelector('.showtime-view');
-    if (showtimeView) {
-      showtimeView.style.overflowY = 'hidden';
-    }
-
     setTimeout(() => {
       if (window.StatusBar !== undefined) {
         window.StatusBar.hide();
+      }
+
+      const showtimeView = window.document.querySelector('.showtime-view');
+      if (showtimeView) {
+        showtimeView.style.overflowY = 'hidden';
       }
     }, 250);
   }
@@ -60,14 +60,14 @@ class Movie extends Component {
       header.classList.remove('_collapsed_');
     }
 
-    const showtimeView = window.document.querySelector('.showtime-view');
-    if (showtimeView) {
-      showtimeView.style.overflowY = 'scroll';
-    }
-
     setTimeout(() => {
       if (window.StatusBar !== undefined) {
         window.StatusBar.show();
+      }
+
+      const showtimeView = window.document.querySelector('.showtime-view');
+      if (showtimeView) {
+        showtimeView.style.overflowY = 'scroll';
       }
     }, 250);
 
