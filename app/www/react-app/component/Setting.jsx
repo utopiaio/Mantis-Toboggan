@@ -37,9 +37,9 @@ class Setting extends Component {
     theme(this.state.theme === 'night' ? 'light' : 'night');
   }
 
-  contact() {
+  open(url) {
     if (window.cordova && window.cordova.InAppBrowser) {
-      window.cordova.InAppBrowser.open(encodeURI('mailto:moe.heroku@gmail.com?subject=Feedback'), '_system');
+      window.cordova.InAppBrowser.open(encodeURI(url), '_system');
     }
   }
 
@@ -60,11 +60,17 @@ class Setting extends Component {
           { i18n[this.state.language].CHANGE_THEME }
         </button>
         <button
-          onClick={() => this.contact()}
-          className={`btn ${amClass(this.state.language)}`}
-          style={{ marginTop: '2em', fontSize: '.8em', minWidth: '15em' }}
+          onClick={() => this.open('mailto:moe.heroku@gmail.com?subject=Feedback')}
+          className={`btn btn-sm ${amClass(this.state.language)}`}
+          style={{ marginTop: '2em' }}
         >
           { i18n[this.state.language].CONTACT }
+        </button>
+        <button
+          onClick={() => this.open('https://github.com/moe-szyslak/showtime')}
+          className={`btn btn-sm ${amClass(this.state.language)}`}
+        >
+          { i18n[this.state.language].SHOW_ME }
         </button>
       </div>
     );
