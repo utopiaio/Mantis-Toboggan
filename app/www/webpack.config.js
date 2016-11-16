@@ -28,6 +28,7 @@ module.exports = {
       { test: /\.less$/, loader: 'style-loader!css-loader!postcss-loader!less-loader' },
     ],
   },
+  postcss: [ autoprefixer({ browsers: ['iOS >= 7'] }) ],
 };
 
 // depending on the arguments passes we'll be adding specific
