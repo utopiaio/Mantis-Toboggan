@@ -1,13 +1,16 @@
 // You know something is not right when most of your i18n are under pseudo classes 😎🤔
+@blurRadius: 10px;
 
 @nightViewBackgroundColor: #1b2836;
 @nightNavbarBackgoundColor: #243447;
+@nightNavbarBackgoundColorTransparent: rgba(27, 40, 54, .6);
 @nightItemDividerColor: #000000;
 @nightTextMainColor: #ffffff;
 @nightTextMenuColor: #8899a6;
 @nightMuted: #6b7d8c;
 
 @lightViewBackgroundColor: #ffffff;
+@lightViewBackgroundColorTransparent: rgba(255, 255, 255, .6);
 @lightNavbarBackgoundColor: #ffffff;
 @lightNavbarAndMenuBorderColor: #bbc6ce;
 @lightItemDividerColor: #ccd6dd;
@@ -40,7 +43,7 @@
     }
 
     .view-movie {
-      background-color: @lightViewBackgroundColor;
+      background-color: @lightViewBackgroundColorTransparent;
 
       .close-button {
         i:before {
@@ -83,7 +86,7 @@
     }
 
     .view-movie {
-      background-color: @nightViewBackgroundColor;
+      background-color: @nightNavbarBackgoundColorTransparent;
 
       .close-button {
         i:before {
