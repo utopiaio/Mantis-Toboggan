@@ -2,7 +2,7 @@
 
 [Edna Mall's](http://ednamall.co/) multiplex unofficial API and iOS App
 
-![Showtime 3.0](http://i.imgur.com/BPqZnR4.jpg)
+![Showtime 3.0](http://i.imgur.com/8dXGA1q.jpg)
 
 ## Features
 - Works offline
