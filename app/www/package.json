@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "animate.css": "^3.5.2",
+    "animejs": "^1.1.1",
     "localforage": "^1.4.3",
     "normalize.css": "^4.2.0",
     "react": "^15.3.2",
