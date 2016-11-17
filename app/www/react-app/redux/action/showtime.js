@@ -132,7 +132,7 @@ function showtime() {
               window.navigator.notification.alert(
                 'Unable to reach Showtime server. Try again latter.',
                 () => {},
-                'No Connection 😔',
+                'No Internet 😱',
                 'OK'
               );
             }
