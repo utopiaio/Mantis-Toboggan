@@ -2,8 +2,11 @@
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
-import history from '../config/history';
+import anime from 'animejs';
 
+window.anime = anime;
+
+import history from '../config/history';
 import store from '../redux/store';
 import i18n from '../config/i18n';
 import amClass from '../util/amClass';
@@ -25,8 +28,13 @@ class Movie extends Component {
 
   componentWillMount() {
     const header = window.document.querySelector('.showtime-header');
-    if (header !== null) {
+    if (header) {
       header.classList.add('_collapsed_');
+    }
+
+    const viewShowtimeList = window.document.querySelector('.view-showtime-list');
+    if (viewShowtimeList) {
+      viewShowtimeList.scrollIntoView();
     }
 
     setTimeout(() => {
@@ -42,6 +50,19 @@ class Movie extends Component {
   }
 
   componentDidMount() {
+    anime({
+      targets: '.view-movie',
+      top: '0',
+      direction: 'normal',
+      easing: 'easeOutElastic',
+      duration: 1000,
+      elasticity: 400,
+      complete() {
+        document.querySelector('.close-button').style.opacity = '1';
+        document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
+      },
+    });
+
     this.unsubscribe = store.subscribe(() => {
       const state = store.getState();
       const { cinema, movie } = this.props.params;
@@ -80,10 +101,37 @@ class Movie extends Component {
     }
   }
 
+  goBack() {
+    document.querySelector('.close-button').style.opacity = '0';
+
+    anime({
+      targets: '.view-movie',
+      direction: 'normal',
+      duration: Math.floor(document.querySelector('.view-movie').scrollTop * .75),
+      scrollTop: '0',
+      easing: 'linear',
+      complete() {
+        document.querySelector('.poster-box').style.backgroundAttachment = 'scroll';
+
+        anime({
+          targets: '.view-movie',
+          top: '100vh',
+          direction: 'normal',
+          duration: 250,
+          easing: 'linear',
+          complete() {
+            anime.remove('.view-movie');
+            history.goBack();
+          },
+        });
+      },
+    });
+  }
+
   render() {
     return (
       <div className="view-movie">
-        <button className="close-button" onClick={history.goBack}>
+        <button className="close-button" onClick={this.goBack}>
           <i className="icon-close" />
         </button>
 
