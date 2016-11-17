@@ -20,29 +20,6 @@
   src: url(../static/font/DroidSansEthiopic/DroidSansEthiopic-Bold.woff) format("woff");
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeOutDown {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-}
-
 &[class*="_am_"] {
   font-family: "Droid Sans Ethiopic" !important;
 }
@@ -98,20 +75,6 @@ body {
   }
 }
 
-.fadeInUp-fadeOutDown-enter {
-  opacity: 0;
-  transform: translate3d(0, 100%, 0);
-}
-
-.fadeInUp-fadeOutDown-enter.fadeInUp-fadeOutDown-enter-active {
-  opacity: 1;
-  animation: fadeInUp .5s;
-}
-
-.fadeInUp-fadeOutDown-leave.fadeInUp-fadeOutDown-leave-active {
-  animation: fadeOutDown .5s;
-}
-
 [class*="showtime-"] {
   transition: all 250ms linear;
 }
@@ -136,8 +99,7 @@ body {
   & > .showtime-view {
     flex: 1 1 auto;
     overflow-y: scroll;
-    // momentum is messing with the fixed positioning and causing _flickering_🤔
-    // -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
   }
 
   & > .showtime-menu {

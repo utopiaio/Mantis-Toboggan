@@ -1,7 +1,6 @@
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router';
 
 import store from '../redux/store';
@@ -88,14 +87,7 @@ class Cinema extends Component {
           )
         }
 
-        <ReactCSSTransitionGroup
-          component="div"
-          transitionName="fadeInUp-fadeOutDown"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
-        >
-          { React.cloneElement(this.props.children || <div />, { key: this.props.location.pathname || 'root' }) }
-        </ReactCSSTransitionGroup>
+        { this.props.children }
       </div>
     );
   }
