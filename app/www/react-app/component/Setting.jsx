@@ -61,16 +61,10 @@ class Setting extends Component {
         </button>
         <button
           onClick={() => this.open('mailto:moe.heroku@gmail.com?subject=Feedback')}
-          className={`btn btn-sm ${amClass(this.state.language)}`}
+          className={`btn ${amClass(this.state.language)}`}
           style={{ marginTop: '2em' }}
         >
           { i18n[this.state.language].CONTACT }
-        </button>
-        <button
-          onClick={() => this.open('https://github.com/moe-szyslak/showtime')}
-          className={`btn btn-sm ${amClass(this.state.language)}`}
-        >
-          { i18n[this.state.language].SHOW_ME }
         </button>
       </div>
     );
