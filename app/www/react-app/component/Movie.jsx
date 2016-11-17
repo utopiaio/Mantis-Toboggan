@@ -60,6 +60,7 @@ class Movie extends Component {
       complete() {
         document.querySelector('.close-button').style.opacity = '1';
         document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
+        document.querySelector('.view-movie').style.overflowY = 'scroll';
       },
     });
 
