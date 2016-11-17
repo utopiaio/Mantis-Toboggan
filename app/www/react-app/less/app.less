@@ -274,7 +274,7 @@ body {
 
   .view-movie {
     position: fixed;
-    top: 0;
+    top: 100vh;
     right: 0;
     bottom: 50px;
     left: 0;
@@ -294,6 +294,8 @@ body {
       background-color: transparent;
       border: 0 solid transparent;
       outline: none;
+      opacity: 0;
+      transition: opacity 500ms ease;
 
       i:before {
         padding: .2em;
@@ -304,7 +306,7 @@ body {
 
     .poster-box {
       height: 65vh;
-      background-attachment: fixed;
+      background-attachment: scroll;
       background-size: 100% auto;
       background-repeat: no-repeat;
     }
