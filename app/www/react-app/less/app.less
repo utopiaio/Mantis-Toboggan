@@ -100,17 +100,12 @@ body {
 
 .fadeInUp-fadeOutDown-enter {
   opacity: 0;
-  transition: all .5s ease-in;
   transform: translate3d(0, 100%, 0);
 }
 
 .fadeInUp-fadeOutDown-enter.fadeInUp-fadeOutDown-enter-active {
   opacity: 1;
   animation: fadeInUp .5s;
-}
-
-.fadeInUp-fadeOutDown-leave {
-  transition: all .5s ease-in;
 }
 
 .fadeInUp-fadeOutDown-leave.fadeInUp-fadeOutDown-leave-active {
@@ -141,7 +136,8 @@ body {
   & > .showtime-view {
     flex: 1 1 auto;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    // momentum is messing with the fixed positioning and causing _flickering_🤔
+    // -webkit-overflow-scrolling: touch;
   }
 
   & > .showtime-menu {
