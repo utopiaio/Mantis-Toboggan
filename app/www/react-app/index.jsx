@@ -13,4 +13,3 @@ import './less/app.less';
 window.document.addEventListener('deviceready', () => {
   render(routes, document.getElementById('app'));
 }, false);
-
