@@ -4,8 +4,6 @@
 import React, { Component, PropTypes } from 'react';
 import anime from 'animejs';
 
-window.anime = anime;
-
 import history from '../config/history';
 import store from '../redux/store';
 import i18n from '../config/i18n';
@@ -59,15 +57,15 @@ class Movie extends Component {
   componentDidMount() {
     anime({
       targets: '.view-movie',
-      top: '0',
+      top: ['100vh', '0'],
       direction: 'normal',
       easing: 'easeOutElastic',
       duration: 1000,
       elasticity: 400,
       complete() {
-        document.querySelector('.close-button').style.opacity = '1';
-        document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
-        document.querySelector('.view-movie').style.overflowY = 'scroll';
+        window.document.querySelector('.close-button').style.opacity = '1';
+        window.document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
+        window.document.querySelector('.view-movie').style.overflowY = 'scroll';
       },
     });
 
@@ -117,21 +115,21 @@ class Movie extends Component {
   }
 
   goBack() {
-    document.querySelector('.close-button').style.opacity = '0';
+    window.document.querySelector('.close-button').style.opacity = '0';
 
     anime({
       targets: '.view-movie',
       direction: 'normal',
-      duration: Math.floor(document.querySelector('.view-movie').scrollTop * .75),
+      duration: Math.floor(window.document.querySelector('.view-movie').scrollTop * 0.75),
       scrollTop: '0',
       easing: 'linear',
       complete() {
-        document.querySelector('.poster-box').style.backgroundAttachment = 'scroll';
+        window.document.querySelector('.poster-box').style.backgroundAttachment = 'scroll';
 
         anime({
           targets: '.view-movie',
-          top: '100vh',
-          direction: 'normal',
+          translateY: ['0', '100vh'],
+          direction: 'linear',
           duration: 250,
           easing: 'linear',
           complete() {
