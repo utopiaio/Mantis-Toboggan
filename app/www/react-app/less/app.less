@@ -185,13 +185,17 @@ body {
   }
 
   .view-showtime-list {
+    position: absolute;
+    top: .5em;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 96%;
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 96%;
-    padding-top: .5em;
 
     .movie-container {
       flex: 1 0 auto;
@@ -225,14 +229,10 @@ body {
       }
 
       div.info-container {
-        flex: 0 0 75%;
-        width: 75%;
+        flex: 0 0 72%;
+        width: 72%;
+        margin-left: 3%;
         overflow: hidden;
-
-        & > * {
-          padding-left: .5em;
-          padding-bottom: .5em;
-        }
 
         .movie-title {
           .light-font-weight;
@@ -241,10 +241,16 @@ body {
           white-space: nowrap;
           text-overflow: ellipsis;
           font-size: 1.2em;
+          padding: 0;
+          margin: 0;
+          margin-bottom: .5em;
         }
 
         .movie-showtime {
           font-size: .9em;
+          padding: 0;
+          margin: 0;
+          margin-bottom: .5em;
         }
 
         .movie-score-container {
@@ -252,6 +258,8 @@ body {
           display: flex;
           flex-direction: row;
           align-items: center;
+          padding: 0;
+          margin: 0;
 
           &:before {
             .draw-over;

@@ -38,14 +38,19 @@ class Movie extends Component {
       menu.style.borderTopStyle = 'hidden';
     }
 
+    const showtimeView = window.document.querySelector('.showtime-view');
+    if (showtimeView) {
+      showtimeView.style.overflowY = 'hidden';
+    }
+
+    const viewShowtimeList = window.document.querySelector('.view-showtime-list');
+    if (viewShowtimeList) {
+      viewShowtimeList.scrollIntoView();
+    }
+
     setTimeout(() => {
       if (window.StatusBar !== undefined) {
         window.StatusBar.hide();
-      }
-
-      const showtimeView = window.document.querySelector('.showtime-view');
-      if (showtimeView) {
-        showtimeView.style.overflowY = 'hidden';
       }
     }, 250);
   }
@@ -63,8 +68,8 @@ class Movie extends Component {
       top: ['100vh', '0'],
       direction: 'normal',
       easing: 'easeOutElastic',
-      duration: 1000,
-      elasticity: 400,
+      duration: 750,
+      elasticity: 100,
       complete, // I'm keeping `this` 😎
     });
 
