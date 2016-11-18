@@ -37,11 +37,6 @@ class Movie extends Component {
       menu.style.borderTopStyle = 'hidden';
     }
 
-    const viewShowtimeList = window.document.querySelector('.view-showtime-list');
-    if (viewShowtimeList) {
-      viewShowtimeList.scrollIntoView();
-    }
-
     setTimeout(() => {
       if (window.StatusBar !== undefined) {
         window.StatusBar.hide();
