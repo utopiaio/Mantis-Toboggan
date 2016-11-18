@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 
+import NativeLink from './NativeLink.jsx';
 import i18n from '../config/i18n';
 import geez from './../util/geez';
 import amClass from './../util/amClass';
 
 function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
   return (
-    <Link to={to} className="btn cinema-movie-count">
+    <NativeLink to={to} className="btn cinema-movie-count">
       <div className={amClass(language)}>
         { `${i18n[language].CINEMA} ${cinemaLabel}` }
       </div>
@@ -18,7 +18,7 @@ function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
         </strong>
         <span>{ ` ${i18n[language][movieCount > 1 ? 'MOVIES' : 'MOVIE']}` }</span>
       </div>
-    </Link>
+    </NativeLink>
   );
 }
 
