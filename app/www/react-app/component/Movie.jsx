@@ -30,6 +30,13 @@ class Movie extends Component {
     const header = window.document.querySelector('.showtime-header');
     if (header) {
       header.classList.add('_collapsed_');
+      header.style.borderBottomStyle = 'hidden';
+    }
+
+    const menu = window.document.querySelector('.showtime-menu');
+    if (menu) {
+      menu.classList.add('_collapsed_');
+      menu.style.borderTopStyle = 'hidden';
     }
 
     const viewShowtimeList = window.document.querySelector('.view-showtime-list');
@@ -80,6 +87,13 @@ class Movie extends Component {
     const header = window.document.querySelector('.showtime-header');
     if (header !== null) {
       header.classList.remove('_collapsed_');
+      header.style.borderBottomStyle = 'solid';
+    }
+
+    const menu = window.document.querySelector('.showtime-menu');
+    if (menu) {
+      menu.classList.remove('_collapsed_');
+      menu.style.borderTopStyle = 'solid';
     }
 
     setTimeout(() => {

@@ -76,7 +76,7 @@ body {
 }
 
 [class*="showtime-"] {
-  transition: all 250ms linear;
+  transition: all 250ms ease-in;
 }
 
 .showtime-app {
@@ -104,6 +104,10 @@ body {
 
   & > .showtime-menu {
     flex: 0 0 50px;
+
+    &._collapsed_ {
+      flex: 0 0 0;
+    }
   }
 }
 
@@ -275,7 +279,7 @@ body {
     position: fixed;
     top: 100vh;
     right: 0;
-    bottom: 50px;
+    bottom: 0;
     left: 0;
     overflow-y: hidden;
     -webkit-overflow-scrolling: auto; // this prevents fixed items from flickering
@@ -304,7 +308,7 @@ body {
     }
 
     .poster-box {
-      height: 65vh;
+      height: 75vh;
       background-attachment: scroll;
       background-size: 100% auto;
       background-repeat: no-repeat;
@@ -394,6 +398,7 @@ body {
   font-size: 1em;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 
   .menu-item {
     display: flex;
