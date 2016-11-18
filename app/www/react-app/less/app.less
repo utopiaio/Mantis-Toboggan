@@ -58,6 +58,18 @@ body {
   font-weight: 400;
 }
 
+// img tags: this prevents native pop up on tap-old
+.draw-over {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  content: '';
+  z-index: 9999;
+}
+
 .btn {
   min-height: 2em;
   padding: 0;
@@ -194,9 +206,14 @@ body {
       text-decoration: none;
 
       div.poster-container {
+        position: relative;
         flex: 1 0 25%;
         min-height: 115px;
         padding: 0;
+
+        &:before {
+          .draw-over;
+        }
 
         img.img-poster {
           width: 100%;
@@ -231,9 +248,14 @@ body {
         }
 
         .movie-score-container {
+          position: relative;
           display: flex;
           flex-direction: row;
           align-items: center;
+
+          &:before {
+            .draw-over;
+          }
 
           & > * {
             flex: 0 1 auto;
