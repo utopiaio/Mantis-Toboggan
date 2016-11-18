@@ -20,6 +20,7 @@ class Movie extends Component {
     this.state = {
       poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
       movie: state.showtime.show[cinema][movie] || Object.create(null),
+      showVideo: false, // for an even smoother animation
       language: state.language,
     };
   }
@@ -50,6 +51,13 @@ class Movie extends Component {
   }
 
   componentDidMount() {
+    const complete = () => {
+      window.document.querySelector('.close-button').style.opacity = '1';
+      window.document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
+      window.document.querySelector('.view-movie').style.overflowY = 'scroll';
+      this.setState({ showVideo: true });
+    };
+
     anime({
       targets: '.view-movie',
       top: ['100vh', '0'],
@@ -57,11 +65,7 @@ class Movie extends Component {
       easing: 'easeOutElastic',
       duration: 1000,
       elasticity: 400,
-      complete() {
-        window.document.querySelector('.close-button').style.opacity = '1';
-        window.document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
-        window.document.querySelector('.view-movie').style.overflowY = 'scroll';
-      },
+      complete, // I'm keeping `this` 😎
     });
 
     this.unsubscribe = store.subscribe(() => {
@@ -110,6 +114,7 @@ class Movie extends Component {
   }
 
   goBack() {
+    this.setState({ showVideo: false });
     window.document.querySelector('.close-button').style.opacity = '0';
 
     anime({
@@ -128,7 +133,6 @@ class Movie extends Component {
           duration: 250,
           easing: 'linear',
           complete() {
-            anime.remove('.view-movie');
             history.goBack();
           },
         });
@@ -139,7 +143,7 @@ class Movie extends Component {
   render() {
     return (
       <div className="view-movie">
-        <button className="close-button" onClick={this.goBack}>
+        <button className="close-button" onClick={() => this.goBack()}>
           <i className="icon-close" />
         </button>
 
@@ -201,7 +205,7 @@ class Movie extends Component {
             </h3> : <span />
           }
           {
-            this.state.movie.video ? <div>
+            (this.state.showVideo && this.state.movie.video) ? <div>
               <div className={`video-label ${amClass(this.state.language)}>{i18n[this.state.language].VIDEO}`}>
                 {i18n[this.state.language].VIDEO}
               </div>
