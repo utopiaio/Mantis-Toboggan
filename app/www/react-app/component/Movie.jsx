@@ -57,7 +57,6 @@ class Movie extends Component {
 
   componentDidMount() {
     const complete = () => {
-      window.document.querySelector('.close-button').style.opacity = '1';
       window.document.querySelector('.poster-box').style.backgroundAttachment = 'fixed';
       window.document.querySelector('.view-movie').style.overflowY = 'scroll';
       this.setState({ showVideo: true });
@@ -120,7 +119,6 @@ class Movie extends Component {
 
   goBack() {
     this.setState({ showVideo: false });
-    window.document.querySelector('.close-button').style.opacity = '0';
 
     anime({
       targets: '.view-movie',
@@ -148,11 +146,11 @@ class Movie extends Component {
   render() {
     return (
       <div className="view-movie">
-        <button className="close-button" onClick={() => this.goBack()}>
-          <i className="icon-close" />
-        </button>
-
-        <div className="poster-box" style={{ backgroundImage: `url(${encodeURI(this.state.poster)})` }} />
+        <div className="poster-box" style={{ backgroundImage: `url(${encodeURI(this.state.poster)})` }}>
+          <button className="close-button" onClick={() => this.goBack()}>
+            <i className="icon-close" />
+          </button>
+        </div>
 
         <div className="movie-411">
           <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie.title) ? '_am_' : ''}`}>{ this.state.movie.title }</h2>
