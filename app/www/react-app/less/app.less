@@ -316,36 +316,42 @@ body {
     bottom: 0;
     left: 0;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: auto; // this prevents fixed items from flickering
+    -webkit-overflow-scrolling: touch;
     backdrop-filter: blur(@blurRadius);
 
-    .close-button {
-      position: fixed;
-      top: .4em;
-      right: .4em;
-      height: 1.6em;
-      width: 1.6em;
-      padding: 0;
-      font-size: 1.75em;
-      color: inherit;
-      background-color: transparent;
-      border: 0 solid transparent;
-      outline: none;
-      opacity: 0;
-      transition: opacity 250ms ease;
-
-      i:before {
-        padding: .2em;
-        background-color: inherit;
-        border-radius: 1em;
-      }
-    }
-
     .poster-box {
+      position: relative;
       height: 75vh;
       background-attachment: scroll;
       background-size: 100% auto;
       background-repeat: no-repeat;
+      background-color: inherit;
+
+      .close-button {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: .25em;
+        margin: 0 auto;
+        height: 1.6em;
+        width: 1.6em;
+        padding: 0;
+        padding-top: .1em;
+        font-size: 1.5em;
+        color: inherit;
+        background-color: inherit;
+        backdrop-filter: blur(@blurRadius);
+        border: 0 solid transparent;
+        border-radius: 1em;
+        outline: none;
+
+        i:before {
+          margin: 0;
+          padding: 0;
+          color: inherit;
+          background-color: transparent;
+        }
+      }
     }
 
     .movie-411 {
