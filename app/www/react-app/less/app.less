@@ -33,7 +33,11 @@
 }
 
 body {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Helvetica Neue", "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -106,10 +110,7 @@ body {
 
   & > .showtime-header {
     flex: 0 0 64px;
-
-    &._collapsed_ {
-      flex: 0 0 0;
-    }
+    z-index: 9;
   }
 
   & > .showtime-view {
@@ -120,10 +121,7 @@ body {
 
   & > .showtime-menu {
     flex: 0 0 50px;
-
-    &._collapsed_ {
-      flex: 0 0 0;
-    }
+    z-index: 9;
   }
 }
 
@@ -318,6 +316,7 @@ body {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     backdrop-filter: blur(@blurRadius);
+    z-index: 99;
 
     .poster-box {
       position: relative;
@@ -344,6 +343,7 @@ body {
         border: 0 solid transparent;
         border-radius: 1em;
         outline: none;
+        transition: opacity 250ms linear;
 
         i:before {
           margin: 0;
