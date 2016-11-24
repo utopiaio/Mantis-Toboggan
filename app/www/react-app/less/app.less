@@ -24,6 +24,11 @@
   font-family: "Droid Sans Ethiopic" !important;
 }
 
+a, img {
+  -webkit-touch-callout: none !important; // disable context menu
+  -webkit-user-select: none !important; // disable user select
+}
+
 @keyframes sk-bounce {
   0%, 100% {
     transform: scale(0.0);
@@ -64,18 +69,6 @@ body {
 
 .normal-font-weight {
   font-weight: 400;
-}
-
-// img tags: this prevents native pop up on tap-old
-.draw-over {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: transparent;
-  content: '';
-  z-index: 9999;
 }
 
 .btn {

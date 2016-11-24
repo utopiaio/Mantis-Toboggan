@@ -1,28 +1,28 @@
 import React from 'react';
-import NativeLink from './NativeLink.jsx';
+import { Link } from 'react-router';
 
 function Menu() {
   return (
     <div className="showtime-menu">
-      <NativeLink to="/show/c3" className="menu-item" activeClassName="active">
+      <Link to="/show/c3" className="menu-item" activeClassName="active">
         <i className="menu-icon cinema-three" />
         <span className="menu-text menu-text-cinema" />
-      </NativeLink>
+      </Link>
 
-      <NativeLink to="/show/c2" activeClassName="active" className="menu-item">
+      <Link to="/show/c2" activeClassName="active" className="menu-item">
         <i className="menu-icon cinema-two" />
         <span className="menu-text menu-text-cinema" />
-      </NativeLink>
+      </Link>
 
-      <NativeLink to="/show/c1" activeClassName="active" className="menu-item">
+      <Link to="/show/c1" activeClassName="active" className="menu-item">
         <i className="menu-icon cinema-one" />
         <span className="menu-text menu-text-cinema" />
-      </NativeLink>
+      </Link>
 
-      <NativeLink to="/setting" activeClassName="active" className="menu-item">
+      <Link to="/setting" activeClassName="active" className="menu-item">
         <i className="menu-icon icon-setting" />
         <span className="menu-text menu-text-setting" />
-      </NativeLink>
+      </Link>
     </div>
   );
 }
