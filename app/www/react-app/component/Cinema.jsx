@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
-import NativeLink from './NativeLink.jsx';
 import store from '../redux/store';
 import { poster } from '../redux/action/showtime';
 import containsFidel from '../util/containsFidel';
@@ -58,7 +58,7 @@ class Cinema extends Component {
       <div className="view-showtime-list">
         {
           this.state.show[this.props.params.cinema].map((movie, index) =>
-            <NativeLink key={index} to={`/show/${this.props.params.cinema}/${index}`} className="movie-container">
+            <Link key={index} to={`/show/${this.props.params.cinema}/${index}`} className="movie-container" activeClassName="active">
               <div className="poster-container">
                 <img
                   className="img-poster"
@@ -83,7 +83,7 @@ class Cinema extends Component {
                     : <span />
                 }
               </div>
-            </NativeLink>,
+            </Link>,
           )
         }
 
