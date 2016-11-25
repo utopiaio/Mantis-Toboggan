@@ -2,6 +2,7 @@
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
+import anime from 'animejs';
 
 import history from '../config/history';
 import i18n from '../config/i18n';
@@ -51,6 +52,41 @@ class Showtime extends Component {
     }
   }
 
+  goBack() {
+    const moviePoster = window.document.querySelector('.movie-poster');
+    const { top, left, width, screenWidth } = moviePoster.dataset;
+
+    const viewMovieBackground = window.document.querySelector('.view-movie-background');
+    viewMovieBackground.style.opacity = '0';
+
+    setTimeout(() => {
+      moviePoster.style.borderRadius = '.25em';
+      viewMovieBackground.style.transform = 'translateY(100vh)';
+      history.goBack();
+    }, 350);
+
+    // scaling up the movie poster to fill the screen
+    anime({
+      targets: moviePoster,
+      translateY: [`-${top}px`, '0px'],
+      translateX: [`-${left}px`, '0px'],
+      width: [`${screenWidth}px`, `${width}px`],
+      easing: 'easeOutExpo',
+      duration: 750,
+      elasticity: 100,
+      complete() {
+        // resetting movie poster state...
+        moviePoster.src = '';
+        moviePoster.style.top = '0px';
+        moviePoster.style.left = '0px';
+        moviePoster.style.width = 'auto';
+        moviePoster.style.opacity = '0';
+        moviePoster.style.borderRadius = '0em';
+        moviePoster.style.transform = 'translateY(100vh)';
+      },
+    });
+  }
+
   render() {
     return (
       <div className={`showtime-app theme-${this.state.theme} language-${this.state.language}`}>
@@ -77,7 +113,7 @@ class Showtime extends Component {
           - Animation will be faster as react will not be consulted; I'm in charge.
           - To have proper stacking context so our z-index context will be the body tag.
         */}
-        <button className="close-button" onClick={history.goBack}>
+        <button className="close-button" onClick={this.goBack}>
           <i className="icon-close" />
         </button>
 
