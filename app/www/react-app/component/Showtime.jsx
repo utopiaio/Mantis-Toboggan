@@ -1,8 +1,10 @@
-/* global document, $ */
+/* global window */
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
 
+import history from '../config/history';
+import i18n from '../config/i18n';
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
 
@@ -43,6 +45,12 @@ class Showtime extends Component {
     this.unsubscribe();
   }
 
+  openWebsite(url) {
+    if (url !== 'N/A' && window.cordova && window.cordova.InAppBrowser) {
+      window.cordova.InAppBrowser.open(encodeURI(url), '_system');
+    }
+  }
+
   render() {
     return (
       <div className={`showtime-app theme-${this.state.theme} language-${this.state.language}`}>
@@ -59,6 +67,73 @@ class Showtime extends Component {
         </div>
 
         <Menu />
+
+        {/*
+          To have proper stacking context movie view component will here _outside_
+
+          Why:
+          - The DOM is heavily animated, once entered there will be no updates on the view.
+            So going _static_ will actually be faster.
+          - Animation will be faster as react will not be consulted; I'm in charge.
+          - To have proper stacking context so our z-index context will be the body tag.
+        */}
+        <button className="close-button" onClick={history.goBack}>
+          <i className="icon-close" />
+        </button>
+
+        <img className="movie-poster" src="" alt="movie-poster" />
+
+        <div className="view-movie-background" />
+
+        <div className="movie-411">
+          <h2 className="light-font-weight movie-title _am_">Movie Title</h2>
+          <p className="movie-showtime _am_">Movie Showtime</p>
+          <p className="movie-description">Movie Description</p>
+          <table>
+            <caption className="_am_">{i18n[this.state.language].INFORMATION}</caption>
+            <tbody>
+              <tr>
+                <td>Rated</td>
+                <td>Rated</td>
+              </tr>
+
+              <tr>
+                <td>Released</td>
+                <td>Released</td>
+              </tr>
+
+              <tr>
+                <td>Genre</td>
+                <td>Genre</td>
+              </tr>
+
+              <tr>
+                <td>Director</td>
+                <td>Director</td>
+              </tr>
+
+              <tr>
+                <td>Cast</td>
+                <td>Cast List</td>
+              </tr>
+
+              <tr>
+                <td>Run Time</td>
+                <td>Run Time</td>
+              </tr>
+
+              <tr>
+                <td>Website</td>
+                <td
+                  className={`${'website' === 'N/A' ? '' : 'active'}`}
+                  onClick={() => this.openWebsite('this state')}
+                >
+                  Website...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
