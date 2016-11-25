@@ -58,7 +58,6 @@ class Movie extends Component {
     moviePoster.style.top = `${top}px`;
     moviePoster.style.left = `${left}px`;
     moviePoster.style.width = width;
-    moviePoster.style.borderRadius = '0em';
     moviePoster.style.opacity = '1';
 
     // turning on `.view-movie-background`
