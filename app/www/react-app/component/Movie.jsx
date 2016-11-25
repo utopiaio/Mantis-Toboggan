@@ -70,10 +70,10 @@ class Movie extends Component {
     // scaling up the movie poster to fill the screen
     anime({
       targets: '.movie-poster',
-      translateY: [`${height}px`, `-${top}px`],
+      translateY: [`${0}px`, `-${top}px`],
       translateX: ['0px', `-${left}px`],
-      width: [this.width, `${screenWidth}px`],
-      easing: 'easeOutElastic',
+      width: [`${width}px`, `${screenWidth}px`],
+      easing: 'easeOutExpo',
       duration: 750,
       elasticity: 100,
     });
