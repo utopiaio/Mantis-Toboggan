@@ -49,8 +49,6 @@ class Movie extends Component {
     const { top, left } = rect; // number
     let width = window.getComputedStyle(activePoster).width; // string
     width = Number(width.substring(0, width.length - 2)); // number
-    let height = window.getComputedStyle(activePoster).height; // string
-    height = Number(height.substring(0, height.length - 2)); // number
 
     // overlaying image on the active poster
     const moviePoster = window.document.querySelector('.movie-poster');
