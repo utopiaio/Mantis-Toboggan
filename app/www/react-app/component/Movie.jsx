@@ -49,6 +49,8 @@ class Movie extends Component {
     const { top, left } = rect; // number
     let width = window.getComputedStyle(activePoster).width; // string
     width = Number(width.substring(0, width.length - 2)); // number
+    let screenWidth = window.getComputedStyle(window.document.body).width;
+    screenWidth = Number(screenWidth.substring(0, screenWidth.length - 2));
 
     // overlaying image on the active poster
     const moviePoster = window.document.querySelector('.movie-poster');
@@ -58,19 +60,16 @@ class Movie extends Component {
     moviePoster.style.width = width;
     moviePoster.style.opacity = '1';
 
-    // turning on `.view-movie-background`
-    const viewMovieBackground = window.document.querySelector('.view-movie-background');
-    viewMovieBackground.style.transform = 'translateY(0vh)';
-    viewMovieBackground.style.opacity = '1';
-
-    let screenWidth = window.getComputedStyle(window.document.body).width;
-    screenWidth = Number(screenWidth.substring(0, screenWidth.length - 2));
-
     // setting dataset...
     moviePoster.dataset.top = top;
     moviePoster.dataset.left = left;
     moviePoster.dataset.width = width;
     moviePoster.dataset.screenWidth = screenWidth;
+
+    // turning on `.view-movie-background`
+    const viewMovieBackground = window.document.querySelector('.view-movie-background');
+    viewMovieBackground.style.transform = 'translateY(0vh)';
+    viewMovieBackground.style.opacity = '1';
 
     // scaling up the movie poster to fill the screen
     anime({

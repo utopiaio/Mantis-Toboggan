@@ -20,15 +20,6 @@
   src: url(../static/font/DroidSansEthiopic/DroidSansEthiopic-Bold.woff) format("woff");
 }
 
-&[class*="_am_"] {
-  font-family: "Droid Sans Ethiopic" !important;
-}
-
-a, img {
-  -webkit-touch-callout: none !important; // disable context menu
-  -webkit-user-select: none !important; // disable user select
-}
-
 @keyframes sk-bounce {
   0%, 100% {
     transform: scale(0.0);
@@ -55,7 +46,16 @@ body {
 }
 
 *::-webkit-scrollbar {
-  display: none;
+  display: none !important;
+}
+
+[class*="_am_"] {
+  font-family: "Droid Sans Ethiopic" !important;
+}
+
+a, img {
+  -webkit-touch-callout: none !important; // disable context menu
+  -webkit-user-select: none !important; // disable user select
 }
 
 // theme does not affect active class
