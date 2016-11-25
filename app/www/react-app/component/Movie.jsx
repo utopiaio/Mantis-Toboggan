@@ -16,8 +16,6 @@ class Movie extends Component {
     this.state = {
       poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
       movie: state.showtime.show[cinema][movie] || Object.create(null),
-      showVideo: false, // for an even smoother animation
-      language: state.language,
     };
   }
 
@@ -42,7 +40,6 @@ class Movie extends Component {
       this.setState({
         poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
         movie: state.showtime.show[cinema][movie] || Object.create(null),
-        language: state.language,
       });
     });
 
@@ -96,12 +93,6 @@ class Movie extends Component {
     }, 250);
 
     this.unsubscribe();
-  }
-
-  openWebsite(url) {
-    if (url !== 'N/A' && window.cordova && window.cordova.InAppBrowser) {
-      window.cordova.InAppBrowser.open(encodeURI(url), '_system');
-    }
   }
 
   render() {
