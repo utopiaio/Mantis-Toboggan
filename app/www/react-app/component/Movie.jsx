@@ -60,6 +60,12 @@ class Movie extends Component {
     moviePoster.style.width = width;
     moviePoster.style.opacity = '1';
 
+    // setting dataset...
+    moviePoster.dataset.top = top;
+    moviePoster.dataset.left = left;
+    moviePoster.dataset.width = width;
+    moviePoster.dataset.height = height;
+
     // turning on `.view-movie-background`
     const viewMovieBackground = window.document.querySelector('.view-movie-background');
     viewMovieBackground.style.transform = 'translateY(0vh)';
