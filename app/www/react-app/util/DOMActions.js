@@ -128,10 +128,14 @@ function showPoster(show = true, src = '') {
           width: [`${screenWidth}px`, `${width}px`],
           easing: 'easeOutExpo',
           duration: 500,
+          opacity: {
+            value: 0,
+            delay: 200,
+            easing: 'easeOutExpo',
+          },
           elasticity: 100,
           complete() {
             // resetting style...
-            moviePoster.style.opacity = '0';
             moviePoster.style.top = '0px';
             moviePoster.style.left = '0px';
             moviePoster.style.width = 'auto';
