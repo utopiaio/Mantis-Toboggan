@@ -76,6 +76,8 @@ function showPoster(show = true, src = '') {
       const { top, left } = rect; // number
       let width = window.getComputedStyle(activePoster).width; // string
       width = Number(width.substring(0, width.length - 2)); // number
+      // Not using window.screen.width because on Safari it returns the Mac's screen width, not
+      // the phone width (even in responsive mode)
       let screenWidth = window.getComputedStyle(window.document.body).width;
       screenWidth = Number(screenWidth.substring(0, screenWidth.length - 2));
 
