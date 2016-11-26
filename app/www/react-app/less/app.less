@@ -45,8 +45,7 @@ body {
   margin: 0;
 }
 
-::-webkit-scrollbar,
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none !important;
 }
 
@@ -112,6 +111,10 @@ a, img {
     flex: 1 1 auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
   }
 
   & > .showtime-menu {
