@@ -5,7 +5,7 @@ import React, { Component, PropTypes } from 'react';
 import anime from 'animejs';
 
 import store from '../redux/store';
-import { showCloseButton } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground } from '../util/DOMActions';
 
 class Movie extends Component {
   constructor(props) {
@@ -67,10 +67,7 @@ class Movie extends Component {
     moviePoster.dataset.width = width;
     moviePoster.dataset.screenWidth = screenWidth;
 
-    // turning on `.view-movie-background`
-    const viewMovieBackground = window.document.querySelector('.view-movie-background');
-    viewMovieBackground.style.transform = 'translateY(0vh)';
-    viewMovieBackground.style.opacity = '1';
+    showMovieBackground(true);
 
     // scaling up the movie poster to fill the screen
     anime({
