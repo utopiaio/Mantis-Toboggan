@@ -130,7 +130,7 @@ function showPoster(show = true, src = '') {
           duration: 500,
           opacity: {
             value: 0,
-            delay: 200,
+            delay: 300,
             easing: 'easeOutExpo',
           },
           elasticity: 100,
