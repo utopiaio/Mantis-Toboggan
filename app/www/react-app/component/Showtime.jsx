@@ -65,6 +65,13 @@ class Showtime extends Component {
       history.goBack();
     }, 350);
 
+    // turning off close button...
+    const closeButton = window.document.querySelector('.close-button');
+    closeButton.style.opacity = '0';
+    setTimeout(() => {
+      closeButton.style.transform = 'translateY(-2em)';
+    }, 350);
+
     // scaling up the movie poster to fill the screen
     anime({
       targets: moviePoster,

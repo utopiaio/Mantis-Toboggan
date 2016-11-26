@@ -80,6 +80,12 @@ class Movie extends Component {
       easing: 'easeOutExpo',
       duration: 750,
       elasticity: 100,
+      complete() {
+        // turning on close button...
+        const closeButton = window.document.querySelector('.close-button');
+        closeButton.style.transform = 'translateY(0em)';
+        closeButton.style.opacity = '1';
+      },
     });
   }
 
