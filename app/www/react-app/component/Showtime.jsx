@@ -2,13 +2,12 @@
 /* eslint no-console: 0 */
 
 import React, { Component, PropTypes } from 'react';
-import anime from 'animejs';
 
 import history from '../config/history';
 import i18n from '../config/i18n';
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
-import { showCloseButton, showMovieBackground } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground, showPoster, setPosterSrc } from '../util/DOMActions';
 
 import Header from './Header.jsx';
 import Menu from './Menu.jsx';
@@ -54,32 +53,11 @@ class Showtime extends Component {
   }
 
   goBack() {
-    const moviePoster = window.document.querySelector('.movie-poster');
-    const { top, left, width, screenWidth } = moviePoster.dataset;
-
     showMovieBackground(false);
     showCloseButton(false);
-    history.goBack();
-
-    // scaling up the movie poster to fill the screen
-    anime({
-      targets: moviePoster,
-      translateY: [`-${top}px`, '0px'],
-      translateX: [`-${left}px`, '0px'],
-      width: [`${screenWidth}px`, `${width}px`],
-      easing: 'easeOutExpo',
-      duration: 750,
-      elasticity: 100,
-      complete() {
-        // resetting movie poster state...
-        moviePoster.src = '';
-        moviePoster.style.top = '0px';
-        moviePoster.style.left = '0px';
-        moviePoster.style.width = 'auto';
-        moviePoster.style.opacity = '0';
-        moviePoster.style.borderRadius = '0em';
-        moviePoster.style.transform = 'translateY(100vh)';
-      },
+    showPoster(false).then(() => {
+      history.goBack();
+      setPosterSrc('');
     });
   }
 
