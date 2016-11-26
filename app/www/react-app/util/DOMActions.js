@@ -2,7 +2,7 @@
 /* eslint no-console: 0 */
 
 /**
- * this file contains _functions_ that do DOM manipulations.
+ * this file contains _functions_ that do RAW DOM manipulations.
  * keeping our React Components _free_ of DOM hassle
  */
 
