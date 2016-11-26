@@ -7,7 +7,7 @@
  */
 
 /**
- * shows or hides the close button
+ * shows or hides .close-button
  *
  * @param  {Boolean} show
  */
@@ -28,7 +28,7 @@ function showCloseButton(show = true) {
       return;
 
     default:
-      console.warn(`Unknown type passed [${show}]`);
+      console.warn(`Expected bool, instead got '${typeof show}'`);
   }
 }
 
