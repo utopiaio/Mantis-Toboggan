@@ -102,7 +102,7 @@ function showPoster(show = true, src = '') {
           translateX: ['0px', `-${left}px`],
           width: [`${width}px`, `${screenWidth}px`],
           easing: 'easeOutExpo',
-          duration: 750,
+          duration: 500,
           elasticity: 100,
           complete() {
             resolve();
