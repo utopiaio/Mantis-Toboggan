@@ -79,13 +79,12 @@ class Showtime extends Component {
         <Menu />
 
         {/*
-          To have proper stacking context movie view component will here _outside_
+          To have proper stacking context, some components will live _outside_
 
           Why:
-          - The DOM is heavily animated, once entered there will be no updates on the view.
-            So going _static_ will actually be faster.
-          - Animation will be faster as react will not be consulted; I'm in charge.
-          - To have proper stacking context so our z-index context will be the body tag.
+          - To have proper stacking context for our z-index
+          - The DOM is heavily animated, once entered there will be very little updates on the view.
+            So going _static_ will actually be _faster_ (chasing that sweet 60fps).
         */}
         <button className="close-button" onClick={this.goBack}>
           <i className="icon-close" />
