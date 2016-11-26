@@ -7,7 +7,7 @@ import history from '../config/history';
 import i18n from '../config/i18n';
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
-import { showCloseButton, showMovieBackground, showPoster, setPosterSrc } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll } from '../util/DOMActions';
 
 import Header from './Header.jsx';
 import Menu from './Menu.jsx';
@@ -55,6 +55,7 @@ class Showtime extends Component {
   goBack() {
     showMovieBackground(false);
     showCloseButton(false);
+    enableScroll(true, 350);
     showPoster(false).then(() => {
       setPosterSrc('');
       history.goBack();

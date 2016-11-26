@@ -162,9 +162,37 @@ function setPosterSrc(src = '') {
   window.document.querySelector('.movie-poster').src = src;
 }
 
+/**
+ * enables/disabled scroll on .showtime-view
+ *
+ * @param  {Boolean} enable
+ * @param  {Number}  timeout
+ */
+function enableScroll(enable = false, timeout = 0) {
+  const showtimeView = window.document.querySelector('.showtime-view');
+
+  switch (enable) {
+    case true:
+      setTimeout(() => {
+        showtimeView.style.overflowY = 'scroll';
+      }, timeout);
+      return;
+
+    case false:
+      setTimeout(() => {
+        showtimeView.style.overflowY = 'hidden';
+      }, timeout);
+      return;
+
+    default:
+      console.warn(`Expected bool, instead got '${typeof show}'`);
+  }
+}
+
 module.exports = {
   showCloseButton,
   showMovieBackground,
   showPoster,
   setPosterSrc,
+  enableScroll,
 };

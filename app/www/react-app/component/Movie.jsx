@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import store from '../redux/store';
-import { showCloseButton, showMovieBackground, showPoster, setPosterSrc } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll } from '../util/DOMActions';
 
 class Movie extends Component {
   constructor(props) {
@@ -20,10 +20,7 @@ class Movie extends Component {
   }
 
   componentWillMount() {
-    const showtimeView = window.document.querySelector('.showtime-view');
-    if (showtimeView) {
-      showtimeView.style.overflowY = 'hidden';
-    }
+    enableScroll(false);
 
     setTimeout(() => {
       if (window.StatusBar !== undefined) {
@@ -50,16 +47,9 @@ class Movie extends Component {
   }
 
   componentWillUnmount() {
-    setTimeout(() => {
-      if (window.StatusBar !== undefined) {
-        window.StatusBar.show();
-      }
-
-      const showtimeView = window.document.querySelector('.showtime-view');
-      if (showtimeView) {
-        showtimeView.style.overflowY = 'scroll';
-      }
-    }, 250);
+    if (window.StatusBar !== undefined) {
+      window.StatusBar.show();
+    }
 
     this.unsubscribe();
   }
