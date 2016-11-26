@@ -8,6 +8,7 @@ import history from '../config/history';
 import i18n from '../config/i18n';
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
+import { showCloseButton } from '../util/DOMActions';
 
 import Header from './Header.jsx';
 import Menu from './Menu.jsx';
@@ -65,12 +66,7 @@ class Showtime extends Component {
       history.goBack();
     }, 350);
 
-    // turning off close button...
-    const closeButton = window.document.querySelector('.close-button');
-    closeButton.style.opacity = '0';
-    setTimeout(() => {
-      closeButton.style.transform = 'translateY(-2em)';
-    }, 350);
+    showCloseButton(false);
 
     // scaling up the movie poster to fill the screen
     anime({

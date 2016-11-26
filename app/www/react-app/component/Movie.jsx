@@ -5,6 +5,7 @@ import React, { Component, PropTypes } from 'react';
 import anime from 'animejs';
 
 import store from '../redux/store';
+import { showCloseButton } from '../util/DOMActions';
 
 class Movie extends Component {
   constructor(props) {
@@ -81,10 +82,7 @@ class Movie extends Component {
       duration: 750,
       elasticity: 100,
       complete() {
-        // turning on close button...
-        const closeButton = window.document.querySelector('.close-button');
-        closeButton.style.transform = 'translateY(0em)';
-        closeButton.style.opacity = '1';
+        showCloseButton(true);
       },
     });
   }
