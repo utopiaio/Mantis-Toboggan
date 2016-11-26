@@ -56,8 +56,8 @@ class Showtime extends Component {
     showMovieBackground(false);
     showCloseButton(false);
     showPoster(false).then(() => {
-      history.goBack();
       setPosterSrc('');
+      history.goBack();
     });
   }
 
