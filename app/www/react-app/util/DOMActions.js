@@ -13,20 +13,23 @@ import anime from 'animejs';
  *
  * @param  {Boolean} show
  */
-function showCloseButton(show = true) {
+function showCloseButton(show = true, timeout = 0) {
   const closeButton = window.document.querySelector('.close-button');
 
   switch (show) {
     case true:
-      closeButton.style.transform = 'translateY(0em)';
-      closeButton.style.opacity = '1';
+      setTimeout(() => {
+        closeButton.style.transform = 'translateY(0em)';
+        closeButton.style.opacity = '1';
+      }, timeout);
+
       return;
 
     case false:
       closeButton.style.opacity = '0';
       setTimeout(() => {
         closeButton.style.transform = 'translateY(-2em)';
-      }, 350);
+      }, timeout);
       return;
 
     default:
@@ -36,22 +39,25 @@ function showCloseButton(show = true) {
 
 /**
  * shows or hides .view-movie-background
- * @param  {Boolean} show [description]
+ * @param  {Boolean} show
+ * @param {Number} timeout
  */
-function showMovieBackground(show = true) {
+function showMovieBackground(show = true, timeout = 0) {
   const viewMovieBackground = window.document.querySelector('.view-movie-background');
 
   switch (show) {
     case true:
-      viewMovieBackground.style.transform = 'translateY(0vh)';
-      viewMovieBackground.style.opacity = '1';
+      setTimeout(() => {
+        viewMovieBackground.style.transform = 'translateY(0vh)';
+        viewMovieBackground.style.opacity = '1';
+      }, timeout);
       return;
 
     case false:
       viewMovieBackground.style.opacity = '0';
       setTimeout(() => {
         viewMovieBackground.style.transform = 'translateY(100vh)';
-      }, 350);
+      }, timeout);
       return;
 
     default:
