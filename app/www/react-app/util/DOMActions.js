@@ -70,6 +70,12 @@ function showPoster(show = true, src = '') {
 
   switch (show) {
     case true: {
+      // looks for any previous anime, if found removes it
+      // not having this causes race-condition issue #7
+      if (anime.list.length > 0) {
+        anime.remove(moviePoster);
+      }
+
       // getting location and dimension of the active poster
       const activePoster = window.document.querySelector('.movie-container.active .poster-container .img-poster');
       const rect = activePoster.getBoundingClientRect();
