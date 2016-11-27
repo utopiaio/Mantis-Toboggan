@@ -80,6 +80,12 @@ function showPoster(show = true, src = '') {
       // not having this causes race-condition issue #7
       if (anime.list.length > 0) {
         anime.remove(moviePoster);
+        // resetting style after canceling anime...
+        moviePoster.style.top = '0px';
+        moviePoster.style.left = '0px';
+        moviePoster.style.width = 'auto';
+        moviePoster.style.borderRadius = '0em';
+        moviePoster.style.transform = 'translateY(100vh)';
       }
 
       // getting location and dimension of the active poster
