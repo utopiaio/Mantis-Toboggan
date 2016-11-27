@@ -98,7 +98,7 @@ function showPoster(show = true, src = '') {
         // scaling up the movie poster to fill the screen
         anime({
           targets: moviePoster,
-          translateY: ['0px', `${top > 0 ? `-${top}` : '0'}px`],
+          translateY: ['0px', `${top > 0 ? `-${top}` : Math.abs(top)}px`],
           translateX: ['0px', `-${left}px`],
           width: [`${width}px`, `${screenWidth}px`],
           easing: 'easeOutExpo',
