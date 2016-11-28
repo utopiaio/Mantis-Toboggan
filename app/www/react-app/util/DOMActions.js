@@ -18,18 +18,25 @@ function showCloseButton(show = true, timeout = 0) {
 
   switch (show) {
     case true:
-      setTimeout(() => {
-        closeButton.style.transform = 'translateY(0em)';
-        closeButton.style.opacity = '1';
-      }, timeout);
-
+      anime({
+        targets: closeButton,
+        translateY: ['-2em', '0em'],
+        easing: 'easeOutExpo',
+        delay: timeout,
+        duration: 500,
+        elasticity: 100,
+      });
       return;
 
     case false:
-      closeButton.style.opacity = '0';
-      setTimeout(() => {
-        closeButton.style.transform = 'translateY(-2em)';
-      }, timeout);
+      anime({
+        targets: closeButton,
+        translateY: ['0em', '-2em'],
+        easing: 'easeOutExpo',
+        delay: timeout,
+        duration: 500,
+        elasticity: 100,
+      });
       return;
 
     default:
