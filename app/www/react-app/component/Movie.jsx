@@ -4,7 +4,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import store from '../redux/store';
-import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll, showMovie411 } from '../util/DOMActions';
 
 class Movie extends Component {
   constructor(props) {
@@ -43,7 +43,10 @@ class Movie extends Component {
     });
 
     showMovieBackground(true);
-    showPoster(true, this.state.poster).then(() => showCloseButton(true));
+    showPoster(true, this.state.poster).then(() => {
+      showCloseButton(true);
+      showMovie411(true);
+    });
   }
 
   componentWillUnmount() {
