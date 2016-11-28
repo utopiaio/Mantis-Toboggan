@@ -149,7 +149,6 @@ a, img {
   transform: translateY(100vh);
   backdrop-filter: blur(@blurRadius);
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
   z-index: 3;
   opacity: 0;
   transition: opacity .35s linear;
@@ -173,77 +172,86 @@ a, img {
   transform: translateY(100vh);
   display: flex;
   flex-direction: column;
-  padding: .5em 1em;
+  flex: 1 1 auto;
   z-index: 5;
+  color: red;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
-  * {
-    margin: .2em 0;
-    font-size: 1em;
-  }
+  .info-container {
+    flex: 1 1 auto;
+    padding: .5em 1em;
+    backdrop-filter: blur(@blurRadius);
 
-  .video-label {
-    font-size: 1.25em;
-    padding-top: .25em;
-  }
-
-  .movie-title {
-    font-size: 1.75em;
-    padding-bottom: .25em;
-  }
-
-  .movie-showtime {
-    font-size: .9em;
-    padding-bottom: .5em;
-  }
-
-  .movie-description {
-    font-size: .9em;
-    padding-bottom: .5em;
-  }
-
-  .movie-information {
-    overflow: hidden;
-
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      position: relative;
-      width: 100%;
-      max-width: 100%;
+    * {
+      margin: .2em 0;
+      font-size: 1em;
     }
 
-    caption {
-      .normal-font-weight;
-      text-align: left;
-      padding-bottom: .5em;
+    .video-label {
       font-size: 1.25em;
+      padding-top: .25em;
     }
 
-    tr {
-      font-size: .85em;
-      vertical-align: top;
+    .movie-title {
+      font-size: 1.75em;
+      padding-bottom: .25em;
+    }
 
-      & > td:first-child {
-        padding: 0;
-        text-align: right;
-        padding-right: 1em;
-        font-weight: bold;
-        padding-bottom: .3em;
-        width: 30%;
-        max-width: 30%;
+    .movie-showtime {
+      font-size: .9em;
+      padding-bottom: .5em;
+    }
+
+    .movie-description {
+      font-size: .9em;
+      padding-bottom: .5em;
+    }
+
+    .movie-information {
+      overflow: hidden;
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
       }
 
-      & > td:last-child {
+      caption {
         .normal-font-weight;
-        padding: 0;
         text-align: left;
-        padding-bottom: .3em;
-        width: 70%;
-        max-width: 70%;
+        padding-bottom: .5em;
+        font-size: 1.25em;
       }
 
-      td.movie-website {
-        color: @textActiveColor;
+      tr {
+        font-size: .85em;
+        vertical-align: top;
+
+        & > td:first-child {
+          padding: 0;
+          text-align: right;
+          padding-right: 1em;
+          font-weight: bold;
+          padding-bottom: .3em;
+          width: 30%;
+          max-width: 30%;
+        }
+
+        & > td:last-child {
+          .normal-font-weight;
+          padding: 0;
+          text-align: left;
+          padding-bottom: .3em;
+          width: 70%;
+          max-width: 70%;
+        }
+
+        td.movie-website {
+          color: @textActiveColor;
+        }
       }
     }
   }

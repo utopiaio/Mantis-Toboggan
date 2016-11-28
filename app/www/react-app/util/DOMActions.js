@@ -214,10 +214,59 @@ function enableScroll(enable = false, timeout = 0) {
   }
 }
 
+/**
+ * shows/hides .movie-411
+ *
+ * @param  {Boolean} show
+ * @param  {Number}  timeout
+ */
+function showMovie411(show = false, timeout = 0) {
+  const movie411 = window.document.querySelector('.movie-411');
+  const moviePoster = window.document.querySelector('.movie-poster');
+
+  // before moving up movie-411 set the padding-top...
+  let moviePosterHeight = window.getComputedStyle(moviePoster).height; // string
+  moviePosterHeight = Number(moviePosterHeight.substring(0, moviePosterHeight.length - 2)); // number
+
+  let screenHeight = window.getComputedStyle(window.document.body).height;
+  screenHeight = Number(screenHeight.substring(0, screenHeight.length - 2));
+  const screenHeight75 = Math.floor(screenHeight * 0.75);
+
+  movie411.style.paddingTop = `${moviePosterHeight < screenHeight75 ? moviePosterHeight : screenHeight75}px`;
+
+  switch (show) {
+    case true:
+      anime({
+        targets: movie411,
+        translateY: ['100vh', '0vh'],
+        easing: 'easeOutExpo',
+        delay: timeout,
+        duration: 500,
+        elasticity: 100,
+      });
+      return;
+
+    case false:
+      anime({
+        targets: movie411,
+        translateY: ['0vh', '100vh'],
+        easing: 'easeOutExpo',
+        delay: timeout,
+        duration: 500,
+        elasticity: 100,
+      });
+      return;
+
+    default:
+      console.warn(`Expected bool, instead got '${typeof show}'`);
+  }
+}
+
 module.exports = {
   showCloseButton,
   showMovieBackground,
   showPoster,
   setPosterSrc,
   enableScroll,
+  showMovie411,
 };

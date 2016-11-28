@@ -7,7 +7,7 @@ import history from '../config/history';
 import i18n from '../config/i18n';
 import store from '../redux/store';
 import { showtime } from '../redux/action/showtime';
-import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll } from '../util/DOMActions';
+import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll, showMovie411 } from '../util/DOMActions';
 
 import Header from './Header.jsx';
 import Menu from './Menu.jsx';
@@ -56,6 +56,7 @@ class Showtime extends Component {
     history.goBack();
     showMovieBackground(false);
     showCloseButton(false, 250);
+    showMovie411(false);
     enableScroll(true);
     showPoster(false).then(() => {
       setPosterSrc('');
@@ -96,53 +97,55 @@ class Showtime extends Component {
         <div className="view-movie-background" />
 
         <div className="movie-411">
-          <h2 className="light-font-weight movie-title _am_">Movie Title</h2>
-          <p className="movie-showtime _am_">Movie Showtime</p>
-          <p className="movie-description">Movie Description</p>
-          <table>
-            <caption className="_am_">{i18n[this.state.language].INFORMATION}</caption>
-            <tbody>
-              <tr>
-                <td>Rated</td>
-                <td>Rated</td>
-              </tr>
+          <div className="info-container">
+            <h2 className="light-font-weight movie-title _am_">Movie Title</h2>
+            <p className="movie-showtime _am_">Movie Showtime</p>
+            <p className="movie-description">Movie Description</p>
+            <table>
+              <caption className="_am_">{i18n[this.state.language].INFORMATION}</caption>
+              <tbody>
+                <tr>
+                  <td>Rated</td>
+                  <td>Rated</td>
+                </tr>
 
-              <tr>
-                <td>Released</td>
-                <td>Released</td>
-              </tr>
+                <tr>
+                  <td>Released</td>
+                  <td>Released</td>
+                </tr>
 
-              <tr>
-                <td>Genre</td>
-                <td>Genre</td>
-              </tr>
+                <tr>
+                  <td>Genre</td>
+                  <td>Genre</td>
+                </tr>
 
-              <tr>
-                <td>Director</td>
-                <td>Director</td>
-              </tr>
+                <tr>
+                  <td>Director</td>
+                  <td>Director</td>
+                </tr>
 
-              <tr>
-                <td>Cast</td>
-                <td>Cast List</td>
-              </tr>
+                <tr>
+                  <td>Cast</td>
+                  <td>Cast List</td>
+                </tr>
 
-              <tr>
-                <td>Run Time</td>
-                <td>Run Time</td>
-              </tr>
+                <tr>
+                  <td>Run Time</td>
+                  <td>Run Time</td>
+                </tr>
 
-              <tr>
-                <td>Website</td>
-                <td
-                  className={`${'website' === 'N/A' ? '' : 'active'}`}
-                  onClick={() => this.openWebsite('this state')}
-                >
-                  Website...
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                <tr>
+                  <td>Website</td>
+                  <td
+                    className={`${'website' === 'N/A' ? '' : 'active'}`}
+                    onClick={() => this.openWebsite('this state')}
+                  >
+                    Website...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );
