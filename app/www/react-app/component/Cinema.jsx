@@ -54,7 +54,12 @@ class Cinema extends Component {
       <div className="view-showtime-list">
         {
           this.state.show[this.props.params.cinema].map((movie, index) =>
-            <Link key={index} to={`/show/${this.props.params.cinema}/${index}`} className="movie-container" activeClassName="active">
+            <Link
+              key={index}
+              to={`/show/${this.props.params.cinema}/${index}`}
+              className="movie-container"
+              activeClassName="active"
+            >
               <div className="poster-container">
                 <img
                   className="img-poster"
