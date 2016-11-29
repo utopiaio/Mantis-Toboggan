@@ -20,29 +20,38 @@ function showCloseButton(show = true, timeout = 0) {
 
   switch (show) {
     case true:
-      anime({
-        targets: closeButton,
-        translateY: ['-2em', '0em'],
-        easing: 'easeOutExpo',
-        delay: timeout,
-        duration: 500,
-        elasticity: 100,
+      return new Promise((resolve) => {
+        anime({
+          targets: closeButton,
+          translateY: ['-2em', '0em'],
+          easing: 'easeOutExpo',
+          delay: timeout,
+          duration: 500,
+          elasticity: 100,
+          complete() {
+            resolve();
+          },
+        });
       });
-      return;
 
     case false:
-      anime({
-        targets: closeButton,
-        translateY: ['0em', '-2em'],
-        easing: 'easeOutExpo',
-        delay: timeout,
-        duration: 500,
-        elasticity: 100,
+      return new Promise((resolve) => {
+        anime({
+          targets: closeButton,
+          translateY: ['0em', '-2em'],
+          easing: 'easeOutExpo',
+          delay: timeout,
+          duration: 500,
+          elasticity: 100,
+          complete() {
+            resolve();
+          },
+        });
       });
-      return;
 
     default:
       console.warn(`Expected bool, instead got '${typeof show}'`);
+      return undefined;
   }
 }
 
