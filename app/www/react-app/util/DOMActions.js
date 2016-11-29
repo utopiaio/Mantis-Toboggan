@@ -3,6 +3,8 @@
 
 import anime from 'animejs';
 
+import { PLACEHOLDER_POSTER } from '../config/image';
+
 /**
  * this file contains _functions_ that do RAW DOM manipulations.
  * keeping our React Components _free_ of DOM hassle
@@ -107,7 +109,7 @@ function showPoster(show = true, src = '') {
       screenWidth = Number(screenWidth.substring(0, screenWidth.length - 2));
 
       // overlaying image on the active poster...
-      moviePoster.src = src;
+      moviePoster.src = src || PLACEHOLDER_POSTER;
       moviePoster.style.top = `${top}px`;
       moviePoster.style.left = `${left}px`;
       moviePoster.style.width = width;
