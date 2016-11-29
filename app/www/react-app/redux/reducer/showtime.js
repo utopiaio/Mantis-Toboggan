@@ -1,4 +1,4 @@
-import { SHOWTIME, POSTER, LANGUAGE, THEME, LOADING } from './../constant/showtime';
+import { SHOWTIME, POSTER, LANGUAGE, THEME, LOADING, MOVIE } from './../constant/showtime';
 
 function showtime(state = {
   showtime: {
@@ -14,6 +14,7 @@ function showtime(state = {
     },
   },
   poster: Object.create(null),
+  movie: null,
   language: 'en',
   theme: 'night',
   loading: false,
@@ -21,6 +22,9 @@ function showtime(state = {
   switch (action.type) {
     case SHOWTIME:
       return Object.assign({}, state, { showtime: action.showtime });
+
+    case MOVIE:
+      return Object.assign({}, state, { movie: action.movie });
 
     case POSTER:
       return Object.assign({}, state, { poster: action.poster });

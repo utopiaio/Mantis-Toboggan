@@ -4,7 +4,7 @@
 import localforage from 'localforage';
 import request from 'superagent';
 
-import { SHOWTIME, LANGUAGE, THEME, POSTER, LOADING, LF_SHOWTIME, LF_LANGUAGE, LF_THEME, LF_POSTER, API, POSTER_API } from './../constant/showtime';
+import { SHOWTIME, LANGUAGE, THEME, POSTER, LOADING, MOVIE, LF_SHOWTIME, LF_LANGUAGE, LF_THEME, LF_POSTER, API, POSTER_API } from './../constant/showtime';
 import store from './../store';
 
 // configuring localforage...
@@ -229,10 +229,23 @@ function loading(l) {
   });
 }
 
+/**
+ * dispatch movie
+ *
+ * @param  {Object | null} m
+ */
+function activeMovie(movie) {
+  store.dispatch({
+    type: MOVIE,
+    movie,
+  });
+}
+
 module.exports = {
   showtime,
   poster,
   language,
   theme,
   loading,
+  activeMovie,
 };
