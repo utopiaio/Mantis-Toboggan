@@ -228,7 +228,7 @@ function showMovie411(show = false, timeout = 0) {
 
   // before moving up movie-411 set the padding-top...
   let moviePosterHeight = window.getComputedStyle(moviePoster).height; // string
-  moviePosterHeight = Number(moviePosterHeight.substring(0, moviePosterHeight.length - 2)); // number
+  moviePosterHeight = Number(moviePosterHeight.substring(0, moviePosterHeight.length - 2));
 
   let screenHeight = window.getComputedStyle(window.document.body).height;
   screenHeight = Number(screenHeight.substring(0, screenHeight.length - 2));
@@ -238,29 +238,34 @@ function showMovie411(show = false, timeout = 0) {
 
   switch (show) {
     case true:
-      anime({
-        targets: movie411,
-        translateY: ['100vh', '0vh'],
-        easing: 'easeOutExpo',
-        delay: timeout,
-        duration: 500,
-        elasticity: 100,
+      return new Promise((resolve) => {
+        movie411.style.opacity = '1';
+
+        anime({
+          targets: movie411,
+          translateY: ['100vh', '0vh'],
+          easing: 'easeOutExpo',
+          delay: timeout,
+          duration: 500,
+          elasticity: 100,
+          complete() {
+            resolve();
+          },
+        });
       });
-      return;
 
     case false:
-      anime({
-        targets: movie411,
-        translateY: ['0vh', '100vh'],
-        easing: 'easeOutExpo',
-        delay: timeout,
-        duration: 500,
-        elasticity: 100,
+      return new Promise((resolve) => {
+        movie411.style.opacity = '0';
+        setTimeout(() => {
+          movie411.style.transform = 'translateY(100vh)';
+          resolve();
+        }, timeout);
       });
-      return;
 
     default:
       console.warn(`Expected bool, instead got '${typeof show}'`);
+      return undefined;
   }
 }
 
