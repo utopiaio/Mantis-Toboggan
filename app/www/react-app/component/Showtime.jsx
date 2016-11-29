@@ -178,7 +178,7 @@ class Showtime extends Component {
             }
             <button
               style={{ margin: '1em 0% 1em 10%', width: '80%', padding: '.75em', minWidth: '12em' }}
-              className="btn"
+              className={`btn ${amClass(this.state.language)}`}
               onClick={this.goBack}
             >{i18n[this.state.language].CLOSE}</button>
           </div>
