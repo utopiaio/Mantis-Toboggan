@@ -4,21 +4,10 @@
 import React, { Component, PropTypes } from 'react';
 
 import store from '../redux/store';
+import { activeMovie } from '../redux/action/showtime';
 import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll, showMovie411 } from '../util/DOMActions';
 
 class Movie extends Component {
-  constructor(props) {
-    super(props);
-
-    const state = store.getState();
-    const { cinema, movie } = this.props.params;
-
-    this.state = {
-      poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
-      movie: state.showtime.show[cinema][movie] || Object.create(null),
-    };
-  }
-
   componentWillMount() {
     enableScroll(false);
 
@@ -30,22 +19,19 @@ class Movie extends Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      const state = store.getState();
-      const { cinema, movie } = this.props.params;
-
-      this.setState({
-        poster: state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : ''],
-        movie: state.showtime.show[cinema][movie] || Object.create(null),
-      }, () => {
-        setPosterSrc(this.state.poster);
-      });
-    });
+    let state = store.getState();
+    const { cinema, movie } = this.props.params;
 
     showMovieBackground(true);
-    showPoster(true, this.state.poster).then(() => {
+    activeMovie(state.showtime.show[cinema][movie] || Object.create(null));
+    showPoster(true, state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : '']).then(() => {
       showCloseButton(true);
       showMovie411(true);
+    });
+
+    this.unsubscribe = store.subscribe(() => {
+      state = store.getState();
+      setPosterSrc(state.poster[state.showtime.show[cinema][movie] ? state.showtime.show[cinema][movie].poster : '']);
     });
   }
 
