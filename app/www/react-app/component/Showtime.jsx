@@ -4,9 +4,11 @@
 import React, { Component, PropTypes } from 'react';
 
 import history from '../config/history';
-import i18n from '../config/i18n';
 import store from '../redux/store';
-import { showtime } from '../redux/action/showtime';
+import i18n from '../config/i18n';
+import amClass from '../util/amClass';
+import containsFidel from '../util/containsFidel';
+import { showtime, activeMovie } from '../redux/action/showtime';
 import { showCloseButton, showMovieBackground, showPoster, setPosterSrc, enableScroll, showMovie411 } from '../util/DOMActions';
 
 import Header from './Header.jsx';
@@ -29,6 +31,7 @@ class Showtime extends Component {
           gc: '1991-9-8',
         },
       },
+      movie: null,
       theme: 'night',
       language: 'en',
     };
@@ -60,6 +63,7 @@ class Showtime extends Component {
     enableScroll(true);
     showPoster(false).then(() => {
       setPosterSrc('');
+      activeMovie(null);
     });
   }
 
@@ -98,53 +102,73 @@ class Showtime extends Component {
 
         <div className="movie-411">
           <div className="info-container">
-            <h2 className="light-font-weight movie-title _am_">Movie Title</h2>
-            <p className="movie-showtime _am_">Movie Showtime</p>
-            <p className="movie-description">Movie Description</p>
-            <table>
-              <caption className="_am_">{i18n[this.state.language].INFORMATION}</caption>
-              <tbody>
-                <tr>
-                  <td>Rated</td>
-                  <td>Rated</td>
-                </tr>
+            <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie && this.state.movie.title) ? '_am_' : ''}`}>{this.state.movie && this.state.movie.title}</h2>
+            <p className="movie-showtime _am_">{this.state.movie && this.state.movie.time}</p>
+            <p className="movie-description">{this.state.movie && this.state.movie.omdb && this.state.movie.omdb.Plot}</p>
+            {
+              (this.state.movie && this.state.movie.omdb) ? <h3 className={`movie-information ${amClass(this.state.language)}`}>
+                <table>
+                  <caption>{i18n[this.state.language].INFORMATION}</caption>
+                  <tbody>
+                    <tr>
+                      <td>Rated</td>
+                      <td>{ this.state.movie.omdb.Rated }</td>
+                    </tr>
 
-                <tr>
-                  <td>Released</td>
-                  <td>Released</td>
-                </tr>
+                    <tr>
+                      <td>Released</td>
+                      <td>{ this.state.movie.omdb.Released }</td>
+                    </tr>
 
-                <tr>
-                  <td>Genre</td>
-                  <td>Genre</td>
-                </tr>
+                    <tr>
+                      <td>Genre</td>
+                      <td>{ this.state.movie.omdb.Genre }</td>
+                    </tr>
 
-                <tr>
-                  <td>Director</td>
-                  <td>Director</td>
-                </tr>
+                    <tr>
+                      <td>Director</td>
+                      <td>{ this.state.movie.omdb.Director }</td>
+                    </tr>
 
-                <tr>
-                  <td>Cast</td>
-                  <td>Cast List</td>
-                </tr>
+                    <tr>
+                      <td>Cast</td>
+                      <td>{ this.state.movie.omdb.Actors }</td>
+                    </tr>
 
-                <tr>
-                  <td>Run Time</td>
-                  <td>Run Time</td>
-                </tr>
+                    <tr>
+                      <td>Run Time</td>
+                      <td>{ this.state.movie.omdb.Runtime }</td>
+                    </tr>
 
-                <tr>
-                  <td>Website</td>
-                  <td
-                    className={`${'website' === 'N/A' ? '' : 'active'}`}
-                    onClick={() => this.openWebsite('this state')}
-                  >
-                    Website...
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    <tr>
+                      <td>Website</td>
+                      <td
+                        className={`${this.state.movie.omdb.Website === 'N/A' ? '' : 'movie-website'}`}
+                        onClick={() => this.openWebsite(this.state.movie.omdb.Website)}
+                      >
+                        <span>{ this.state.movie.omdb.Website.substring(0, 24) }</span>
+                        { this.state.movie.omdb.Website.length > 24 ? <span>...</span> : <span /> }
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </h3> : <span />
+            }
+            {
+              (this.state.movie && this.state.movie.video) ? <div>
+                <div className={`video-label ${amClass(this.state.language)}>{i18n[this.state.language].VIDEO}`}>
+                  {i18n[this.state.language].VIDEO}
+                </div>
+
+                <div className="video-container">
+                  <iframe
+                    src={this.state.movie.video}
+                    frameBorder="0"
+                    allowFullScreen
+                  />
+                </div>
+              </div> : <span />
+            }
           </div>
         </div>
       </div>
