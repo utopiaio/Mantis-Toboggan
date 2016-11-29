@@ -36,10 +36,6 @@ class Movie extends Component {
   }
 
   componentWillUnmount() {
-    if (window.StatusBar !== undefined) {
-      window.StatusBar.show();
-    }
-
     this.unsubscribe();
   }
 

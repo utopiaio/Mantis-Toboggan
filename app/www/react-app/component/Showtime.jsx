@@ -58,7 +58,11 @@ class Showtime extends Component {
   goBack() {
     history.goBack();
     showMovieBackground(false);
-    showCloseButton(false, 250);
+    showCloseButton(false, 250).then(() => {
+      if (window.StatusBar !== undefined) {
+        window.StatusBar.show();
+      }
+    });
     enableScroll(true);
     showMovie411(false, 250).then(() => {
       showPoster(false).then(() => {
@@ -173,7 +177,7 @@ class Showtime extends Component {
               </div> : <span />
             }
             <button
-              style={{ margin: '1em 0% 2em 10%', width: '80%', padding: '.75em', minWidth: '12em' }}
+              style={{ margin: '1em 0% 1em 10%', width: '80%', padding: '.75em', minWidth: '12em' }}
               className="btn"
               onClick={this.goBack}
             >{i18n[this.state.language].CLOSE}</button>
