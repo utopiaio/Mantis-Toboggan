@@ -151,7 +151,7 @@ a, img {
   overflow-y: hidden;
   z-index: 3;
   opacity: 0;
-  transition: opacity .35s linear;
+  transition: opacity .35s ease-out;
 }
 
 // this will be placed over the taped movie then grows to fill the screen
@@ -174,9 +174,9 @@ a, img {
   flex-direction: column;
   flex: 1 1 auto;
   z-index: 5;
-  color: red;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  transition: opacity .35s ease-out;
 
   .info-container {
     flex: 1 1 auto;
@@ -359,7 +359,7 @@ a, img {
           width: 100%;
           height: auto;
           border-radius: .25em;
-          transition: height 250ms linear;
+          transition: height 250ms ease-out;
         }
       }
 
