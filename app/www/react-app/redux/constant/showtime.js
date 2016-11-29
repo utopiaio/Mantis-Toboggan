@@ -3,6 +3,7 @@ const LANGUAGE = 'LANGUAGE';
 const THEME = 'THEME';
 const LOADING = 'LOADING';
 const POSTER = 'POSTER';
+const MOVIE = 'MOVIE';
 
 // Localforage
 const LF_SHOWTIME = 'SHOWTIME';
@@ -20,6 +21,7 @@ module.exports = {
   THEME,
   POSTER,
   LOADING,
+  MOVIE,
 
   LF_SHOWTIME,
   LF_LANGUAGE,

@@ -20,6 +20,7 @@ const store = createStore(
       },
     },
     poster: Object.create(null),
+    movie: Object.create(null),
     language: 'en',
     theme: 'night',
     loading: false,
