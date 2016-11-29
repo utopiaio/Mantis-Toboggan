@@ -104,7 +104,9 @@ class Showtime extends Component {
           <div className="info-container">
             <h2 className={`light-font-weight movie-title ${containsFidel(this.state.movie && this.state.movie.title) ? '_am_' : ''}`}>{this.state.movie && this.state.movie.title}</h2>
             <p className="movie-showtime _am_">{this.state.movie && this.state.movie.time}</p>
-            <p className="movie-description">{this.state.movie && this.state.movie.omdb && this.state.movie.omdb.Plot}</p>
+            <p className="movie-description">
+              { this.state.movie && this.state.movie.omdb && this.state.movie.omdb.Plot }
+            </p>
             {
               (this.state.movie && this.state.movie.omdb) ? <h3 className={`movie-information ${amClass(this.state.language)}`}>
                 <table>
@@ -169,6 +171,11 @@ class Showtime extends Component {
                 </div>
               </div> : <span />
             }
+            <button
+              style={{ margin: '1em 0% 2em 10%', width: '80%', padding: '.75em', minWidth: '12em' }}
+              className="btn"
+              onClick={this.goBack}
+            >{i18n[this.state.language].CLOSE}</button>
           </div>
         </div>
       </div>
