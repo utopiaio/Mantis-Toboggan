@@ -13,8 +13,9 @@ const moedoo = require('./lib/moedoo')(process.env.DATABASE_URL || {
   DB_PORT: config.DB_PORT,
   DB_NAME: config.DB_NAME,
 });
-const a = require('./lib/a')(moedoo);
-const posterCache = require('./lib/posterCache');
+
+const api = require('./routes/api');
+const poster = require('./routes/poster');
 
 moedoo.query(`
   CREATE TABLE IF NOT EXISTS detail(
@@ -52,32 +53,10 @@ moedoo.query(`
     app.use(compression());
 
     // API...
-    app.get('/api', (request, response) => {
-      a().then((info) => {
-        response.status(200).json(info).end();
-      });
-    });
+    app.get('/api', api(moedoo));
 
     // Poster...
-    app.get('/poster', (request, response) => {
-      if (Object.prototype.hasOwnProperty.call(request.query, 'url')) {
-        posterCache(moedoo, request.query.url)
-          .then((base64) => {
-            response
-              .set('Content-Type', 'text/plain')
-              .status(200)
-              .send(base64)
-              .end();
-          })
-          .catch((error) => {
-            response.status(400).json({
-              error,
-            }).end();
-          });
-      } else {
-        response.status(400).end();
-      }
-    });
+    app.get('/poster', poster(moedoo));
 
     // fall-back handler...
     app.all('*', (request, response) => {
