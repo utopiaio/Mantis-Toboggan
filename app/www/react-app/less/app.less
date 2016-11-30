@@ -65,7 +65,6 @@ body {
 
 a, img {
   -webkit-touch-callout: none !important; // disable context menu
-  -webkit-user-select: none !important; // disable user select
 }
 
 // theme does not affect active class
@@ -91,16 +90,10 @@ a, img {
   border-radius: 2em;
   transition: all 250ms ease;
   color: @textActiveColor;
-
-  &-sm {
-    min-height: 1em;
-    padding: 0;
-    font-size: .8em;
-  }
 }
 
 [class*="showtime-"] {
-  transition: all 250ms ease-in;
+  transition: all 250ms ease-out;
 }
 
 .showtime-app {
@@ -310,7 +303,6 @@ a, img {
         flex-direction: column;
         align-items: center;
         text-decoration: none;
-        // color: @textActiveColor;
         margin-bottom: .75em;
         padding: .5em;
 

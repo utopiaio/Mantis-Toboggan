@@ -77,6 +77,7 @@ class Cinema extends Component {
                       <img
                         className="movie-score-img"
                         alt="tomato meter"
+                        // eslint-disable-next-line
                         src={Number(movie.omdb.tomatoMeter) > 70 ? CERTIFIED_FRESH : Number(movie.omdb.tomatoMeter) > 59 ? FRESH_TOMATO : ROTTEN}
                       />
                       <span className="movie-score">{movie.omdb.tomatoMeter}</span>

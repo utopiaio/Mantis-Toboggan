@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 
-import Spinner from './Spinner.jsx';
 import amClass from './../util/amClass';
+
+import Spinner from './Spinner.jsx';
 
 function Header({ language, refresh, loading, ec, gc }) {
   return (

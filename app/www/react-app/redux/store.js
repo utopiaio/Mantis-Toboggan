@@ -25,7 +25,7 @@ const store = createStore(
     theme: 'night',
     loading: false,
   },
-  window.devToolsExtension ? window.devToolsExtension() : undefined
+  window.devToolsExtension ? window.devToolsExtension() : undefined,
 );
 
 module.exports = store;
