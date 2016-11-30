@@ -11,7 +11,7 @@ import { PLACEHOLDER_POSTER } from '../config/image';
  */
 
 /**
- * shows or hides .close-button
+ * shows/hides .close-button
  *
  * @param  {Boolean} show
  */
@@ -56,7 +56,8 @@ function showCloseButton(show = true, timeout = 0) {
 }
 
 /**
- * shows or hides .view-movie-background
+ * shows/hides .view-movie-background
+ *
  * @param  {Boolean} show
  * @param {Number} timeout
  */
@@ -84,7 +85,8 @@ function showMovieBackground(show = true, timeout = 0) {
 }
 
 /**
- * shows or hides .movie-poster
+ * shows/hides .movie-poster
+ *
  * @param  {Boolean} show
  * @param  {String} src
  * @return {Promise | undefined}

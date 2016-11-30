@@ -163,7 +163,7 @@ class Showtime extends Component {
             }
             {
               (this.state.movie && this.state.movie.video) ? <div>
-                <div className={`video-label ${amClass(this.state.language)}>{i18n[this.state.language].VIDEO}`}>
+                <div className={`video-label ${amClass(this.state.language)}`}>
                   {i18n[this.state.language].VIDEO}
                 </div>
 
