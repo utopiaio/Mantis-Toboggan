@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import RickCinemaInfo from './RickCinemaInfo.jsx';
+import CinemaInfo from './CinemaInfo.jsx';
 import store from '../redux/store';
 import i18n from '../config/i18n';
 import geez from './../util/geez';
@@ -62,21 +62,21 @@ class Rick extends Component {
         </h1>
 
         <div className="cinema-movie-count-container">
-          <RickCinemaInfo
+          <CinemaInfo
             to="/show/c3"
             language={this.state.language}
             cinemaLabel={this.state.language === 'am' ? '፫' : '3'}
             movieCount={uniqueMoviesPerCinema.c3}
           />
 
-          <RickCinemaInfo
+          <CinemaInfo
             to="/show/c2"
             language={this.state.language}
             cinemaLabel={this.state.language === 'am' ? '፪' : '2'}
             movieCount={uniqueMoviesPerCinema.c2}
           />
 
-          <RickCinemaInfo
+          <CinemaInfo
             to="/show/c1"
             language={this.state.language}
             cinemaLabel={this.state.language === 'am' ? '፩' : '1'}

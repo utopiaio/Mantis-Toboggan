@@ -5,7 +5,7 @@ import i18n from '../config/i18n';
 import geez from './../util/geez';
 import amClass from './../util/amClass';
 
-function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
+function CinemaInfo({ to, language, cinemaLabel, movieCount }) {
   return (
     <Link to={to} activeClassName="active" className="btn cinema-movie-count">
       <div className={amClass(language)}>
@@ -22,13 +22,13 @@ function RickCinemaInfo({ to, language, cinemaLabel, movieCount }) {
   );
 }
 
-RickCinemaInfo.propTypes = {
+CinemaInfo.propTypes = {
   to: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired,
   cinemaLabel: PropTypes.string.isRequired,
   movieCount: PropTypes.number.isRequired,
 };
 
-RickCinemaInfo.defaultProps = {};
+CinemaInfo.defaultProps = {};
 
-module.exports = RickCinemaInfo;
+module.exports = CinemaInfo;
