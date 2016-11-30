@@ -47,18 +47,21 @@ class Setting extends Component {
     return (
       <div className="view-setting">
         <i className="icon-setting" />
+
         <button
           onClick={() => this.changeLanguage()}
           className={`btn ${amClass(this.state.language)}`}
         >
           { i18n[this.state.language].CHANGE_LANGUAGE }
         </button>
+
         <button
           onClick={() => this.changeTheme()}
           className={`btn ${amClass(this.state.language)}`}
         >
           { i18n[this.state.language].CHANGE_THEME }
         </button>
+
         <button
           onClick={() => this.open('mailto:moe.heroku@gmail.com?subject=Feedback')}
           className={`btn ${amClass(this.state.language)}`}

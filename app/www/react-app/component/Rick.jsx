@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import CinemaInfo from './CinemaInfo.jsx';
 import store from '../redux/store';
 import i18n from '../config/i18n';
 import geez from './../util/geez';
 import amClass from './../util/amClass';
+
+import CinemaInfo from './CinemaInfo.jsx';
 
 class Rick extends Component {
   constructor(props) {
