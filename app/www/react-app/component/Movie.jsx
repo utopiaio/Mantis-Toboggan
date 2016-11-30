@@ -1,6 +1,13 @@
 /* global window */
 /* eslint no-console: 0 */
 
+/**
+ * This component is used mainly to trigger DOM functions.
+ * this component can be removed and be handled via <Showtime /> component API *but*
+ * having an entry point and confining actions it better, even if that component doesn't
+ * "display" anything.
+ */
+
 import React, { Component, PropTypes } from 'react';
 
 import store from '../redux/store';
