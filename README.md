@@ -1,6 +1,6 @@
 # Showtime 3.0
 
-[Edna Mall's](http://ednamall.co/) multiplex unofficial API and iOS App. Works Offline, Rotten Tomatoes rating, Movie Plot & Trailer video. You can Showtime demo [here 🎥](https://vimeo.com/194029357)
+[Edna Mall's](http://ednamall.co/) multiplex unofficial API and iOS App. Works Offline, Rotten Tomatoes rating, Movie Plot & Trailer video. You can see Showtime demo [here 🎥](https://vimeo.com/194029357)
 
 ## Stack
 Showtime 3.0 is built using [Express](http://expressjs.com/), [PostgreSQL](http://postgresql.org/), [React](https://github.com/facebook/react), [Redux](http://github.com/reactjs/redux), [React Router](https://github.com/ReactTraining/react-router), [Anime](https://github.com/juliangarnier/anime), [Cordova](https://cordova.apache.org) and [Ionic CLI](https://github.com/driftyco/ionic-cli).
