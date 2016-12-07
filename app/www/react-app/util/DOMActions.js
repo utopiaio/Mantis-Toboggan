@@ -114,10 +114,7 @@ function showPoster(show = true, src = '') {
       const { top, left } = rect; // number
       let width = window.getComputedStyle(activePoster).width; // string
       width = Number(width.substring(0, width.length - 2)); // number
-      // Not using window.screen.width because on Safari it returns the Mac's screen width, not
-      // the phone width (even in responsive mode)
-      let screenWidth = window.getComputedStyle(window.document.body).width;
-      screenWidth = Number(screenWidth.substring(0, screenWidth.length - 2));
+      const screenWidth = window.screen.availWidth + 1;
 
       // overlaying image on the active poster...
       moviePoster.src = src || PLACEHOLDER_POSTER;
@@ -137,7 +134,7 @@ function showPoster(show = true, src = '') {
         anime({
           targets: moviePoster,
           translateY: ['0px', `${top > 0 ? `-${top}` : Math.abs(top)}px`],
-          translateX: ['0px', `-${left}px`],
+          translateX: ['0px', `-${left + 1}px`],
           width: [`${width}px`, `${screenWidth}px`],
           easing: 'easeOutExpo',
           duration: 500,
@@ -162,7 +159,7 @@ function showPoster(show = true, src = '') {
         anime({
           targets: moviePoster,
           translateY: [`-${top}px`, '0px'],
-          translateX: [`-${left}px`, '0px'],
+          translateX: [`-${left + 1}px`, '0px'],
           width: [`${screenWidth}px`, `${width}px`],
           easing: 'easeOutExpo',
           duration: 500,
