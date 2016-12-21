@@ -10,7 +10,7 @@ const DB_PORT = 5432;
 const DB_NAME = 'showtime';
 const APP_HOST = '0.0.0.0';
 const APP_PORT = '8000';
-const EDNA_URL = 'http://ednamall.co/';
+const EDNA_URL = 'http://ednamall.co/schedule.php';
 
 module.exports = {
   DB_HOST,
