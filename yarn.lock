@@ -233,6 +233,10 @@ etag@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
 
+ethiopic-calendar:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ethiopic-calendar/-/ethiopic-calendar-2.0.0.tgz#353e457e8ff093389f6730fb316a4705da12caea"
+
 express@^4.14.0:
   version "4.14.0"
   resolved "https://registry.yarnpkg.com/express/-/express-4.14.0.tgz#c1ee3f42cdc891fb3dc650a8922d51ec847d0d66"
@@ -309,6 +313,10 @@ fs.realpath@^1.0.0:
 function-bind@^1.0.2, function-bind@^1.1.0, function-bind@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
+
+geezer:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/geezer/-/geezer-1.0.1.tgz#88a3ba8b6a1471d048b8df03feda072138b89a2d"
 
 generic-pool@2.4.2:
   version "2.4.2"
