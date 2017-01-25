@@ -18,13 +18,6 @@ const api = require('./routes/api');
 const poster = require('./routes/poster');
 
 moedoo.query(`
-  CREATE TABLE IF NOT EXISTS detail(
-    detail character varying(1024) NOT NULL,
-    video character varying(1024),
-    created_at Date DEFAULT now(),
-    CONSTRAINT detail_pk PRIMARY KEY (detail)
-  );
-
   CREATE TABLE IF NOT EXISTS omdb(
     title character varying(128) NOT NULL,
     detail jsonb,
@@ -40,7 +33,6 @@ moedoo.query(`
   );
 
   -- the following three can be one
-  DELETE FROM detail WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';
   DELETE FROM omdb WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';
   DELETE FROM poster WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';`).then(() => {
     const app = express();
