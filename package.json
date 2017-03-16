@@ -23,7 +23,6 @@
     "tape": "^4.6.2"
   },
   "engines": {
-    "node": "7.x.x",
-    "npm": "latest"
+    "node": "7.x.x"
   }
 }
