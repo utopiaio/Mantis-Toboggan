@@ -5,9 +5,8 @@ module.exports = moedoo => (request, response) => {
     posterCache(moedoo, request.query.url)
       .then((base64) => {
         response.set('Content-Type', 'text/plain').status(200).send(base64).end();
-      })
-      .catch((error) => {
-        response.status(503).json(error).end();
+      }, (err) => {
+        response.status(503).json(err).end();
       });
   } else {
     response.status(400).end();
