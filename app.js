@@ -65,7 +65,7 @@ moedoo.query(`
 
     const server = http.createServer(app); // creating server which express will piggy back on
     server.listen(app.get('port'), config.APP_HOST, () => {
-      console.log(`Server running on ${config.APP_HOST}:${config.APP_PORT}...`);
+      console.log(`Server running on ${config.APP_HOST}:${process.env.PORT || config.APP_PORT}...`);
     });
   })
   .catch((err) => {
