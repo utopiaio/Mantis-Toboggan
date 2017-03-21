@@ -46,9 +46,10 @@ moedoo.query(`
 
       if (req.method === 'OPTIONS') {
         res.status(200).end();
-      } else {
-        next();
+        return;
       }
+
+      next();
     });
     app.use(compression());
 
@@ -67,7 +68,6 @@ moedoo.query(`
     server.listen(app.get('port'), config.APP_HOST, () => {
       console.log(`Server running on ${config.APP_HOST}:${process.env.PORT || config.APP_PORT}...`);
     });
-  })
-  .catch((err) => {
+  }, (err) => {
     console.error(err);
   });
