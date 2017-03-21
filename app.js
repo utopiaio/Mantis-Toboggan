@@ -33,7 +33,7 @@ moedoo.query(`
   );
 
   -- the following three can be one
-  DELETE FROM omdb WHERE created_at < '${moment().format('YYYY-MM-DD')}';
+  DELETE FROM omdb WHERE created_at < '${moment().subtract(5, 'days').format('YYYY-MM-DD')}';
   DELETE FROM poster WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';`).then(() => {
     const app = express();
     app.set('port', process.env.PORT || config.APP_PORT);
