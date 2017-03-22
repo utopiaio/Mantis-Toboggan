@@ -360,9 +360,9 @@ lodash.some@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
 
-lw5@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/lw5/-/lw5-1.1.0.tgz#0aa62f6ad67af3f158e42b00ff062d4a9501e941"
+lw5@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lw5/-/lw5-1.1.1.tgz#328db052c61764345bfe1535fe572ed70e103dea"
   dependencies:
     axios "^0.15.3"
     cheerio "^0.22.0"
