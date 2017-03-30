@@ -15,7 +15,7 @@
     "ethiopic-calendar": "^2.0.0",
     "express": "^4.14.0",
     "geezer": "^1.0.1",
-    "lw5": "^2.0.4",
+    "lw5": "^2.0.5",
     "moment": "^2.15.2",
     "pg": "^6.1.0",
     "superagent": "^2.3.0"
