@@ -7,8 +7,8 @@ module.exports = (moedoo) => {
     am()
       .then((info) => {
         response.status(200).json(info).end();
-      }, (err) => {
-        response.status(503).json(err).end();
+      }, () => {
+        response.status(418).end();
       });
   };
 };
