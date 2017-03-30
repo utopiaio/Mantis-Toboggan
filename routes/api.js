@@ -7,8 +7,12 @@ module.exports = (moedoo) => {
     am()
       .then((info) => {
         response.status(200).json(info).end();
-      }, () => {
-        response.status(418).end();
+      }, (err) => {
+        if (err === '¯\\_(ツ)_/¯') {
+          response.status(418).end();
+        } else {
+          response.status(503).json(err).end();
+        }
       });
   };
 };
