@@ -1,5 +1,5 @@
 /**
- * This object export is used to fix title typos from Ethio-Yello pages
+ * This object export is used to fix title typos from Ethio-Yellow pages
  * so Lethal Weapon 5 can do its thing
  *
  * Structure:
