@@ -8,6 +8,7 @@
 
 const typos = {
   'Guardians of the Galaxy2': 'Guardians of the Galaxy Vol. 2',
+  'Guardians of the Galaxy 2': 'Guardians of the Galaxy Vol. 2',
 };
 
 module.exports = (title) => {
