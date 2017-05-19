@@ -10,6 +10,7 @@ const typos = {
   'Guardians of the Galaxy2': 'Guardians of the Galaxy Vol. 2',
   'Guardians of the Galaxy 2': 'Guardians of the Galaxy Vol. 2',
   'King Arthur: The Legend of the Sword': 'King Arthur: Legend of the Sword',
+  'Alien Covenant': 'Alien: Covenant',
 };
 
 module.exports = (title) => {
