@@ -12,6 +12,7 @@ const typos = {
   'King Arthur: The Legend of the Sword': 'King Arthur: Legend of the Sword',
   'Alien Covenant': 'Alien: Covenant',
   'Fate of the Furious': 'The Fate of the Furious',
+  'Fast and Furious 8': 'The Fate of the Furious',
 };
 
 module.exports = (title) => {
