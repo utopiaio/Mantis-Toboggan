@@ -13,6 +13,7 @@ const typos = {
   'Alien Covenant': 'Alien: Covenant',
   'Fate of the Furious': 'The Fate of the Furious',
   'Fast and Furious 8': 'The Fate of the Furious',
+  "The Zoo Keeper's Wife": "The Zookeeper's Wife",
 };
 
 module.exports = (title) => {
