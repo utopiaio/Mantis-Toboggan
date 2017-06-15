@@ -15,6 +15,7 @@ const typos = {
   'Fast and Furious 8': 'The Fate of the Furious',
   "The Zoo Keeper's Wife": "The Zookeeper's Wife",
   'The Exception': "The Exception (The Kaiser's Last Kiss)",
+  'Pirates Of the Caribbean': 'Pirates of The Caribbean: Dead Men Tell No Tales',
 };
 
 module.exports = (title) => {
