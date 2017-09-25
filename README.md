@@ -1,4 +1,4 @@
-![Mantis Toboggan](https://raw.githubusercontent.com/moe-szyslak/Mantis-Toboggan/master/Mantis-Toboggan.png "Mantis Toboggan")
+![Mantis Toboggan](https://raw.githubusercontent.com/utopiaio/Mantis-Toboggan/master/Mantis-Toboggan.png "Mantis Toboggan")
 
 ## API Usage
 **The app is hosted on Heroku running on a single dyno, so expect delay when app is waking up.**
