@@ -18,7 +18,7 @@ const api = require('./routes/api');
 const poster = require('./routes/poster');
 
 moedoo.query(`
-  CREATE TABLE IF NOT EXISTS omdb(
+  CREATE TABLE IF NOT EXISTS rtdb(
     title character varying(128) NOT NULL,
     detail jsonb,
     created_at Date DEFAULT now(),
@@ -33,7 +33,7 @@ moedoo.query(`
   );
 
   -- the following two can be one
-  DELETE FROM omdb WHERE created_at < '${moment().subtract(5, 'days').format('YYYY-MM-DD')}';
+  DELETE FROM rtdb WHERE created_at < '${moment().subtract(5, 'days').format('YYYY-MM-DD')}';
   DELETE FROM poster WHERE created_at < '${moment().subtract(30, 'days').format('YYYY-MM-DD')}';`).then(() => {
   const app = express();
   app.set('port', process.env.PORT || config.APP_PORT);
@@ -51,6 +51,7 @@ moedoo.query(`
 
     next();
   });
+
   app.use(compression());
 
   // API...
